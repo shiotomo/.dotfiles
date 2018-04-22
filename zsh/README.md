@@ -1,1 +1,1 @@
-# zsh_local
+# zsh
