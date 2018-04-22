@@ -5,7 +5,7 @@ bindkey "^I" menu-complete
 
 cdpath=(~)
 
-ZSHHOME="${HOME}/.zsh_local/.zsh.d"
+ZSHHOME="${HOME}/.dotfiles/zsh/.zsh.d"
 
 if [ -d $ZSHHOME -a -r $ZSHHOME -a \
   -x $ZSHHOME ]; then
