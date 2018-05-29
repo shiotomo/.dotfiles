@@ -11,6 +11,7 @@ sudo apt-get -y upgrade
 sudo apt-get -y install tmux
 sudo apt-get -y install zsh
 sudo apt-get -y install htop
+sudo apt-get -y install iftop
 sudo apt-get -y install screenfetch
 sudo apt-get -y install python
 sudo apt-get -y install python3
