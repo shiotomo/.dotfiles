@@ -7,5 +7,4 @@
 ./goenv.sh
 ./node.sh
 ./lang.sh
-./java.sh
 ./docker.sh
