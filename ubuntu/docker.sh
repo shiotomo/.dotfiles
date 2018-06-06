@@ -4,3 +4,5 @@ sudo apt-get -y upgrade
 
 sudo apt-get -y install docker
 sudo apt-get -y install docker-compose
+
+sudo usermod -aG docker $USER
