@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./../git.sh
+./../init.sh
 ./start.sh
 ./rbenv.sh
 ./pyenv.sh
