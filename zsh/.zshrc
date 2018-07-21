@@ -13,3 +13,6 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
       [ \( -f $i -o -h $i \) -a -r $i ] && . $i
   done
 fi
+
+# fzfの設定
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
