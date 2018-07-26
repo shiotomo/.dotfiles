@@ -14,4 +14,5 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
   done
 fi
 
+# fzfの設定
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
