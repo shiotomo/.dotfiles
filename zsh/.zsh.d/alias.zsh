@@ -1,9 +1,5 @@
 alias ....='cd ../../..'
 alias ...='cd ../..'
-alias la='ls -A --color=auto'
-alias ll='ls -alF --color=auto'
-alias l='ls -CF --color=auto'
-alias ls='ls --color=auto'
 alias rm='rm -i'
 alias v='vim'
 alias vm='vim'
@@ -16,3 +12,27 @@ alias bootstrap='wget https://github.com/twbs/bootstrap/releases/download/v3.3.7
 alias q='exit'
 alias bootstrap4='wget https://github.com/twbs/bootstrap/archive/v4.0.0.zip'
 alias wordpress='wget https://ja.wordpress.org/wordpress-4.9.5-ja.zip'
+
+case ${OSTYPE} in
+  darwin*)
+    # MacOS用の設定
+    alias la='ls -A -G'
+    alias ll='ls -alF -G'
+    alias l='ls -CF -G'
+    alias ls='ls -G'
+    ;;
+  linux*)
+    # Linux用の設定
+    alias la='ls -A --color=auto'
+    alias ll='ls -alF --color=auto'
+    alias l='ls -CF --color=auto'
+    alias ls='ls --color=auto'
+    ;;
+  cygwin*)
+    # cygwin用の設定
+    alias la='ls -A --color=auto'
+    alias ll='ls -alF --color=auto'
+    alias l='ls -CF --color=auto'
+    alias ls='ls --color=auto'
+    ;;
+esac
