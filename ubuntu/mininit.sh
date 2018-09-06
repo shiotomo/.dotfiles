@@ -8,3 +8,4 @@
 ./node.sh
 ./lang.sh
 ./docker.sh
+./timezone.sh
