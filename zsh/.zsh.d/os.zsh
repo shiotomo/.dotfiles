@@ -37,5 +37,6 @@ case ${OSTYPE} in
     alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
+    export PATH=/usr/local/Cellar/postgresql/10.1/bin/:$PATH
     ;;
 esac
