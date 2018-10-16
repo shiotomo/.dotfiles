@@ -20,6 +20,9 @@ case ${OSTYPE} in
     alias ll='ls -alF -G'
     alias l='ls -CF -G'
     alias ls='ls -G'
+    alias tomcat-start='/usr/local/tomcat/bin/startup.sh'  #起動コマンド 
+    alias tomcat-shutdown='/usr/local/tomcat/bin/shutdown.sh'  #終了コマンド
+    alias tomcat-version='/usr/local/tomcat/bin/version.sh' #バージョンコマンド
     ;;
   linux*)
     # Linux用の設定
