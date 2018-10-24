@@ -12,6 +12,8 @@ sudo yum install -y postgresql-devel
 sudo yum install -y nginx
 sudo yum install -y epel-release
 sudo yum install -y nodejs
+sudo yum install -y htop
+sudo yum install -y ruby
 
 # vim install
 cd /usr/local/src
