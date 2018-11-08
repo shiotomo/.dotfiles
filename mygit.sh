@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd
+git clone https://github.com/junegunn/fzf.git ~/.fzf
 mkdir .vim
 cd .vim
 git clone https://github.com/shiotomo/.vim.git ~/.vim

@@ -2,6 +2,7 @@
 
 sudo yum update
 sudo yum install -y zsh
+sudo yum install -y fish
 sudo yum install -y tmux
 sudo yum install -y mercurial
 sudo yum install -y ncurses-devel

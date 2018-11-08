@@ -10,6 +10,7 @@ sudo apt-get -y upgrade
 # sudo apt-get -y install vim
 sudo apt-get -y install tmux
 sudo apt-get -y install zsh
+sudo apt-get -y install fish
 sudo apt-get -y install htop
 sudo apt-get -y install iftop
 sudo apt-get -y install screenfetch
