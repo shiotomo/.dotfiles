@@ -10,7 +10,7 @@ alias es='exec $SHELL'
 alias jquery='curl https://code.jquery.com/jquery-3.2.1.min.js >> jquery.js'
 alias bootstrap='wget https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip'
 alias q='exit'
-alias bootstrap4='wget https://github.com/twbs/bootstrap/archive/v4.0.0.zip'
+alias bootstrap4='wget https://github.com/twbs/bootstrap/archive/v4.1.3.zip'
 alias wordpress='wget https://ja.wordpress.org/wordpress-4.9.5-ja.zip'
 
 case ${OSTYPE} in
