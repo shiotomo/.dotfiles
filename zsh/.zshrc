@@ -3,12 +3,23 @@
 bindkey -e
 bindkey "^I" menu-complete
 
+# === Zplug ===
+source ~/.zplug/init.zsh
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
+
+zplug check || zplug install
+zplug load --verbose
+# =============
+
 cdpath=(~)
 
-ZSHHOME="${HOME}/.dotfiles/zsh/.zsh.d"
+ZSHDHOME="${HOME}/.dotfiles/zsh/.zsh.d"
 
-if [ -d $ZSHHOME -a -r $ZSHHOME -a -x $ZSHHOME ]; then
-  for i in $ZSHHOME/*; do
+if [ -d $ZSHDHOME -a -r $ZSHDHOME -a -x $ZSHDHOME ]; then
+  for i in $ZSHDHOME/*; do
     [[ ${i##*/} = *.zsh ]] &&
       [ \( -f $i -o -h $i \) -a -r $i ] && . $i
   done

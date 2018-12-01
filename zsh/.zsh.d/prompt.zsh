@@ -13,4 +13,4 @@ case ${OSTYPE} in
     ;;
 esac
 PROMPT='%F{cyan}[%n@%m:%f%F{yello}%~%f%F{cyan}]%f %F{green}[$ip]%f
-%F{cyan}>>%f '
+%B%(?,%F{magenta},%F{red})%(!,#,❯)%b '
