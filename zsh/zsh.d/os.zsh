@@ -17,6 +17,8 @@ case ${OSTYPE} in
     export PATH=$PATH:$GOPATH/bin
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+    export PATH="${HOME}/.scalaenv/bin:${PATH}"
+    eval "$(scalaenv init -)"
     ;;
   cygwin*)
     # cygwin用の設定
@@ -39,5 +41,7 @@ case ${OSTYPE} in
     eval "$(rbenv init -)"
     export PATH=/usr/local/Cellar/postgresql/10.1/bin/:$PATH
     export PATH=/usr/local/opt/mysql@5.7/bin:$PATH
+    export PATH="${HOME}/.scalaenv/bin:${PATH}"
+    eval "$(scalaenv init -)"
     ;;
 esac

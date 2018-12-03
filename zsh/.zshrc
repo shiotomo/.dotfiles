@@ -2,6 +2,7 @@
 
 bindkey -e
 bindkey "^I" menu-complete
+cdpath=(~)
 
 # === Zplug ===
 source ~/.zplug/init.zsh
@@ -23,10 +24,7 @@ fi
 zplug load
 # =============
 
-cdpath=(~)
-
-ZSHDHOME="${HOME}/.dotfiles/zsh/.zsh.d"
-
+ZSHDHOME="${HOME}/.dotfiles/zsh/zsh.d"
 if [ -d $ZSHDHOME -a -r $ZSHDHOME -a -x $ZSHDHOME ]; then
   for i in $ZSHDHOME/*; do
     [[ ${i##*/} = *.zsh ]] &&
