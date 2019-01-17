@@ -11,6 +11,7 @@ all_install() {
   ./ubuntu/java.sh
   ./ubuntu/docker.sh
   ./ubuntu/scala.sh
+  ../zsh/install.sh
 }
 
 mini_install() {
@@ -24,6 +25,7 @@ mini_install() {
   ./ubuntu/docker.sh
   ./ubuntu/scala.sh
   ./ubuntu/timezone.sh
+  ../zsh/install.sh
 }
 
 case "$1" in
