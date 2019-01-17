@@ -10,6 +10,7 @@ all_install() {
   ./ubuntu/lang.sh
   ./ubuntu/java.sh
   ./ubuntu/docker.sh
+  ./ubuntu/scala.sh
 }
 
 mini_install() {
@@ -21,6 +22,7 @@ mini_install() {
   ./ubuntu/node.sh
   ./ubuntu/lang.sh
   ./ubuntu/docker.sh
+  ./ubuntu/scala.sh
   ./ubuntu/timezone.sh
 }
 
