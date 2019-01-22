@@ -43,6 +43,7 @@ case ${OSTYPE} in
     export PATH=/usr/local/opt/mysql@5.7/bin:$PATH
     export PATH="${HOME}/.scalaenv/bin:${PATH}"
     eval "$(scalaenv init -)"
-    # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+    # Javaのバージョンを8に切り替える
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
     ;;
 esac
