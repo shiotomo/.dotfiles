@@ -10,6 +10,8 @@ all_install() {
   ./ubuntu/lang.sh
   ./ubuntu/java.sh
   ./ubuntu/docker.sh
+  ./ubuntu/scala.sh
+  ../zsh/install.sh
 }
 
 mini_install() {
@@ -21,7 +23,9 @@ mini_install() {
   ./ubuntu/node.sh
   ./ubuntu/lang.sh
   ./ubuntu/docker.sh
+  ./ubuntu/scala.sh
   ./ubuntu/timezone.sh
+  ../zsh/install.sh
 }
 
 case "$1" in
