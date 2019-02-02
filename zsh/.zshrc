@@ -1,4 +1,17 @@
-#=== zshrc ====
+#                                                ■■
+#                                                  ■
+#                                                  ■
+#                                                  ■
+#               ■■■■■■        ■■■  ■     ■  ■■■      ■■■  ■■          ■■■  ■
+#               ■      ■        ■      ■■     ■■      ■        ■■    ■      ■      ■■
+#                     ■          ■        ■     ■        ■        ■      ■    ■          ■
+#                     ■          ■               ■        ■        ■            ■
+#                   ■              ■■■■       ■        ■        ■            ■
+#                   ■                      ■     ■        ■        ■            ■
+#     ■          ■      ■    ■          ■     ■        ■        ■            ■          ■
+#   ■■■      ■        ■    ■■        ■     ■        ■        ■              ■        ■
+#   ■■■    ■■■■■■■    ■  ■■■■     ■■■    ■■■  ■■■■■■          ■■■■
+#     ■
 
 bindkey -e
 bindkey "^I" menu-complete
@@ -24,6 +37,7 @@ fi
 zplug load
 # =============
 
+# === zsh.dのファイルを読み込み ===
 ZSHDHOME="${HOME}/.dotfiles/zsh/zsh.d"
 if [ -d $ZSHDHOME -a -r $ZSHDHOME -a -x $ZSHDHOME ]; then
   for i in $ZSHDHOME/*; do
@@ -32,5 +46,5 @@ if [ -d $ZSHDHOME -a -r $ZSHDHOME -a -x $ZSHDHOME ]; then
   done
 fi
 
-# fzfの設定
+# === fzfの設定 ===
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
