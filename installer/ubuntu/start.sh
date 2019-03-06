@@ -16,6 +16,7 @@ sudo apt-get -y install iftop
 sudo apt-get -y install screenfetch
 sudo apt-get -y install python
 sudo apt-get -y install python3
+sudo apt-get -y install python3-pip
 sudo apt-get -y install ruby
 sudo apt-get -y install golang
 sudo apt-get -y install gem
