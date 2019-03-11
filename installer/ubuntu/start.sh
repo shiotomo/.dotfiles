@@ -25,6 +25,7 @@ sudo apt-get -y install curl
 sudo apt-get -y install postgresql
 sudo apt-get -y install libpq-dev
 sudo apt-get -y install nginx
+pip3 install neovim
 
 # heroku
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
