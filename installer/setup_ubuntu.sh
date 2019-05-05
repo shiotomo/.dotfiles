@@ -11,6 +11,7 @@ all_install() {
   ./ubuntu/java.sh
   ./ubuntu/docker.sh
   ./ubuntu/scala.sh
+  ./ubuntu/mysql.sh
   ../zsh/install.sh
 }
 
@@ -25,6 +26,7 @@ mini_install() {
   ./ubuntu/docker.sh
   ./ubuntu/scala.sh
   ./ubuntu/timezone.sh
+  ./ubuntu/mysql.sh
   ../zsh/install.sh
 }
 
