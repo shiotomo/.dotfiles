@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get -y install ruby
 sudo apt-get -y install git curl g++ make
 sudo apt-get -y install zlib1g-dev libssl-dev libreadline-dev
