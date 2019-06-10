@@ -42,6 +42,7 @@ case ${OSTYPE} in
     export PATH=/usr/local/Cellar/postgresql/10.1/bin/:$PATH
     export PATH=/usr/local/opt/mysql@5.7/bin:$PATH
     export PATH="${HOME}/.scalaenv/bin:${PATH}"
+    export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
     eval "$(scalaenv init -)"
     # Javaのバージョンを8に切り替える
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
