@@ -1,53 +1,58 @@
 {
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
-    "git.ignoreMissingGitWarning": true,
-    "editor.fontSize": 14,
-    "vim.easymotion": true,
-    "vim.sneak": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j","j"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": ["<leader>","d"],
-            "after": ["d", "d"]
-        },
-        {
-            "before":["<C-n>"],
-            "after":[],
-            "commands": [
-                {
-                    "command": ":nohl"
-                }
-            ]
-        }
-    ],
-    "vim.leader": "<space>",
-    "vim.handleKeys":{
-        "<C-a>": false,
-        "<C-f>": false
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+  "git.ignoreMissingGitWarning": true,
+  "editor.fontSize": 14,
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j","j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>","d"],
+      "after": ["d", "d"]
     },
-    "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before":["<C-n>"],
+      "after":[],
+      "commands": [
         {
-            "before": ["k"],
-            "after": ["g", "k"]
-        },
-        {
-            "before": ["j"],
-            "after": ["g", "j"]
+          "command": ":nohl"
         }
-    ],
-    "editor.renderWhitespace": true,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.rulers": [80, 100],
-    "editor.renderIndentGuides": true,
-    "window.zoomLevel": 1
+      ]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys":{
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    }
+  ],
+  "editor.renderWhitespace": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.rulers": [80, 100],
+  "editor.renderIndentGuides": true,
+  "window.zoomLevel": 1,
+  {
+    "[python]": {
+      "editor.tabSize": 4
+    }
+  }
 }
