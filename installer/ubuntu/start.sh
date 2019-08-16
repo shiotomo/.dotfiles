@@ -22,7 +22,7 @@ sudo apt-get -y install golang
 sudo apt-get -y install gem
 sudo apt-get -y install make
 sudo apt-get -y install curl
-sudo apt-get -y install postgresql
+# sudo apt-get -y install postgresql
 sudo apt-get -y install libpq-dev
 sudo apt-get -y install nginx
 sudo apt-get -y install nodejs
