@@ -12,6 +12,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
+ln -s ~/.dotfiles/vim/.vimshrc ~/.vimshrc
 ln -s ~/.dotfiles/.inputrc ~/.inputrc
 
 mkdir ~/.dotfiles/vim/bundle

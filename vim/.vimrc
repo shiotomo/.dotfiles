@@ -18,9 +18,12 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+let OSTYPE = system('uname')
+let MACOS = "Darwin\n"
+let LINUX = "Linux\n"
+
 call plug#begin('~/.vim/plugged')
 
-" ******** deoplete.nvim *******
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -29,27 +32,54 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-" ******** deoplete.nvim *******
-"
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'aklt/plantuml-syntax'
+Plug 'altercation/vim-colors-solarized'
 Plug 'aonemd/kuroi.vim'
+Plug 'basyura/unite-rails'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'chr4/nginx.vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'itchyny/calendar.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'kannokanno/previm'
+Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
+Plug 'mattn/emmet-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-rails'
+Plug 'slim-template/vim-slim'
+Plug 'thinca/vim-quickrun'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tyru/open-browser.vim'
 
 call plug#end()
 
 syntax on
+
+try
+  colorscheme kuroi
+catch
+endtry
 
 set t_Co=256
 set number
@@ -71,6 +101,37 @@ set showmatch
 set smartcase
 set wildmenu
 set completeopt=menuone
+set ttyfast
+set lazyredraw
+set autoindent
+set tabstop=2                     "画面上でタブが占める幅
+set softtabstop=2                 "tabで挿入される空白の量
+set shiftwidth=2                  "自動でインデントでずれる幅
+set expandtab                     "タブ入力を複数の空白入力に置き換える
+
+augroup FileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.erb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
+filetype plugin indent on
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
 
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
@@ -100,11 +161,6 @@ noremap <expr> <C-b> max([winheight(0) - 2, 1]) . "\<C-u>" . (line('.') < 1     
 noremap <expr> <C-f> max([winheight(0) - 2, 1]) . "\<C-d>" . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 noremap <expr> <C-y> (line('w0') <= 1         ? 'k' : "\<C-y>")
 
-try
-  colorscheme kuroi
-catch
-endtry
-
 let g:NERDTreeShowHidden=1
 let g:lightline = {
       \ 'active': {
@@ -118,22 +174,23 @@ let g:lightline = {
       \ }
 let g:loaded_syntastic_python_pylint_checker = 0
 
+" deoplete
+let g:deoplete#auto_complete_delay = 5
+let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
-let g:deoplete#auto_complete_start_length = 3
 let g:deoplete#enable_auto_delimiter = 1
 let g:deoplete#enable_camel_case = 0
 let g:deoplete#enable_ignore_case = 0
 let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 20
+let g:deoplete#max_list = 10000
 let g:deoplete#min_syntax_length = 3
 
-" neosnippet.vim
 inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 
+" neosnippet.vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)

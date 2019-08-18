@@ -1,0 +1,5 @@
+alias la='ls -a'
+alias lla='ls -al'
+alias ll='ls -l'
+
+alias q='exit'
