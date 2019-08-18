@@ -26,7 +26,7 @@ mini_install() {
   ./ubuntu/docker.sh
   ./ubuntu/scala.sh
   ./ubuntu/timezone.sh
-  ./ubuntu/mysql.sh
+  # ./ubuntu/mysql.sh
   ../zsh/install.sh
 }
 
