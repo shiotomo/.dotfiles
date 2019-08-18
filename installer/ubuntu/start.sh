@@ -3,11 +3,12 @@
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-# install
+## install
 # sudo apt-get install software-properties-common
 # sudo add-apt-repository ppa:neovim-ppa/unstable
 # sudo apt-get -y install neovim
 # sudo apt-get -y install vim
+# sudo apt-get -y install postgresql
 sudo apt-get -y install tmux
 sudo apt-get -y install zsh
 sudo apt-get -y install fish
@@ -22,17 +23,19 @@ sudo apt-get -y install golang
 sudo apt-get -y install gem
 sudo apt-get -y install make
 sudo apt-get -y install curl
-# sudo apt-get -y install postgresql
 sudo apt-get -y install libpq-dev
 sudo apt-get -y install nginx
 sudo apt-get -y install nodejs
 sudo apt-get -y install npm
+sudo apt-get -y install graphviz
+
+## pip
 pip3 install neovim
 
 # heroku
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
-# vim install
+## vim install
 sudo apt-cache -i depends vim
 sudo apt-get remove --purge vim vim-runtime vim-common
 sudo rm -rf /usr/local/share/vim
