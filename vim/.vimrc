@@ -105,10 +105,12 @@ set completeopt=menuone
 set ttyfast
 set lazyredraw
 set autoindent
-set tabstop=2                     "画面上でタブが占める幅
-set softtabstop=2                 "tabで挿入される空白の量
-set shiftwidth=2                  "自動でインデントでずれる幅
-set expandtab                     "タブ入力を複数の空白入力に置き換える
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set lazyredraw
+set ttyfast
 
 augroup FileTypeIndent
   autocmd!
@@ -186,7 +188,7 @@ let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#max_list = 10000
-let g:deoplete#min_syntax_length = 1
+let g:deoplete#min_syntax_length = 3
 
 inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
