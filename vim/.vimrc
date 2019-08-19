@@ -96,6 +96,7 @@ set incsearch
 set laststatus=2
 set noswapfile
 set number
+set re=1
 set ruler
 set showmatch
 set smartcase
