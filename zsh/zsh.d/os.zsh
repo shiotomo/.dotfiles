@@ -51,5 +51,9 @@ case ${OSTYPE} in
     eval "$(pyenv init -)"
     export GOPATH=$HOME/go
     export PATH=$PATH:$GOPATH/bin
+    alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew"
+    export PATH="/usr/local/opt/ncurses/bin:$PATH"
+    export LDFLAGS="-L/usr/local/opt/ncurses/lib"
+    export CPPFLAGS="-I/usr/local/opt/ncurses/include"
     ;;
 esac
