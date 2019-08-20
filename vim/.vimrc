@@ -111,6 +111,8 @@ set shiftwidth=2
 set expandtab
 set lazyredraw
 set ttyfast
+set splitbelow
+set termwinsize=10x0
 
 augroup FileTypeIndent
   autocmd!
