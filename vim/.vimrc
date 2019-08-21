@@ -88,6 +88,7 @@ set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set colorcolumn=80,100
+set cursorline
 set hidden
 set history=5000
 set hlsearch
@@ -98,6 +99,7 @@ set noswapfile
 set number
 set re=1
 set ruler
+set relativenumber
 set showmatch
 set smartcase
 set wildmenu
