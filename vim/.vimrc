@@ -200,3 +200,10 @@ inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" markdown
+autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
+nnoremap <silent> <C-p> :PrevimOpen<CR> " Ctrl-pでプレビュー
+" 自動で折りたたまないようにする
+let g:vim_markdown_folding_disabled=1
