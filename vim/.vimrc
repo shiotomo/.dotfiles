@@ -80,40 +80,40 @@ try
 catch
 endtry
 
-set t_Co=256
-set number
 set ambiwidth=double
+set autoindent
 set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set colorcolumn=80,100
+set completeopt=menuone
 set cursorline
+set expandtab
 set hidden
 set history=5000
 set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set lazyredraw
+set lazyredraw
 set noswapfile
+set number
 set number
 set re=1
 set ruler
-set relativenumber
+set shiftwidth=2
 set showmatch
 set smartcase
-set wildmenu
-set completeopt=menuone
-set ttyfast
-set lazyredraw
-set autoindent
-set tabstop=2
 set softtabstop=2
-set shiftwidth=2
-set expandtab
-set lazyredraw
-set ttyfast
 set splitbelow
+set t_Co=256
+set tabstop=2
 set termwinsize=20x0
+set ttyfast
+set ttyfast
+set wildmenu
+" set relativenumber
 
 augroup FileTypeIndent
   autocmd!
