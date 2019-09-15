@@ -14,7 +14,7 @@
   - IntelliJ
 
 - Setup
-  - Tmux
+  - tmux
 
 - OS
   - macOS
