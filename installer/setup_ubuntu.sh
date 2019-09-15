@@ -30,11 +30,15 @@ mini_install() {
   ../zsh/install.sh
 }
 
-case "$1" in
-  all)
-    all_install
-    ;;
-  mini)
-    mini_install
-    ;;
-esac
+if [ "$1" = "all" ]; then
+  echo 'Library all install'
+  all_install
+elif [ "$1" = "mini" ]; then
+  echo 'Library mini install'
+  mini_install
+else
+  echo '実行時引数にallかminiを設定してください'
+  echo 'all: 全ライブラリ・ミドルウェア類をインストール'
+  echo 'mini: 必要最低限のライブラリ・ミドルウェア類をインストール'
+  exit 1
+fi
