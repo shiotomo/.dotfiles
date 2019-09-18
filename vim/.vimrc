@@ -136,8 +136,8 @@ augroup END
 
 filetype plugin indent on
 
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
 
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
@@ -147,25 +147,25 @@ inoremap [ []<LEFT>
 inoremap jj  <Esc> `^
 inoremap { {}<LEFT>
 
-" nnoremap <silent><C-m> :Minimap<CR>
 nnoremap <C-j><C-j> :noh<CR>
 nnoremap <silent> vp :VimShellPop<CR>
 nnoremap <silent> vs :sp<CR><C-w><C-w>:VimShell<CR>
 nnoremap <silent> vsc :VimShellCreate<CR>
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nnoremap <silent>S :e ++enc=shift_jis<CR>
-nnoremap <silent>U :e ++enc=utf-8<CR>
 nnoremap == gg=G
 nnoremap j gj
 nnoremap k gk
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-
-vnoremap <C-j> <Esc>
-
 noremap <expr> <C-b> max([winheight(0) - 2, 1]) . "\<C-u>" . (line('.') < 1         + winheight(0) ? 'H' : 'L')
 noremap <expr> <C-f> max([winheight(0) - 2, 1]) . "\<C-d>" . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 noremap <expr> <C-y> (line('w0') <= 1         ? 'k' : "\<C-y>")
+
+" nnoremap <silent><C-m> :Minimap<CR>
+" nnoremap <silent>S :e ++enc=shift_jis<CR>
+" nnoremap <silent>U :e ++enc=utf-8<CR>
+
+vnoremap <C-j> <Esc>
 
 let g:NERDTreeShowHidden=1
 let g:lightline = {
@@ -178,20 +178,20 @@ let g:lightline = {
       \ },
       \ 'colorscheme': 'wombat'
       \ }
-let g:loaded_syntastic_python_pylint_checker = 0
+let g:loaded_syntastic_python_pylint_checker=0
 
 " deoplete
-let g:deoplete#auto_complete_delay = 5
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_auto_delimiter = 1
-let g:deoplete#enable_camel_case = 0
-let g:deoplete#enable_ignore_case = 0
-let g:deoplete#enable_refresh_always = 0
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 10000
-let g:deoplete#min_syntax_length = 3
+let g:deoplete#auto_complete_delay=5
+let g:deoplete#auto_complete_start_length=1
+let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_auto_delimiter=1
+let g:deoplete#enable_camel_case=0
+let g:deoplete#enable_ignore_case=0
+let g:deoplete#enable_refresh_always=0
+let g:deoplete#enable_smart_case=1
+let g:deoplete#file#enable_buffer_path=1
+let g:deoplete#max_list=10000
+let g:deoplete#min_syntax_length=3
 
 inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
@@ -211,5 +211,5 @@ let g:vim_markdown_folding_disabled=1
 " カーソル位置を記憶
 augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
-  \ exe "normal g`\"" | endif
+        \ exe "normal g`\"" | endif
 augroup END
