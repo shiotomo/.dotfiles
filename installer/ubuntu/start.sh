@@ -28,6 +28,7 @@ sudo apt-get -y install nginx
 sudo apt-get -y install nodejs
 sudo apt-get -y install npm
 sudo apt-get -y install graphviz
+sudo apt-get -y install libmariadbclient-dev
 
 ## pip
 pip3 install neovim
