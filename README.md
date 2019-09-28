@@ -1,5 +1,6 @@
 # .dotfiles
 
+## Management
 - Editor
   - Vim
   - VSCode
@@ -21,3 +22,24 @@
   - Ubuntu
   - CentOS
   - raspbian
+
+## Installer
+
+### Ubuntu
+
+```
+./installer/setup_ubuntu.sh mini
+./installer/setup_ubuntu.sh all
+```
+
+### CentOS
+
+```
+./installer/setup_centos.sh
+```
+
+### macOS
+
+```
+./installer/setup_macos.sh
+```
