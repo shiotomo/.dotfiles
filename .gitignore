@@ -1,5 +1,7 @@
 wsl.zsh
 proxy.zsh
+tmp/*
+!tmp/.keep
 
 ### Vim ###
 # Swap
