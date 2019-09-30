@@ -33,6 +33,9 @@ cd installer
 
 ```
 ./setup_ubuntu.sh mini
+```
+or
+```
 ./setup_ubuntu.sh all
 ```
 
