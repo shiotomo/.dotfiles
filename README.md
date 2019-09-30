@@ -25,21 +25,25 @@
 
 ## Installer
 
+```
+cd installer
+```
+
 ### Ubuntu
 
 ```
-./installer/setup_ubuntu.sh mini
-./installer/setup_ubuntu.sh all
+./setup_ubuntu.sh mini
+./setup_ubuntu.sh all
 ```
 
 ### CentOS
 
 ```
-./installer/setup_centos.sh
+./setup_centos.sh
 ```
 
 ### macOS
 
 ```
-./installer/setup_macos.sh
+./setup_macos.sh
 ```
