@@ -55,5 +55,6 @@ case ${OSTYPE} in
     export PATH="/usr/local/opt/ncurses/bin:$PATH"
     export LDFLAGS="-L/usr/local/opt/ncurses/lib"
     export CPPFLAGS="-I/usr/local/opt/ncurses/include"
+    export PATH="/usr/local/sbin:$PATH"
     ;;
 esac
