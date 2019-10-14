@@ -85,7 +85,7 @@ brew install tmux
 brew install tree
 brew install unibilium
 brew install unison
-brew install vim --with-python --with-lua
+brew install vim
 brew install webp
 brew install wget
 brew install xz
