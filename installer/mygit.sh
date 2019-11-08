@@ -14,6 +14,7 @@ ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim/.vimshrc ~/.vimshrc
 ln -s ~/.dotfiles/.inputrc ~/.inputrc
+ln -s ~/.dotfiles/eclipse ~/.vrapperrc
 
 mkdir ~/.dotfiles/vim/bundle
 mkdir ~/.dotfiles/vim/help
