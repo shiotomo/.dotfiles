@@ -1,5 +1,11 @@
 #!/bin/bash
 
+brew cask install adoptopenjdk
+# brew cask install google-chrome
+# brew cask install vagrant
+# brew cask install virtualbox
+brew cask install mysqlworkbench
+
 brew install ansible
 brew install autoconf
 brew install bash
