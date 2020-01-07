@@ -5,6 +5,7 @@ brew cask install adoptopenjdk
 # brew cask install vagrant
 # brew cask install virtualbox
 brew cask install mysqlworkbench
+brew tap heroku/brew && brew install heroku
 
 brew install ansible
 brew install autoconf
