@@ -1,7 +1,7 @@
 {
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
   "git.ignoreMissingGitWarning": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 12,
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.incsearch": true,
