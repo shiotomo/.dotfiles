@@ -13,6 +13,10 @@ vscode-icons-team.vscode-icons
 ms-azuretools.vscode-docker
 ms-vscode.Go
 redhat.vscode-yaml
+James-Yu.latex-workshop
+torn4dom4n.latex-support
+ajshort.latex-preview
+
 )
 
 for i in ${pkg_list[@]}; do
