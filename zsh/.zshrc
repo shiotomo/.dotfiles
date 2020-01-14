@@ -46,5 +46,13 @@ if [ -d $ZSHDHOME -a -r $ZSHDHOME -a -x $ZSHDHOME ]; then
   done
 fi
 
+EXTENSIONHOME="${HOME}/.dotfiles/zsh/extension"
+if [ -d $EXTENSIONHOME -a -r $EXTENSIONHOME -a -x $EXTENSIONHOME ]; then
+  for i in $EXTENSIONHOME/*; do
+    [[ ${i##*/} = *.zsh ]] &&
+      [ \( -f $i -o -h $i \) -a -r $i ] && . $i
+  done
+fi
+
 # === fzfの設定 ===
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
