@@ -1,6 +1,7 @@
 # .dotfiles
 
 ## Management
+
 - Editor
   - Vim
   - VSCode
@@ -8,13 +9,12 @@
 - Shell
   - Zsh
   - Bash
-  - fish
 
 - IDE
   - Eclipse
   - IntelliJ
 
-- Setup
+- other
   - tmux
 
 - OS
