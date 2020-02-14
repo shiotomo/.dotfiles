@@ -1,0 +1,1 @@
+alias dcom='docker-compose'
