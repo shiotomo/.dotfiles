@@ -16,7 +16,9 @@ redhat.vscode-yaml
 James-Yu.latex-workshop
 torn4dom4n.latex-support
 ajshort.latex-preview
-
+eg2.vscode-css-properties
+jebbs.plantuml
+kaiwood.endwise
 )
 
 for i in ${pkg_list[@]}; do
