@@ -19,6 +19,11 @@ ajshort.latex-preview
 eg2.vscode-css-properties
 jebbs.plantuml
 kaiwood.endwise
+oderwat.indent-rainbow
+mosapride.zenkaku
+streetsidesoftware.code-spell-checker
+shardulm94.trailing-spaces
+mhutchie.git-graph
 )
 
 for i in ${pkg_list[@]}; do
