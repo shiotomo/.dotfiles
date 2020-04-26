@@ -30,6 +30,7 @@ sudo apt-get -y install npm
 sudo apt-get -y install graphviz
 sudo apt-get -y install libmariadbclient-dev
 sudo apt-get -y install letsencrypt
+sudo apt-get -y install netdiscover
 
 ## pip
 pip3 install neovim
