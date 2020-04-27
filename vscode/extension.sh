@@ -24,6 +24,7 @@ mosapride.zenkaku
 streetsidesoftware.code-spell-checker
 shardulm94.trailing-spaces
 mhutchie.git-graph
+yzane.markdown-pdf
 )
 
 for i in ${pkg_list[@]}; do
