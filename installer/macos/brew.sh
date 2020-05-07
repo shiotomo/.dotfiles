@@ -97,3 +97,4 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
+brew install rbenv-communal-gems
