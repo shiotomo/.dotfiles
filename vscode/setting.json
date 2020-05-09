@@ -53,31 +53,5 @@
   "[python]": {
     "editor.tabSize": 4
   },
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "compile",
-      "tools": [
-        "ptex2pdf"
-      ]
-    }
-  ],
-  "latex-workshop.latex.tools": [
-    {
-      "name": "ptex2pdf",
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-v",
-        "%DIR%:/workdir",
-        "paperist/alpine-texlive-ja",
-        "ptex2pdf",
-        "-l",
-        "%DOC%"
-      ]
-    }
-  ],
-  "latex-workshop.latex.autoBuild.run": "onFileChange",
-  "latex-workshop.docker.enabled": true,
   "latex-workshop.view.pdf.viewer": "browser"
 }

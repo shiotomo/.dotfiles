@@ -1,7 +1,7 @@
 case ${OSTYPE} in
   darwin*)
     # MacOS用の設定
-    ip=`netstat -rn | grep /32 | grep -F -v '.1/32' | grep -v -E '^f|255' | cut -d/ -f1`
+    ip=`ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'`
     ;;
   linux*)
     # Linux用の設定

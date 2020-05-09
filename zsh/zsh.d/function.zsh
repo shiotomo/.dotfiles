@@ -12,6 +12,11 @@ case ${OSTYPE} in
     function chpwd() { ls --color=auto }
     ;;
 esac
+
 function gi() {
   curl -L -s https://www.gitignore.io/api/$@;
+}
+
+function texc() {
+  docker run --rm -v `pwd`:/workdir paperist/alpine-texlive-ja ptex2pdf -l $1
 }
