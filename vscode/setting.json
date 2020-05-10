@@ -8,6 +8,7 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
+  "vim.statusBarColorControl": false,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j","j"],
