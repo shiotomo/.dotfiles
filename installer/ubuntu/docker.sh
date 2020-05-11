@@ -23,12 +23,10 @@ sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/u
 sudo apt-get update
 sudo apt-get install -y docker-ce
 
-# サービス開始
 sudo service docker start
 
 sudo usermod -aG docker $USER
 
-# 自動起動の有効化
 sudo systemctl enable docker
 
 ### Install Docker Compose
