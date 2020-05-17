@@ -12,6 +12,7 @@ alias bootstrap='wget https://github.com/twbs/bootstrap/releases/download/v3.3.7
 alias q='exit'
 alias bootstrap4='wget https://github.com/twbs/bootstrap/archive/v4.1.3.zip'
 alias wordpress='wget https://ja.wordpress.org/wordpress-4.9.5-ja.zip'
+alias lip='localip'
 
 case ${OSTYPE} in
   darwin*)
