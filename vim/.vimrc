@@ -70,13 +70,15 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
 syntax on
 
 try
-  colorscheme kuroi
+  " colorscheme kuroi
+  colorscheme hybrid
 catch
 endtry
 
