@@ -25,6 +25,7 @@ streetsidesoftware.code-spell-checker
 shardulm94.trailing-spaces
 mhutchie.git-graph
 yzane.markdown-pdf
+hediet.vscode-drawio
 )
 
 for i in ${pkg_list[@]}; do
