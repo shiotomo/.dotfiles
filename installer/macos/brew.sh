@@ -34,6 +34,7 @@ brew install heroku-node
 brew install htop
 brew install hugo
 brew install icu4c
+brew install imagemagick
 brew install isl
 brew install jasper
 brew install jemalloc
@@ -76,10 +77,8 @@ brew install pkg-config
 brew install plantuml
 brew install postgresql
 brew install prettyping
-brew install pyenv
 brew install python
 brew install python@2
-brew install rbenv
 brew install readline
 brew install redis
 brew install rsync
@@ -99,4 +98,7 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
+brew install rbenv
 brew install rbenv-communal-gems
+brew install jenv
+brew install pyenv
