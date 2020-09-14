@@ -2,14 +2,37 @@ alias ....='cd ../../..'
 alias ...='cd ../..'
 alias rm='rm -i'
 alias cp='cp -i'
-alias v='vim'
-alias vm='vim'
-alias vum='vim'
-alias tmux='tmux -2'
-alias t='tmux -2'
 alias es='exec $SHELL'
 alias q='exit'
 alias lip='localip'
+
+# Vim
+alias v='vim'
+alias vm='vim'
+alias vum='vim'
+
+# tmux
+alias tmux='tmux -2'
+alias t='tmux -2'
+
+# Docker
+alias dcom='docker-compose'
+
+# Vagrant
+alias vu='vagrant up'
+alias vs='vagrant ssh'
+alias vr='vagrant reload'
+alias vh='vagrant halt'
+alias vp='vagrant provision'
+alias vd='vagrant destroy'
+
+# Ruby
+alias be='bundle exec'
+alias rs='bundle exec rails s -b=0.0.0.0'
+alias rc='bundle exec rails c'
+alias rr='bundle exec rails routes'
+alias bi='bundle install'
+alias sinatra='bundle exec ruby app.rb -o0.0.0.0'
 
 case ${OSTYPE} in
   darwin*)
