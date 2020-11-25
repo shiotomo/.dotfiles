@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./macos/brew.sh
+./macos/setup.sh

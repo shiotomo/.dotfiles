@@ -31,6 +31,7 @@ sudo apt-get -y install graphviz
 sudo apt-get -y install libmariadbclient-dev
 sudo apt-get -y install letsencrypt
 sudo apt-get -y install netdiscover
+sudo apt-get -y install tree
 
 ## pip
 pip3 install neovim

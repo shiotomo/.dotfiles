@@ -102,3 +102,6 @@ brew install rbenv
 brew install rbenv-communal-gems
 brew install jenv
 brew install pyenv
+
+mkdir ~/.jenv
+mkdir ~/.jenv/versions

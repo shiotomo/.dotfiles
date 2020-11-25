@@ -56,5 +56,10 @@ case ${OSTYPE} in
     export LDFLAGS="-L/usr/local/opt/ncurses/lib"
     export CPPFLAGS="-I/usr/local/opt/ncurses/include"
     export PATH="/usr/local/sbin:$PATH"
+    export JENV_ROOT="$HOME/.jenv"
+    if [ -d "${JENV_ROOT}" ]; then
+      export PATH="$JENV_ROOT/bin:$PATH"
+      eval "$(jenv init -)"
+    fi
     ;;
 esac
