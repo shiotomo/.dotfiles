@@ -66,7 +66,7 @@ Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim'
 Plug 'thinca/vim-quickrun'
 Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
@@ -198,8 +198,9 @@ let g:deoplete#min_syntax_length=3
 " let g:deoplete#enable_smart_case=1
 " let g:deoplete#file#enable_buffer_path=1
 
-inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
+inoremap <expr><Tab>   pumvisible() ? "\<DOWN>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<UP>"   : "\<S-Tab>"
+inoremap <expr><CR>    pumvisible() ? " " : "\<CR>"
 
 " neosnippet.vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
