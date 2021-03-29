@@ -116,6 +116,8 @@ set ttyfast
 set ttyfast
 set wildmenu
 " set relativenumber
+" deoplete 自動選択の設定
+set completeopt+=noinsert
 
 augroup FileTypeIndent
   autocmd!
@@ -200,7 +202,6 @@ let g:deoplete#min_syntax_length=3
 
 inoremap <expr><Tab>   pumvisible() ? "\<DOWN>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<UP>"   : "\<S-Tab>"
-inoremap <expr><CR>    pumvisible() ? " " : "\<CR>"
 
 " neosnippet.vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
