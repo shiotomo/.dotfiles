@@ -29,12 +29,12 @@ zplug "momo-lab/zsh-abbrev-alias"
 # check コマンドで未インストール項目があるかどうか verbose にチェックし
 # false のとき（つまり未インストール項目がある）y/N プロンプトで
 # インストールする
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
 zplug load
 # =============
 
@@ -57,3 +57,4 @@ fi
 
 # === fzfの設定 ===
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

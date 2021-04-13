@@ -1,4 +1,4 @@
-autoload -U compinit ; compinit
+# autoload -U compinit ; compinit
 setopt auto_param_slash
 setopt mark_dirs
 setopt list_types
