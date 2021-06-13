@@ -57,4 +57,3 @@ fi
 
 # === fzfの設定 ===
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-

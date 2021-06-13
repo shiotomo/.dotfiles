@@ -61,5 +61,7 @@ case ${OSTYPE} in
       export PATH="$JENV_ROOT/bin:$PATH"
       eval "$(jenv init -)"
     fi
+    # direnv
+    eval "$(direnv hook zsh)"
     ;;
 esac
