@@ -182,7 +182,6 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
       \ },
-      \ 'colorscheme': 'wombat'
       \ }
 let g:loaded_syntastic_python_pylint_checker=0
 
