@@ -47,7 +47,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'chr4/nginx.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'elzr/vim-json'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'itchyny/calendar.vim'
 Plug 'itchyny/lightline.vim'
@@ -182,6 +182,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
       \ },
+      \ 'colorscheme': 'wombat'
       \ }
 let g:loaded_syntastic_python_pylint_checker=0
 

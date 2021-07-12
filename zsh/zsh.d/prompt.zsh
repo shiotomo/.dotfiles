@@ -12,7 +12,5 @@
 #     ip=`hostname -I | cut -f1 -d' '`
 #     ;;
 # esac
-# PROMPT='%F{cyan}[%n@%m:%f%F{yello}%~%f%F{cyan}]%f %F{green}[$ip]%f
-# %B%(?,%F{magenta},%F{red})%(!,#,>>)%b '
 PROMPT='%F{cyan}[%n@%m:%f%F{yello}%~%f%F{cyan}]%f
-%B%(?,%F{magenta},%F{red})%(!,#,>>)%b '
+%B%(?,%F{green},%F{red})%(!,#,>>)%b '

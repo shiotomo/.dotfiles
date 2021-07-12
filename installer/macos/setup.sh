@@ -2,10 +2,9 @@
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-brew cask install adoptopenjdk
-# brew cask install google-chrome
-# brew cask install vagrant
-# brew cask install virtualbox
+brew cask install google-chrome
+brew cask install vagrant
+brew cask install virtualbox
 brew cask install mysqlworkbench
 brew tap heroku/brew && brew install heroku
 
@@ -98,10 +97,16 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
-brew install rbenv
-brew install rbenv-communal-gems
-brew install jenv
-brew install pyenv
+brew install asdf
+brew install direnv
 
-mkdir ~/.jenv
-mkdir ~/.jenv/versions
+# asdf plugin
+asdf plugin-add ruby
+asdf plugin-add java
+asdf plugin-add golang
+asdf plugin-add python
+asdf plugin-add nodejs
+asdf plugin-add scala
+asdf plugin-add kotlin
+
+asdf plugin-add gradle

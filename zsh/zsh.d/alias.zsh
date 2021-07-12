@@ -45,6 +45,7 @@ case ${OSTYPE} in
     alias tomcat-start='/usr/local/tomcat/bin/startup.sh'  #起動コマンド
     alias tomcat-shutdown='/usr/local/tomcat/bin/shutdown.sh'  #終了コマンド
     alias tomcat-version='/usr/local/tomcat/bin/version.sh' #バージョンコマンド
+    alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
     ;;
   linux*)
     # Linux用の設定
@@ -52,6 +53,7 @@ case ${OSTYPE} in
     alias ll='ls -alF --color=auto'
     alias l='ls -CF --color=auto'
     alias ls='ls --color=auto'
+    alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
     ;;
   cygwin*)
     # cygwin用の設定
@@ -59,5 +61,10 @@ case ${OSTYPE} in
     alias ll='ls -alF --color=auto'
     alias l='ls -CF --color=auto'
     alias ls='ls --color=auto'
+
+    alias csc='/cygdrive/c/WINDOWS/MICROSOFT.NET/Framework/v4.0.30319/csc'
+    alias python='python3'
+    alias python_x='run xwin-multiwindow && export DISPLAY=:0.0'
+    alias open='cygstart'
     ;;
 esac
