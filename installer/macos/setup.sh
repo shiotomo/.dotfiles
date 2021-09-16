@@ -2,10 +2,11 @@
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-brew cask install google-chrome
-brew cask install vagrant
-brew cask install virtualbox
-brew cask install mysqlworkbench
+brew install --cask google-chrome
+brew install --cask vagrant
+brew install --cask virtualbox
+brew install --cask mysqlworkbench
+brew install --cask shiftit
 brew tap heroku/brew && brew install heroku
 
 brew install ansible
