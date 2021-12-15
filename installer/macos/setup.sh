@@ -10,15 +10,18 @@ brew install --cask shiftit
 brew tap heroku/brew && brew install heroku
 
 brew install ansible
+brew install asdf
 brew install autoconf
 brew install bash
 brew install bat
 brew install dep
+brew install direnv
 brew install file-formula
 brew install fish
 brew install fontconfig
 brew install freetype
 brew install fswatch
+brew install gawk
 brew install gcc
 brew install gd
 brew install gdbm
@@ -26,7 +29,7 @@ brew install gettext
 brew install glib
 brew install gmp
 brew install go
-brew install jgradle
+brew install gpg
 brew install graphviz
 brew install gts
 brew install heroku
@@ -38,6 +41,7 @@ brew install imagemagick
 brew install isl
 brew install jasper
 brew install jemalloc
+brew install jgradle
 brew install jpeg
 brew install jpegoptim
 brew install libevent
@@ -98,8 +102,6 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
-brew install asdf
-brew install direnv
 
 # asdf plugin
 asdf plugin-add ruby
