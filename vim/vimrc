@@ -24,14 +24,7 @@ let LINUX = "Linux\n"
 
 call plug#begin('~/.vim/plugged')
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
+" Plug 'tpope/vim-endwise'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
@@ -58,6 +51,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
@@ -66,7 +60,6 @@ Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim'
 Plug 'thinca/vim-quickrun'
 Plug 'tomtom/tcomment_vim'
-" Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
@@ -184,13 +177,6 @@ let g:lightline = {
       \ }
       \ }
 let g:loaded_syntastic_python_pylint_checker=0
-
-" deoplete
-let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_auto_delimiter=1
-let g:deoplete#enable_camel_case=0
-let g:deoplete#enable_ignore_case=0
-let g:deoplete#min_syntax_length=3
 
 inoremap <expr><Tab>   pumvisible() ? "\<DOWN>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<UP>"   : "\<S-Tab>"
