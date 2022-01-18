@@ -109,8 +109,7 @@ set ttyfast
 set ttyfast
 set wildmenu
 " set relativenumber
-" deoplete 自動選択の設定
-set completeopt+=noinsert
+set completeopt=menuone,noinsert
 
 augroup FileTypeIndent
   autocmd!
@@ -145,6 +144,10 @@ inoremap <C-j> <Esc> `^
 inoremap [ []<LEFT>
 inoremap jj  <Esc> `^
 inoremap { {}<LEFT>
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 
 nnoremap <C-j><C-j> :noh<CR>
 nnoremap <silent> vp :VimShellPop<CR>
