@@ -6,7 +6,7 @@ brew install --cask google-chrome
 brew install --cask vagrant
 brew install --cask virtualbox
 brew install --cask mysqlworkbench
-brew install --cask shiftit
+brew install --cask hammerspoon
 brew tap heroku/brew && brew install heroku
 
 brew install ansible
