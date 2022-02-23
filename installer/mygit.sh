@@ -9,6 +9,9 @@ git clone git@github.com:shiotomo/aquarium.git ~/aquarium
 # tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# hammerspoon setting
+mkdir ~/.hammerspoon
+
 # Set .dotfiles symbolic link
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
@@ -18,6 +21,7 @@ ln -s ~/.dotfiles/inputrc ~/.inputrc
 ln -s ~/.dotfiles/gemrc ~/.gemrc
 ln -s ~/.dotfiles/eclipse/vrapperrc ~/.vrapperrc
 ln -s ~/.dotfiles/intelliJ_IDEA/ideavimrc ~/.ideavimrc
+ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 
 # Vim setting
 mkdir ~/.dotfiles/vim/bundle
