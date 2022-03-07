@@ -7,6 +7,7 @@ brew install --cask vagrant
 brew install --cask virtualbox
 brew install --cask mysqlworkbench
 brew install --cask hammerspoon
+brew install --cask postman
 brew tap heroku/brew && brew install heroku
 
 brew install ansible
