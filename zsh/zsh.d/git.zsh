@@ -1,0 +1,49 @@
+git-add() {
+  local files=$(git status --porcelain | fzf -m --query="$@" | awk '{ print $2 }' | sed -e 's|^|:/|' | tr "\n" ' ')
+  if test -n "$files"; then
+    BUFFER="git add $files"
+    zle end-of-line
+    zle accept-line
+  fi
+}
+
+git-branch() {
+  local option=${1:-'-l'}
+  shift
+  local branch=$(git branch --format='%(refname:short)' --sort=-committerdate $option | fzf +m +s --query="$@")
+  if test -n "$branch"; then
+    if test "$BUFFER" = ''; then
+      BUFFER="git switch"
+      test "$option" = '-r' && BUFFER+=" -t"
+      BUFFER+=" $branch"
+      zle end-of-line
+      zle accept-line
+    else
+      BUFFER="${LBUFFER}${branch}${RBUFFER}"
+      CURSOR+=${#branch}
+      zle redisplay
+    fi
+  fi
+}
+
+git-switch-local-branch() {
+  git-branch "$@"
+}
+
+git-switch-remote-branch() {
+  git-branch '-r' "$@"
+}
+
+re() {
+  local option="$(echo -e "--staged\n--worktree" | fzf --query="$@")"
+  git restore $option $(git status -s -uno | fzf --prompt="\$ git restore $option (git status -s -uno)> " | awk '{print $2}')
+}
+
+zle -N git-add
+bindkey "^ga" git-add
+
+zle -N git-switch-local-branch
+bindkey "^g^b" git-switch-local-branch
+
+zle -N git-switch-remote-branch
+bindkey "^g^g^b" git-switch-remote-branch

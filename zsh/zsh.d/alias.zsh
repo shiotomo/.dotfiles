@@ -37,10 +37,20 @@ alias sinatra='bundle exec ruby app.rb -o0.0.0.0'
 case ${OSTYPE} in
   darwin*)
     # MacOS用の設定
-    alias la='ls -A -G'
-    alias ll='ls -alF -G'
-    alias l='ls -CF -G'
-    alias ls='ls -G'
+    (( ! ${+commands[exa]} )) && return 1
+
+    export EXA_COLORS='da=1;34:gm=1;34'
+
+    alias ls='exa --group-directories-first --icons'
+    alias l='ls -a'
+    alias ll='ls -l --git'
+    alias la='ls -a -G'
+    alias tree='exa -T --icons'
+
+    # alias ls='ls -G'
+    # alias l='ls -CF -G'
+    # alias ll='ls -alF -G'
+    # alias la='ls -A -G'
     alias clip="pbcopy"
     alias tomcat-start='/usr/local/tomcat/bin/startup.sh'  #起動コマンド
     alias tomcat-shutdown='/usr/local/tomcat/bin/shutdown.sh'  #終了コマンド
