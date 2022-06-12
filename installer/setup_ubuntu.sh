@@ -18,13 +18,13 @@ all_install() {
 mini_install() {
   ./mygit.sh
   ./ubuntu/start.sh
-  ./ubuntu/rbenv.sh
-  ./ubuntu/pyenv.sh
-  ./ubuntu/goenv.sh
-  ./ubuntu/node.sh
+  # ./ubuntu/rbenv.sh
+  # ./ubuntu/pyenv.sh
+  # ./ubuntu/goenv.sh
+  # ./ubuntu/node.sh
   ./ubuntu/lang.sh
   ./ubuntu/docker.sh
-  ./ubuntu/scala.sh
+  # ./ubuntu/scala.sh
   ./ubuntu/timezone.sh
   # ./ubuntu/mysql.sh
   ../zsh/install.sh
