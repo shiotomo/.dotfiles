@@ -55,3 +55,6 @@ sudo ./configure --with-features=huge --enable-multibyte --enable-luainterp=dyna
 
 sudo make
 sudo make install
+
+# asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
