@@ -63,6 +63,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
+Plug 'udalov/kotlin-vim'
 Plug 'w0ng/vim-hybrid'
 
 call plug#end()
@@ -189,10 +190,16 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
+" coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " markdown
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 autocmd BufRead,BufNewFile *.md  set filetype=markdown
-nnoremap <silent> <C-p> :PrevimOpen<CR> " Ctrl-pでプレビュー
+nnoremap <silent> <C-m> :PrevimOpen<CR> " Ctrl-mでプレビュー
 " 自動で折りたたまないようにする
 let g:vim_markdown_folding_disabled=1
 
