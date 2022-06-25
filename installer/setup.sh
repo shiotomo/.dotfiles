@@ -2,12 +2,15 @@
 
 case ${OSTYPE} in
   macos*)
-    setup_macos.sh
+    .`dirname $0`/mygit.sh
+    .`dirname $0`/setup_macos.sh
     ;;
   ubuntu*)
-    setup_ubuntu.sh
+    .`dirname $0`/mygit.sh
+    .`dirname $0`/setup_ubuntu.sh
     ;;
   centos*)
-    setup_centos.sh
+    .`dirname $0`/mygit.sh
+    .`dirname $0`/setup_centos.sh
     ;;
 esac

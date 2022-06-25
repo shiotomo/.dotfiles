@@ -15,10 +15,10 @@ RUN groupadd -g $GID $GROUPNAME && \
     echo "$USERNAME   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER $USERNAME
 
-COPY ../.. /home/$USERNAME
+COPY ./ /home/$USERNAME
 
-# WORKDIR /home/$USERNAME/.dotfiles
-# 
+WORKDIR /home/$USERNAME/.dotfiles
+
 # RUN make setup OS=ubuntu
 
 WORKDIR /home/$USERNAME

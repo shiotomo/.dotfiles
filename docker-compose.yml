@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  ubuntu:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/ubuntu/Dockerfile
+    stdin_open: true
+    tty: true
