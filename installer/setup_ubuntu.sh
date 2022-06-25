@@ -1,44 +1,100 @@
 #!/bin/bash
 
-all_install() {
-  ./mygit.sh
-  ./ubuntu/start.sh
-  ./ubuntu/rbenv.sh
-  ./ubuntu/pyenv.sh
-  ./ubuntu/goenv.sh
-  ./ubuntu/node.sh
-  ./ubuntu/lang.sh
-  ./ubuntu/java.sh
-  ./ubuntu/docker.sh
-  ./ubuntu/scala.sh
-  ./ubuntu/mysql.sh
-  ../zsh/install.sh
-}
+./mygit.sh
 
-mini_install() {
-  ./mygit.sh
-  ./ubuntu/start.sh
-  # ./ubuntu/rbenv.sh
-  # ./ubuntu/pyenv.sh
-  # ./ubuntu/goenv.sh
-  # ./ubuntu/node.sh
-  ./ubuntu/lang.sh
-  ./ubuntu/docker.sh
-  # ./ubuntu/scala.sh
-  ./ubuntu/timezone.sh
-  # ./ubuntu/mysql.sh
-  ../zsh/install.sh
-}
+sudo apt-get -y update
+sudo apt-get -y upgrade
 
-if [ "$1" = "all" ]; then
-  echo 'Library all install'
-  all_install
-elif [ "$1" = "mini" ]; then
-  echo 'Library mini install'
-  mini_install
-else
-  echo '実行時引数にallかminiを設定してください'
-  echo 'all: 全ライブラリ・ミドルウェア類をインストール'
-  echo 'mini: 必要最低限のライブラリ・ミドルウェア類をインストール'
-  exit 1
-fi
+## install
+# sudo apt-get install software-properties-common
+# sudo add-apt-repository ppa:neovim-ppa/unstable
+# sudo apt-get -y install neovim
+# sudo apt-get -y install vim
+# sudo apt-get -y install postgresql
+sudo apt-get -y install tmux
+sudo apt-get -y install zsh
+sudo apt-get -y install fish
+sudo apt-get -y install htop
+sudo apt-get -y install iftop
+sudo apt-get -y install screenfetch
+sudo apt-get -y install python
+sudo apt-get -y install python3
+sudo apt-get -y install python3-pip
+sudo apt-get -y install ruby
+sudo apt-get -y install golang
+sudo apt-get -y install gem
+sudo apt-get -y install make
+sudo apt-get -y install curl
+sudo apt-get -y install libpq-dev
+sudo apt-get -y install nginx
+sudo apt-get -y install nodejs
+sudo apt-get -y install npm
+sudo apt-get -y install graphviz
+sudo apt-get -y install libmariadbclient-dev
+sudo apt-get -y install letsencrypt
+sudo apt-get -y install netdiscover
+sudo apt-get -y install tree
+sudo apt-get -y install direnv
+sudo apt-get -y install language-pack-ja
+
+sudo update-locale LANG=ja_JP.UTF-8
+
+## pip
+pip3 install neovim
+
+# heroku
+wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
+## vim install
+sudo apt-cache -i depends vim
+sudo apt-get remove --purge vim vim-runtime vim-common
+sudo rm -rf /usr/local/share/vim
+sudo rm /usr/local/bin/vim
+
+sudo apt-get install -y git build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev
+
+cd /opt/
+sudo git clone https://github.com/vim/vim
+cd vim/
+
+sudo ./configure --with-features=huge --enable-multibyte --enable-luainterp=dynamic --enable-gpm --enable-cscope --enable-fontset --enable-fail-if-missing --prefix=/usr/local --enable-pythoninterp=dynamic --enable-lpython3interp=dynamic --enable-rubyinterp=dynamic --enable-python3interp
+
+sudo make
+sudo make install
+
+# asdf install
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
+
+# docker install
+sudo apt-get remove -y docker docker-engine docker.io
+
+sudo apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+
+sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+sudo apt-get update
+sudo apt-get install -y docker-ce
+
+sudo service docker start
+
+sudo usermod -aG docker $USER
+
+sudo systemctl enable docker
+
+### Install Docker Compose
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+# setting timezone
+sudo rm /etc/localtime
+sudo ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+# setting zplug
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
