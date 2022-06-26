@@ -20,14 +20,14 @@ ln -s ~/.dotfiles/vim/vimshrc ~/.vimshrc
 ln -s ~/.dotfiles/inputrc ~/.inputrc
 ln -s ~/.dotfiles/gemrc ~/.gemrc
 ln -s ~/.dotfiles/eclipse/vrapperrc ~/.vrapperrc
-ln -s ~/.dotfiles/intelliJ_IDEA/ideavimrc ~/.ideavimrc
+ln -s ~/.dotfiles/idea/ideavimrc ~/.ideavimrc
 ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 
 # Vim setting
 mkdir ~/.dotfiles/vim/bundle
 mkdir ~/.dotfiles/vim/help
 
-git clone git@github.com:vim-jp/vimdoc-ja.git ~/.dotfiles/vim/help
+git clone https@github.com:vim-jp/vimdoc-ja.git ~/.dotfiles/vim/help
 
 curl -flo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
