@@ -27,7 +27,7 @@ ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 mkdir ~/.dotfiles/vim/bundle
 mkdir ~/.dotfiles/vim/help
 
-git clone git@github.com:vim-jp/vimdoc-ja.git ~/.dotfiles/vim/help
+git clone https@github.com:vim-jp/vimdoc-ja.git ~/.dotfiles/vim/help
 
 curl -flo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

@@ -1,17 +1,13 @@
 OS=ubuntu
 
-help:
-	echo "hello"
-
 setup:
 	./installer/setup.sh ${OS}
 
-build:
-	docker-compose build $(OS)
-	docker build --no-cache ./dockerfiles/$(OS) -t dotfiles:$(OS)
+mygit:
+	./installer/mygit.sh
 
-build-all:
-	docker-compose build
+build:
+	docker-compose build ${OS}
 
 run:
-	docker-compose run $(OS)
+	docker-compose run ${OS}

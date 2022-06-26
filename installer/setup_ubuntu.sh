@@ -1,16 +1,15 @@
 #!/bin/bash
 
-./mygit.sh
-
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-## install
+## library
 # sudo apt-get install software-properties-common
 # sudo add-apt-repository ppa:neovim-ppa/unstable
 # sudo apt-get -y install neovim
 # sudo apt-get -y install vim
 # sudo apt-get -y install postgresql
+sudo apt-get -y install git
 sudo apt-get -y install tmux
 sudo apt-get -y install zsh
 sudo apt-get -y install fish
@@ -39,13 +38,16 @@ sudo apt-get -y install language-pack-ja
 
 sudo update-locale LANG=ja_JP.UTF-8
 
+## my git
+./mygit.sh
+
 ## pip
 pip3 install neovim
 
 # heroku
 wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
-## vim install
+## vim
 sudo apt-cache -i depends vim
 sudo apt-get remove --purge vim vim-runtime vim-common
 sudo rm -rf /usr/local/share/vim
@@ -62,10 +64,14 @@ sudo ./configure --with-features=huge --enable-multibyte --enable-luainterp=dyna
 sudo make
 sudo make install
 
-# asdf install
+# setting timezone
+sudo rm /etc/localtime
+sudo ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+# asdf
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
 
-# docker install
+docker install
 sudo apt-get remove -y docker docker-engine docker.io
 
 sudo apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
@@ -91,10 +97,6 @@ sudo systemctl enable docker
 sudo curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
-
-# setting timezone
-sudo rm /etc/localtime
-sudo ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # setting zplug
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
