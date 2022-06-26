@@ -23,30 +23,23 @@
   - CentOS
   - raspbian
 
-## Installer
-
-```
-cd installer
-```
-
-### Ubuntu
-
-```
-./setup_ubuntu.sh mini
-```
-or
-```
-./setup_ubuntu.sh all
-```
-
-### CentOS
-
-```
-./setup_centos.sh
-```
+## setup
 
 ### macOS
 
 ```
-./setup_macos.sh
+make setup OS=macos
 ```
+
+### ubuntu
+
+```
+make setup OS=ubuntu
+```
+
+### centos
+
+```
+make setup OS=centos
+```
+
