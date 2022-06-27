@@ -51,6 +51,7 @@ case ${OSTYPE} in
     alias tomcat-shutdown='/usr/local/tomcat/bin/shutdown.sh'  #終了コマンド
     alias tomcat-version='/usr/local/tomcat/bin/version.sh' #バージョンコマンド
     alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
+    alias ff='cd $(find . -name "*" -type d | fzf)'
     ;;
   linux*)
     # Linux用の設定
