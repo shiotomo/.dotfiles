@@ -47,3 +47,4 @@ bindkey "^g^b" git-switch-local-branch
 
 zle -N git-switch-remote-branch
 bindkey "^g^g^b" git-switch-remote-branch
+
