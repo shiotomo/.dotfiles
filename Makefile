@@ -3,5 +3,5 @@ OS=ubuntu
 setup:
 	./installer/setup.sh ${OS}
 
-mygit:
+rc:
 	./installer/rc.sh
