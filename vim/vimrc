@@ -25,6 +25,8 @@ let LINUX = "Linux\n"
 call plug#begin('~/.vim/plugged')
 
 " Plug 'tpope/vim-endwise'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
