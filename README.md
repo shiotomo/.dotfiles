@@ -21,7 +21,6 @@
   - macOS
   - Ubuntu
   - CentOS
-  - raspbian
 
 ## setup
 
