@@ -124,8 +124,6 @@ alias cp='cp -i'
 alias es='exec $SHELL'
 alias q='exit'
 alias lip='localip'
-alias ff='cd $(find . -name "*" -type d | fzf)'
-alias fa='vim $(find . -name "*" -type f | fzf)'
 
 # Vim
 alias v='vim'
