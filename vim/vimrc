@@ -25,8 +25,7 @@ let LINUX = "Linux\n"
 call plug#begin('~/.vim/plugged')
 
 " Plug 'tpope/vim-endwise'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
@@ -48,11 +47,14 @@ Plug 'itchyny/calendar.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'kannokanno/previm'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/html5.vim'
@@ -67,7 +69,6 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'w0ng/vim-hybrid'
-
 call plug#end()
 
 syntax on
@@ -169,6 +170,7 @@ noremap <expr> <C-y> (line('w0') <= 1         ? 'k' : "\<C-y>")
 nnoremap <S-f><S-f> :Files<CR>
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap <F5> :UndotreeToggle<CR>
 
 " nnoremap <silent><C-m> :Minimap<CR>
 " nnoremap <silent>S :e ++enc=shift_jis<CR>
@@ -180,13 +182,17 @@ vnoremap > >gv|
 
 let g:NERDTreeShowHidden=1
 let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ }
+      \   'active': {
+      \     'left': [
+      \       [ 'mode', 'paste' ],
+      \       [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+      \       [ 'coc' ]
+      \     ]
+      \   },
+      \   'component_function': {
+      \     'gitbranch': 'gitbranch#name',
+      \     'coc': 'coc#status'
+      \   }
       \ }
 let g:loaded_syntastic_python_pylint_checker=0
 
