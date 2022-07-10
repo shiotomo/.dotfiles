@@ -10,6 +10,8 @@ brew install --cask virtualbox
 brew install --cask mysqlworkbench
 brew install --cask hammerspoon
 brew install --cask postman
+brew install --cask karabiner-elements
+brew install --cask key-codes
 brew tap heroku/brew && brew install heroku
 
 
