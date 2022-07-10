@@ -12,6 +12,12 @@ brew install --cask hammerspoon
 brew install --cask postman
 brew tap heroku/brew && brew install heroku
 
+
+# brew install mysql
+# brew install mysql-client
+# brew install mysql@5.7
+# brew install postgresql
+# brew install redis
 brew install ansible
 brew install asdf
 brew install autoconf
@@ -67,9 +73,6 @@ brew install luarocks
 brew install mono
 brew install mpfr
 brew install msgpack
-brew install mysql
-brew install mysql-client
-brew install mysql@5.7
 brew install ncdu
 brew install ncurses
 brew install neovim
@@ -82,12 +85,10 @@ brew install perl
 brew install pipenv
 brew install pkg-config
 brew install plantuml
-brew install postgresql
 brew install prettyping
 brew install python
 brew install python@2
 brew install readline
-brew install redis
 brew install rsync
 brew install ruby
 brew install ruby-build
@@ -105,7 +106,6 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
-
 # asdf plugin
 asdf plugin-add ruby
 asdf plugin-add java
