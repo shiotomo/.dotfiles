@@ -181,6 +181,8 @@ vnoremap < <gv
 vnoremap > >gv|
 
 let g:NERDTreeShowHidden=1
+let NERDTreeMapOpenInTab='<ENTER>'
+
 let g:lightline = {
       \   'active': {
       \     'left': [
@@ -194,6 +196,7 @@ let g:lightline = {
       \     'coc': 'coc#status'
       \   }
       \ }
+
 let g:loaded_syntastic_python_pylint_checker=0
 
 " neosnippet.vim
