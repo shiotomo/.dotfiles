@@ -14,7 +14,6 @@ brew install --cask karabiner-elements
 brew install --cask key-codes
 brew tap heroku/brew && brew install heroku
 
-
 # brew install mysql
 # brew install mysql-client
 # brew install mysql@5.7
@@ -84,7 +83,7 @@ brew install openssl
 brew install pcre
 brew install pcre2
 brew install perl
-brew install pipenv
+brew install poetry
 brew install pkg-config
 brew install plantuml
 brew install prettyping
