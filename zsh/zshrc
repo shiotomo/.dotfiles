@@ -172,6 +172,7 @@ case ${OSTYPE} in
     alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
     # asdf
     . $(brew --prefix asdf)/asdf.sh
+    . ~/.asdf/plugins/java/set-java-home.zsh
     ;;
   linux*)
     # Linux用の設定
