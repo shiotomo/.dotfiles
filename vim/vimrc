@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'tpope/vim-endwise'
 
+Plug 'puremourning/vimspector'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
@@ -168,9 +169,10 @@ noremap <expr> <C-b> max([winheight(0) - 2, 1]) . "\<C-u>" . (line('.') < 1     
 noremap <expr> <C-f> max([winheight(0) - 2, 1]) . "\<C-d>" . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 noremap <expr> <C-y> (line('w0') <= 1         ? 'k' : "\<C-y>")
 nnoremap <S-f><S-f> :Files<CR>
+nnoremap <S-f><S-a> :Rg<CR>
 nnoremap + <C-a>
 nnoremap - <C-x>
-nnoremap <F5> :UndotreeToggle<CR>
+" nnoremap <F5> :UndotreeToggle<CR>
 
 " nnoremap <silent><C-m> :Minimap<CR>
 " nnoremap <silent>S :e ++enc=shift_jis<CR>
@@ -181,21 +183,26 @@ vnoremap < <gv
 vnoremap > >gv|
 
 let g:NERDTreeShowHidden=1
-let NERDTreeMapOpenInTab='<ENTER>'
 
 let g:lightline = {
-      \   'active': {
-      \     'left': [
-      \       [ 'mode', 'paste' ],
-      \       [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-      \       [ 'coc' ]
-      \     ]
-      \   },
-      \   'component_function': {
-      \     'gitbranch': 'gitbranch#name',
-      \     'coc': 'coc#status'
-      \   }
-      \ }
+  \ 'active': {
+  \     'left': [['mode', 'paste'],
+  \              ['gitbranch', 'readonly', 'filename', 'modified']],
+  \     'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype'],
+  \              ['cocstatus', 'currentfunction']]
+  \ },
+  \ 'component_function': {
+  \     'gitbranch': 'gina#component#repo#branch',
+  \     'cocstatus': 'coc#status',
+  \     'currentfunction': 'CocCurrentFunction'
+  \ }
+  \ }
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 let g:loaded_syntastic_python_pylint_checker=0
 
@@ -214,7 +221,7 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<C
 " markdown
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 autocmd BufRead,BufNewFile *.md  set filetype=markdown
-nnoremap <silent> <C-m> :PrevimOpen<CR> " Ctrl-mでプレビュー
+" nnoremap <silent> <C-m> :PrevimOpen<CR> " Ctrl-mでプレビュー
 " 自動で折りたたまないようにする
 let g:vim_markdown_folding_disabled=1
 
