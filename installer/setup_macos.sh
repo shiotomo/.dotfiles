@@ -5,13 +5,13 @@
 ./rc.sh
 
 brew install --cask google-chrome
-brew install --cask vagrant
-brew install --cask virtualbox
-brew install --cask mysqlworkbench
 brew install --cask hammerspoon
-brew install --cask postman
 brew install --cask karabiner-elements
 brew install --cask key-codes
+brew install --cask mysqlworkbench
+brew install --cask postman
+brew install --cask vagrant
+brew install --cask virtualbox
 brew tap heroku/brew && brew install heroku
 
 # brew install mysql
@@ -83,9 +83,9 @@ brew install openssl
 brew install pcre
 brew install pcre2
 brew install perl
-brew install poetry
 brew install pkg-config
 brew install plantuml
+brew install poetry
 brew install prettyping
 brew install python
 brew install python@2
@@ -93,6 +93,7 @@ brew install readline
 brew install rsync
 brew install ruby
 brew install ruby-build
+brew install ripgrep
 brew install sbt
 brew install scala
 brew install screenfetch
@@ -107,6 +108,7 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
+
 # asdf plugin
 asdf plugin-add ruby
 asdf plugin-add java
