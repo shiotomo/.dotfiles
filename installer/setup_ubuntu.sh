@@ -99,4 +99,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 
 # setting zplug
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+# install zinit
+sh -c "$(curl -fsSL https://git.io/zinit-install)"
