@@ -26,6 +26,7 @@ shardulm94.trailing-spaces
 mhutchie.git-graph
 yzane.markdown-pdf
 hediet.vscode-drawio
+k--kato.intellij-idea-keybindings
 )
 
 for i in ${pkg_list[@]}; do
