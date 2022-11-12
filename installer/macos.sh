@@ -24,6 +24,7 @@ brew install asdf
 brew install autoconf
 brew install bash
 brew install bat
+brew install exa
 brew install dep
 brew install direnv
 brew install file-formula

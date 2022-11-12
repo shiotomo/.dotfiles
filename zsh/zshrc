@@ -156,11 +156,12 @@ alias sinatra='bundle exec ruby app.rb -o0.0.0.0'
 case ${OSTYPE} in
   darwin*)
     # MacOS用の設定
-    (( ! ${+commands[exa]} )) && return 1
+    if type exa > /dev/null; then
+      alias ls='exa --group-directories-first --icons'
+    fi
 
     export EXA_COLORS='da=1;34:gm=1;34:di=1;36'
 
-    alias ls='exa --group-directories-first --icons'
     alias l='ls -a'
     alias ll='ls -l --git'
     alias la='ls -a -G'
