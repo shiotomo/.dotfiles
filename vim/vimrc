@@ -15,7 +15,7 @@
 "   ######                  ##          ################  ####  ####  ####  ############          ########
 "     ##
 
-set encoding=utf-8
+set encoding=UTF-8
 scriptencoding utf-8
 
 let OSTYPE = system('uname')
@@ -70,6 +70,8 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 syntax on
@@ -217,6 +219,35 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+let g:coc_global_extensions = [
+      \'coc-cspell-dicts',
+      \'coc-diagnostic',
+      \'coc-dictionary',
+      \'coc-floaterm',
+      \'coc-eslint',
+      \'coc-git',
+      \'coc-html',
+      \'coc-go',
+      \'coc-highlight',
+      \'coc-java',
+      \'coc-jedi',
+      \'coc-json',
+      \'coc-kotlin',
+      \'coc-lists',
+      \'coc-markdownlint',
+      \'coc-metals',
+      \'coc-pairs',
+      \'coc-prettier',
+      \'coc-sh',
+      \'coc-snippets',
+      \'coc-solargraph',
+      \'coc-spell-checker',
+      \'coc-swagger',
+      \'coc-tslint-plugin',
+      \'coc-tsserver',
+      \'coc-yaml'
+\]
 
 " markdown
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
