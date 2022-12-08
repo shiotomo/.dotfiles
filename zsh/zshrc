@@ -13,6 +13,11 @@
 #   ######    ##############    ##  ########     ######    ######  ############          ########
 #     ##
 
+# === prompt ===
+PROMPT='%F{cyan}[%n@%m:%f%F{yello}%~%f%F{cyan}]%f
+%B%(?,%F{green},%F{red})%(!,#,>>)%b '
+RPROMPT='${vcs_info_msg_0_}%F{white}[$?]%f'
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -69,7 +74,6 @@ setopt auto_param_keys
 setopt auto_param_slash
 setopt auto_pushd
 setopt complete_in_word
-setopt correct
 setopt extended_glob
 setopt globdots
 setopt interactive_comments
@@ -92,11 +96,6 @@ autoload -Uz vcs_info
 autoload -Uz colors
 
 precmd () { vcs_info }
-
-# === prompt ===
-PROMPT='%F{cyan}[%n@%m:%f%F{yello}%~%f%F{cyan}]%f
-%B%(?,%F{green},%F{red})%(!,#,>>)%b '
-RPROMPT='${vcs_info_msg_0_}%F{white}[$?]%f'
 
 # === alias ===
 abbrev-alias -g G="| grep"
@@ -224,18 +223,8 @@ SAVEHIST=1000000
 
 # === extensionのファイル読み込み ===
 EXTENSIONHOME="${HOME}/.dotfiles/zsh/extension"
-if [ -d $EXTENSIONHOME -a -r $EXTENSIONHOME -a -x $EXTENSIONHOME ]; then
-  for i in $EXTENSIONHOME/*; do
-    [[ ${i##*/} = *.zsh ]] &&
-      [ \( -f $i -o -h $i \) -a -r $i ] && . $i
-  done
-fi
+for config_file ($EXTENSIONHOME/*.zsh(N)) source $config_file
 
 # === functionのファイル読み込み ===
 FUNCTIONHOME="${HOME}/.dotfiles/zsh/function"
-if [ -d $FUNCTIONHOME -a -r $FUNCTIONHOME -a -x $FUNCTIONHOME ]; then
-  for i in $FUNCTIONHOME/*; do
-    [[ ${i##*/} = *.zsh ]] &&
-      [ \( -f $i -o -h $i \) -a -r $i ] && . $i
-  done
-fi
+for config_file ($FUNCTIONHOME/*.zsh(N)) source $config_file
