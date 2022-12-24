@@ -171,7 +171,7 @@ case ${OSTYPE} in
     alias tomcat-version='/usr/local/tomcat/bin/version.sh' #バージョンコマンド
     alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
     # asdf
-    . $(brew --prefix asdf)/asdf.sh
+    . $(brew --prefix asdf)/libexec/asdf.sh
     . ~/.asdf/plugins/java/set-java-home.zsh
     ;;
   linux*)

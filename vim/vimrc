@@ -87,6 +87,7 @@ set autoindent
 set background=dark
 set backspace=indent,eol,start
 set belloff=all
+set clipboard+=unnamed
 set colorcolumn=80,100
 set completeopt=menuone
 set cursorline
