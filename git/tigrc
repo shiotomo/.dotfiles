@@ -1,0 +1,84 @@
+# main view の左端にコミットIDを表示する
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+# blame view の行数表示をON、intervalを1に
+set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+
+# Pager系の行数表示をON、intervalを1に (default: line-number:no,interval=5)
+set pager-view  = line-number:yes,interval=1 text
+set stage-view  = line-number:yes,interval=1 text
+set log-view    = line-number:yes,interval=1 text
+set blob-view   = line-number:yes,interval=1 text
+set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+
+# 行数表示をON
+set blob-view-line-number = yes
+set blame-view-line-number = yes
+
+# 画面を垂直方向に分割する
+set vertical-split = no
+
+# utf-8 文字で画面描画する (~でトグル)
+set line-graphics = utf-8
+
+# タブサイズ
+set tab-size = 2
+
+# 空白無視
+set ignore-space = all
+
+# 空白無視 (status-view では表示するが diff-view では無視する) (W でトグル)
+set ignore-space = at-eol
+
+# 検索時に大文字小文字を無視する (default: false)
+set ignore-case = true
+
+# 水平分割したウィンドウの下画面サイズを % で指定（行数指定も可）
+set split-view-height = 75%
+
+# マージ diff を表示する
+set diff-options = -m --first-parent
+
+# '+行数' の形で Editor に行番号を引数として渡すか
+set editor-line-number = yes
+
+# リフレッシュするタイミング
+# set refresh-mode = auto
+# set refresh-mode = after-command
+# set refresh-mode = periodic
+set refresh-interval = 1
+
+# == キーマップ ==
+# g をファイル先頭に移動に変更、 view-grep を再割当て
+bind generic g      move-first-line
+bind generic E      view-grep
+
+# G でファイル末尾に移動 (default: :toggle commit-title-graph)
+bind generic G      move-last-line
+bind main    G      move-last-line
+
+# Alt-g で :toggle commit-title-graph
+bind main    <Esc>g :toggle commit-title-graph
+
+# n / p を上下移動に割り当て (default: find-next / view-pager)
+bind generic n      move-down
+bind generic p      move-up
+
+# n / p で単位ごとの移動
+bind diff    n      :/^@@
+bind diff    p      :?^@@
+bind diff    <Esc>n :/^diff --(git|cc)
+bind diff    <Esc>p :?^diff --(git|cc)
+bind stage   n      :/^@@
+bind stage   p      :?^@@
+bind stage   <Esc>n :/^diff --(git|cc)
+bind stage   <Esc>p :?^diff --(git|cc)
+bind pager   n      :/^@@
+bind pager   p      :?^@@
+bind pager   <Esc>n :/^diff --(git|cc)
+bind pager   <Esc>p :?^diff --(git|cc)
+bind log     n      :/^commit
+bind log     p      :?^commit
+
+# == コマンドオプション ==
+bind status C !git commit -v

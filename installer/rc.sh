@@ -22,6 +22,7 @@ ln -s ~/.dotfiles/gemrc ~/.gemrc
 ln -s ~/.dotfiles/eclipse/vrapperrc ~/.vrapperrc
 ln -s ~/.dotfiles/idea/ideavimrc ~/.ideavimrc
 ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
+ln -s ~/.dotfiles/git/tigrc ~/.tigrc
 
 # Vim setting
 mkdir ~/.dotfiles/vim/bundle
