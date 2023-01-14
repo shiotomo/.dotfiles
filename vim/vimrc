@@ -269,5 +269,5 @@ hi PmenuSel guifg=#000000 ctermfg=16 gui=bold cterm=bold
 hi PmenuSbar guibg=#35322d ctermbg=236
 hi PmenuThumb guifg=#d9cec3 ctermfg=252
 
-# jq
+" jq
 command! Jq %!jq '.'
