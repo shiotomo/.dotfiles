@@ -43,10 +43,10 @@ set diff-options = -m --first-parent
 set editor-line-number = yes
 
 # リフレッシュするタイミング
-# set refresh-mode = auto
+set refresh-mode = auto
 # set refresh-mode = after-command
 # set refresh-mode = periodic
-set refresh-interval = 1
+# set refresh-interval = 1
 
 # == キーマップ ==
 # g をファイル先頭に移動に変更、 view-grep を再割当て
