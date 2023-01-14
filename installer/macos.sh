@@ -24,9 +24,9 @@ brew install asdf
 brew install autoconf
 brew install bash
 brew install bat
-brew install exa
 brew install dep
 brew install direnv
+brew install exa
 brew install file-formula
 brew install fish
 brew install fontconfig
@@ -37,6 +37,7 @@ brew install gcc
 brew install gd
 brew install gdbm
 brew install gettext
+brew install git
 brew install glib
 brew install gmp
 brew install go
@@ -91,10 +92,10 @@ brew install prettyping
 brew install python
 brew install python@2
 brew install readline
+brew install ripgrep
 brew install rsync
 brew install ruby
 brew install ruby-build
-brew install ripgrep
 brew install sbt
 brew install scala
 brew install screenfetch
