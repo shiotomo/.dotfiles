@@ -99,7 +99,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
-set lazyredraw
 set noswapfile
 set number
 set number
@@ -113,7 +112,6 @@ set splitbelow
 set t_Co=256
 set tabstop=2
 set termwinsize=20x0
-set ttyfast
 set ttyfast
 set wildmenu
 " set relativenumber
