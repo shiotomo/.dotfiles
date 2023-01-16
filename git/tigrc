@@ -80,5 +80,8 @@ bind pager   <Esc>p :?^diff --(git|cc)
 bind log     n      :/^commit
 bind log     p      :?^commit
 
+bind main    R !git rebase -i %(commit)
+bind diff    R !git rebase -i %(commit)
+
 # == コマンドオプション ==
 bind status C !git commit -v
