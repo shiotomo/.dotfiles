@@ -1,0 +1,18 @@
+zsh-performance() {
+  time ( zsh -i -c exit )
+}
+
+zsh-startuptime() {
+  local total_msec=0
+  local msec
+  local i
+  for i in $(seq 1 10); do
+    msec=$((TIMEFMT='%mE'; time zsh -i -c exit) 2>/dev/stdout >/dev/null)
+    msec=$(echo $msec | tr -d "ms")
+    echo "${(l:2:)i}: ${msec} [ms]"
+    total_msec=$(( $total_msec + $msec ))
+  done
+  local average_msec
+  average_msec=$(( ${total_msec} / 10 ))
+  echo "\naverage: ${average_msec} [ms]"
+}

@@ -129,6 +129,8 @@ alias cp='cp -i'
 alias es='exec $SHELL'
 alias q='exit'
 alias lip='localip'
+alias back='cd -1'
+alias bcd='cd -1'
 
 # Vim
 alias v='vim'

@@ -9,3 +9,4 @@ dotfiles() {
     tmux new-session -s dotfiles
   fi
 }
+

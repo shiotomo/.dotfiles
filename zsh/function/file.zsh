@@ -18,3 +18,14 @@ fa() {
   fi
 }
 
+# .config/zsh/workspace.listに設定したディレクトリに移動するためのコマンド
+ws() {
+  local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
+  cd $dir
+}
+
+# .config/zsh/workspace.listに設定したディレクトリに移動するためのコマンド
+wse() {
+  vim $HOME/.config/zsh/workspace.list
+}
+
