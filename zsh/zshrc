@@ -133,7 +133,7 @@ alias back='cd -1'
 alias bcd='cd -1'
 
 # Vim
-if type vim > /dev/null; then
+if type nvim > /dev/null; then
   alias vim='nvim'
 fi
 
@@ -223,8 +223,13 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include"
-export EDITOR='vim'
-export VISUAL='vim'
+if type nvim > /dev/null; then
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+else
+  export EDITOR='vim'
+  export VISUAL='vim'
+fi
 
 # === history ===
 HISTFILE=${HOME}/.zsh_history
