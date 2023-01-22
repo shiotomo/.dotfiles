@@ -133,6 +133,10 @@ alias back='cd -1'
 alias bcd='cd -1'
 
 # Vim
+if type vim > /dev/null; then
+  alias vim='nvim'
+fi
+
 alias v='vim'
 alias vm='vim'
 alias vum='vim'
