@@ -17,7 +17,7 @@ ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/.dotfiles/neovim/init.lua ~/.config/nvim/init.lua
+ln -s ~/.dotfiles/nvim/init.lua ~/.config/nvim/init.lua
 ln -s ~/.dotfiles/vim/vimshrc ~/.vimshrc
 ln -s ~/.dotfiles/inputrc ~/.inputrc
 ln -s ~/.dotfiles/gemrc ~/.gemrc
@@ -34,3 +34,7 @@ git clone https@github.com:vim-jp/vimdoc-ja.git ~/.dotfiles/vim/help
 
 curl -flo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# NeoVim setting
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
