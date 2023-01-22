@@ -16,6 +16,8 @@ mkdir ~/.hammerspoon
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/.dotfiles/neovim/init.lua ~/.config/nvim/init.lua
 ln -s ~/.dotfiles/vim/vimshrc ~/.vimshrc
 ln -s ~/.dotfiles/inputrc ~/.inputrc
 ln -s ~/.dotfiles/gemrc ~/.gemrc
