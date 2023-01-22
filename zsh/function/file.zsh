@@ -29,3 +29,15 @@ wse() {
   vim $HOME/.config/zsh/workspace.list
 }
 
+tws() {
+  local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
+  local dir_name=`basename ${dir}`
+  RESULT=(`tmux ls | grep -E "^$dir_name:"`)
+  if [ -n "$TMUX" ]; then
+    tmux switch -t $dir_name
+  elif [ -n "$RESULT" ]; then
+    tmux a -t $dir_name
+  else
+    tmux new-session -s $dir_name
+  fi
+}
