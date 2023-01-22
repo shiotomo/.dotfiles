@@ -78,6 +78,14 @@ require('mason-lspconfig').setup_handlers({ function(server)
 end })
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+  -- vim.lsp.diagnostic.on_publish_diagnostics, {
+  --   update_in_insert = false,
+  --   virtual_text = {
+  --     format = function(diagnostic)
+  --       return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+  --     end,
+  --   },
+  -- }
 )
 vim.cmd [[
 set updatetime=500
@@ -115,6 +123,31 @@ cmp.setup({
     ghost_text = true,
   },
 })
+-- lsp hover
+local function on_cursor_hold()
+  if vim.lsp.buf.server_ready() then
+    vim.diagnostic.open_float()
+  end
+end
+local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
+local function enable_diagnostics_hover()
+  vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
+  vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
+end
+local function disable_diagnostics_hover()
+  vim.api.nvim_clear_autocmds({ group = diagnostic_hover_augroup_name })
+end
+vim.api.nvim_set_option('updatetime', 500)
+enable_diagnostics_hover()
+local function on_hover()
+  disable_diagnostics_hover()
+  vim.lsp.buf.hover()
+  vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
+  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, { group = "lspconfig-enable-diagnostics-hover", callback = function()
+    vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
+    enable_diagnostics_hover()
+  end })
+end
 
 -- keymap
 vim.keymap.set('i', 'jj', '<ESC> `^')
@@ -143,6 +176,7 @@ vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+vim.keymap.set('n', '<Leader>lk', on_hover)
 
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv|')
@@ -228,3 +262,4 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
