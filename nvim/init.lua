@@ -46,13 +46,15 @@ require("packer").startup(function()
   use 'w0ng/vim-hybrid'
   use 'ryanoasis/vim-devicons'
   use 'folke/tokyonight.nvim'
+
   use 'williamboman/mason.nvim'
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason-lspconfig.nvim'
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/vim-vsnip"
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/vim-vsnip'
+  use 'nvim-lua/lsp-status.nvim'
 end)
 
 -- colorscheme
@@ -75,7 +77,7 @@ require('mason-lspconfig').setup_handlers({ function(server)
   require('lspconfig')[server].setup(opt)
 end })
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
 vim.cmd [[
 set updatetime=500
@@ -103,9 +105,11 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<TAB>'] = cmp.mapping.select_next_item(),
     ['<C-l>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
+    -- ['<C-e>']  = cmp.mapping.abort(),
     ['<CR>']  = cmp.mapping.confirm { select = true },
+    ['<C-f>'] = cmp.mapping.confirm { select = true },
   }),
   experimental = {
     ghost_text = true,
@@ -119,9 +123,6 @@ vim.keymap.set('i', '\"', '\"\"<LEFT>')
 vim.keymap.set('i', '(', '()<LEFT>')
 vim.keymap.set('i', '{', '{}<LEFT>')
 vim.keymap.set('i', '(<C-j>', '<ESC> `^')
-vim.keymap.set('i', '<Tab>', function()
-  return vim.fn.pumvisible() == 1 and '<C-n>' or '<Tab>'
-end, {expr = true})
 
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
@@ -216,20 +217,11 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    -- lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_b = { 'branch' },
-    lualine_c = { 'filename' },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress', 'coc#status', 'CocCurrentFunction' },
+    lualine_b = { 'filename' },
+    lualine_c = { 'branch', 'diff', 'diagnostics' },
+    lualine_x = { "require('lsp-status').status()" },
+    lualine_y = { 'encoding', 'filetype' },
     lualine_z = { 'location' }
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { 'filename' },
-    lualine_x = { 'location' },
-    lualine_y = {},
-    lualine_z = {}
   },
   tabline = {},
   winbar = {},
