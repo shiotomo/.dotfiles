@@ -4,13 +4,15 @@
 git clone https://github.com/junegunn/fzf.git ~/.fzf
 
 # Database manager by docker
-git clone git@github.com:shiotomo/aquarium.git ~/aquarium
+git clone https://github.com:shiotomo/aquarium.git ~/aquarium
 
 # tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # hammerspoon setting
 mkdir ~/.hammerspoon
+mkdir -p ~/.config/nvim
+mkdir -p ~/.config/zsh
 
 # Set .dotfiles symbolic link
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
