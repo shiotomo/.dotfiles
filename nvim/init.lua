@@ -49,7 +49,7 @@ require("packer").startup(function()
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
-})
+  })
 
   use 'williamboman/mason.nvim'
   use 'wbthomason/packer.nvim'
@@ -81,15 +81,15 @@ require('mason-lspconfig').setup_handlers({ function(server)
   require('lspconfig')[server].setup(opt)
 end })
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-  -- vim.lsp.diagnostic.on_publish_diagnostics, {
-  --   update_in_insert = false,
-  --   virtual_text = {
-  --     format = function(diagnostic)
-  --       return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-  --     end,
-  --   },
-  -- }
+vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+-- vim.lsp.diagnostic.on_publish_diagnostics, {
+--   update_in_insert = false,
+--   virtual_text = {
+--     format = function(diagnostic)
+--       return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+--     end,
+--   },
+-- }
 )
 vim.cmd [[
 set updatetime=500
