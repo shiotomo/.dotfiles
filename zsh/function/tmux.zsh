@@ -10,3 +10,7 @@ dotfiles() {
   fi
 }
 
+tnew() {
+  tmux new-session -s $1
+}
+
