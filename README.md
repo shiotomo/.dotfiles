@@ -3,6 +3,7 @@
 ## Management
 
 - Editor
+  - Neovim
   - Vim
   - VSCode
 

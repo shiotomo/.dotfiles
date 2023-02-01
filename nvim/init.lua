@@ -46,6 +46,10 @@ require("packer").startup(function()
   use 'w0ng/vim-hybrid'
   use 'ryanoasis/vim-devicons'
   use 'folke/tokyonight.nvim'
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
 
   use 'williamboman/mason.nvim'
   use 'wbthomason/packer.nvim'
