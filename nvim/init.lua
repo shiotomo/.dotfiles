@@ -51,6 +51,7 @@ require("packer").startup(function()
     run = function() vim.fn["mkdp#util#install"]() end,
   })
 
+  -- lsp
   use 'williamboman/mason.nvim'
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
@@ -59,7 +60,21 @@ require("packer").startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/vim-vsnip'
   use 'nvim-lua/lsp-status.nvim'
+
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 end)
+
+-- ファイルを開いた時に、カーソルの場所を復元する
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.api.nvim_exec('silent! normal! g`"zv', false)
+  end,
+})
 
 -- colorscheme
 vim.cmd [[colorscheme tokyonight]]
@@ -153,6 +168,9 @@ local function on_hover()
   end })
 end
 
+-- telescope
+local builtin = require('telescope.builtin')
+
 -- keymap
 vim.keymap.set('i', 'jj', '<ESC> `^')
 vim.keymap.set('i', '\'', '\'\'<LEFT>')
@@ -183,6 +201,10 @@ vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', '<Leader>lk', on_hover)
 vim.cmd [[nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>]]
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv|')
@@ -221,14 +243,6 @@ vim.opt.ttyfast = true
 vim.opt.wildmenu = true
 vim.opt.wrap = true
 vim.opt.mouse = 'a'
-
--- ファイルを開いた時に、カーソルの場所を復元する
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.api.nvim_exec('silent! normal! g`"zv', false)
-  end,
-})
 
 vim.g.NERDTreeShowHidden = true
 vim.g.indent_guides_enable_on_vim_startup = true
