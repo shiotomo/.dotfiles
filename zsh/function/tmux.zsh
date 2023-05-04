@@ -14,3 +14,6 @@ tnew() {
   tmux new-session -s $1
 }
 
+ta() {
+  tmux attach
+}
