@@ -76,6 +76,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
+-- leader key の設定
+vim.keymap.set('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- colorscheme
 vim.cmd [[colorscheme tokyonight]]
 
@@ -230,11 +235,11 @@ vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', '<Leader>lk', on_hover)
-vim.cmd [[nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>]]
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.cmd [[nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>]]
 
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv|')
@@ -302,7 +307,8 @@ require('lualine').setup {
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'filename' },
-    lualine_c = { 'branch', 'diff', 'diagnostics' },
+    -- lualine_c = { 'branch', 'diff', 'diagnostics' },
+    -- lualine_c = { 'branch', 'diff', {'diagnostics', sources = {'nvim_lsp'}} },
     lualine_x = { "require('lsp-status').status()" },
     lualine_y = { 'encoding', 'filetype' },
     lualine_z = { 'location' }
