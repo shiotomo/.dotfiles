@@ -52,7 +52,7 @@ tws() {
   elif [ -n "$RESULT" ]; then
     tmux a -t $tmux_session_name
   else
-    cd (basename $dir)
+    cd $dir
     tmux new-session -s $tmux_session_name
   fi
 }
