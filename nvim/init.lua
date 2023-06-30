@@ -59,6 +59,7 @@ require("packer").startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
   use 'nvim-lua/lsp-status.nvim'
 
   -- telescope
@@ -147,6 +148,7 @@ cmp.setup({
     ghost_text = true,
   },
 })
+
 -- lsp hover
 local function on_cursor_hold()
   if vim.lsp.buf.server_ready() then
@@ -319,3 +321,20 @@ require('lualine').setup {
   extensions = {}
 }
 
+-- snippet
+-- vim-vsnipの設定
+vim.g.vsnip_snippet_dir = '~/.vim/snippets'  -- スニペットファイルのディレクトリ
+-- vim-vsnip-integの設定
+vim.g.vsnip_filetypes = {}
+vim.g.vsnip_filetypes.javascriptreact = {'javascript'}
+vim.g.vsnip_filetypes.typescriptreact = {'typescript'}
+vim.g.vsnip_filetypes = {
+  markdown = {'markdown'},
+}
+-- markdownファイルをシンタックスハイライトするための設定
+vim.api.nvim_exec([[
+  augroup markdownSyntax
+    autocmd!
+    autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+  augroup END
+]], false)
