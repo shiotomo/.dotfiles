@@ -40,3 +40,4 @@ curl -flo ~/.vim/autoload/plug.vim --create-dirs \
 # NeoVim setting
 git clone --depth 1 https://github.com/wbthomason/packer.nvim \
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+

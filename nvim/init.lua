@@ -1,6 +1,8 @@
+local vim = vim
+
 vim.cmd.packadd "packer.nvim"
 
-require("packer").startup(function()
+require("packer").startup(function(use)
   use 'puremourning/vimspector'
   use 'ConradIrwin/vim-bracketed-paste'
   use 'Shougo/neosnippet-snippets'
@@ -58,7 +60,15 @@ require("packer").startup(function()
   use 'williamboman/mason-lspconfig.nvim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
+  -- use {
+  --   'hrsh7th/vim-vsnip',
+  --   config = function()
+  --     -- vim-vsnipの設定
+  --     vim.g.vsnip_snippet_dir = vim.fn.stdpath('config') .. '/snippets'
+  --   end
+  -- }
   use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
   use 'nvim-lua/lsp-status.nvim'
 
@@ -132,8 +142,9 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
-    -- { name = "buffer" },
-    -- { name = "path" },
+    { name = "vsnip" },
+    { name = "buffer" },
+    { name = "path" },
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -249,13 +260,13 @@ vim.keymap.set('v', '<C-j>', '<ESC>')
 
 -- set
 vim.opt.colorcolumn = '80,100'
-vim.opt.ambiwidth = double
+vim.opt.ambiwidth = 'double'
 vim.opt.autoindent = true
-vim.opt.background = dark
+vim.opt.background = 'dark'
 vim.opt.backspace = 'indent,eol,start'
-vim.opt.belloff = all
+vim.opt.belloff = 'all'
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = menuone, noinsert
+vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.cursorline = true
 vim.opt.encoding = 'UTF-8'
 vim.opt.expandtab = true
@@ -322,15 +333,31 @@ require('lualine').setup {
 }
 
 -- snippet
+-- require('vsnip').setup()
+-- require('vsnip').setup({
+--   -- スニペットファイルの保存場所
+--   snippet_dir = vim.fn.expand('~/.config/nvim/snippets'),
+--
+--   -- キャッシュディレクトリ
+--   cache_dir = vim.fn.expand('~/.cache/nvim/vsnip'),
+--
+--   -- ファイルタイプごとのスニペット設定
+--   filetypes = {
+--     javascript = {'javascript'},
+--     typescript = {'typescript'},
+--     markdown   = {'markdown'},
+--   }
+-- })
 -- vim-vsnipの設定
-vim.g.vsnip_snippet_dir = '~/.vim/snippets'  -- スニペットファイルのディレクトリ
 -- vim-vsnip-integの設定
-vim.g.vsnip_filetypes = {}
-vim.g.vsnip_filetypes.javascriptreact = {'javascript'}
-vim.g.vsnip_filetypes.typescriptreact = {'typescript'}
+
 vim.g.vsnip_filetypes = {
-  markdown = {'markdown'},
+  javascript = {'javascript'},
+  typescript = {'typescript'},
+  markdown   = {'markdown'},
+  -- 他のファイルタイプ
 }
+
 -- markdownファイルをシンタックスハイライトするための設定
 vim.api.nvim_exec([[
   augroup markdownSyntax
@@ -338,3 +365,4 @@ vim.api.nvim_exec([[
     autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
   augroup END
 ]], false)
+
