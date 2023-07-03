@@ -260,13 +260,13 @@ vim.keymap.set('v', '>', '>gv|')
 vim.keymap.set('v', '<C-j>', '<ESC>')
 
 -- set
-vim.opt.colorcolumn = '80,100'
 vim.opt.ambiwidth = 'single'
 vim.opt.autoindent = true
 vim.opt.background = 'dark'
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.belloff = 'all'
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.colorcolumn = '80,100'
 vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.cursorline = true
 vim.opt.encoding = 'UTF-8'
@@ -278,11 +278,13 @@ vim.opt.ignorecase = true
 vim.opt.incsearch = true
 vim.opt.laststatus = 2
 vim.opt.lazyredraw = true
+vim.opt.mouse = 'a'
 vim.opt.number = true
 vim.opt.re = 1
 vim.opt.ruler = true
 vim.opt.shiftwidth = 2
 vim.opt.showmatch = true
+vim.opt.showtabline = 2
 vim.opt.smartcase = true
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
@@ -291,7 +293,6 @@ vim.opt.tabstop = 2
 vim.opt.ttyfast = true
 vim.opt.wildmenu = true
 vim.opt.wrap = true
-vim.opt.mouse = 'a'
 
 vim.g.NERDTreeShowHidden = true
 vim.g.indent_guides_enable_on_vim_startup = true
