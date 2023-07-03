@@ -93,7 +93,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- colorscheme
-vim.cmd [[colorscheme tokyonight]]
+-- vim.cmd [[colorscheme tokyonight]]
+vim.g.colors_name = "tokyonight"
 
 -- lsp
 require('mason').setup()
@@ -260,7 +261,7 @@ vim.keymap.set('v', '<C-j>', '<ESC>')
 
 -- set
 vim.opt.colorcolumn = '80,100'
-vim.opt.ambiwidth = 'double'
+vim.opt.ambiwidth = 'single'
 vim.opt.autoindent = true
 vim.opt.background = 'dark'
 vim.opt.backspace = 'indent,eol,start'
@@ -355,6 +356,7 @@ vim.g.vsnip_filetypes = {
   javascript = {'javascript'},
   typescript = {'typescript'},
   markdown   = {'markdown'},
+  lua        = {'lua'},
   -- 他のファイルタイプ
 }
 
