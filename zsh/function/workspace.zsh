@@ -6,6 +6,7 @@ ws() {
       ;;
     add*)
       pwd >> $HOME/.config/zsh/workspace.list
+      echo "workspace add $pwd"
       ;;
     edit*)
       $EDITOR $HOME/.config/zsh/workspace.list
