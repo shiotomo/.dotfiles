@@ -69,6 +69,7 @@ require("packer").startup(function(use)
   -- }
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/vim-vsnip-integ'
   use 'nvim-lua/lsp-status.nvim'
 
@@ -93,7 +94,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- colorscheme
--- vim.cmd [[colorscheme tokyonight]]
 vim.g.colors_name = "tokyonight"
 
 -- lsp
@@ -113,38 +113,31 @@ require('mason-lspconfig').setup_handlers({ function(server)
   require('lspconfig')[server].setup(opt)
 end })
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
--- vim.lsp.diagnostic.on_publish_diagnostics, {
---   update_in_insert = false,
---   virtual_text = {
---     format = function(diagnostic)
---       return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
---     end,
---   },
--- }
+  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
-vim.cmd [[
-set updatetime=500
-highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-augroup lsp_document_highlight
-autocmd!
-autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.document_highlight()
-autocmd CursorMoved,CursorMovedI * lua vim.lsp.buf.clear_references()
-augroup END
-]]
+-- vim.cmd [[
+-- set updatetime=500
+-- highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
+-- highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
+-- highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
+-- augroup lsp_document_highlight
+-- autocmd!
+-- autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.document_highlight()
+-- autocmd CursorMoved,CursorMovedI * lua vim.lsp.buf.clear_references()
+-- augroup END
+-- ]]
+
 local cmp = require("cmp")
-cmp.setup({
+cmp.setup.buffer {
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   sources = {
+    { name = "buffer" },
     { name = "nvim_lsp" },
     { name = "vsnip" },
-    { name = "buffer" },
     { name = "path" },
   },
   mapping = cmp.mapping.preset.insert({
@@ -159,6 +152,17 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
+  options = {
+    keyword_length = 1
+  }
+}
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+  }, {
+    { name = 'buffer' },
+  })
 })
 
 -- lsp hover
@@ -333,39 +337,4 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
-
--- snippet
--- require('vsnip').setup()
--- require('vsnip').setup({
---   -- スニペットファイルの保存場所
---   snippet_dir = vim.fn.expand('~/.config/nvim/snippets'),
---
---   -- キャッシュディレクトリ
---   cache_dir = vim.fn.expand('~/.cache/nvim/vsnip'),
---
---   -- ファイルタイプごとのスニペット設定
---   filetypes = {
---     javascript = {'javascript'},
---     typescript = {'typescript'},
---     markdown   = {'markdown'},
---   }
--- })
--- vim-vsnipの設定
--- vim-vsnip-integの設定
-
-vim.g.vsnip_filetypes = {
-  javascript = {'javascript'},
-  typescript = {'typescript'},
-  markdown   = {'markdown'},
-  lua        = {'lua'},
-  -- 他のファイルタイプ
-}
-
--- markdownファイルをシンタックスハイライトするための設定
-vim.api.nvim_exec([[
-  augroup markdownSyntax
-    autocmd!
-    autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-  augroup END
-]], false)
 
