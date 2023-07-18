@@ -72,6 +72,7 @@ require("packer").startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/vim-vsnip-integ'
   use 'nvim-lua/lsp-status.nvim'
+  use 'romgrk/nvim-qf'
 
   -- telescope
   use {
@@ -113,7 +114,7 @@ require('mason-lspconfig').setup_handlers({ function(server)
   require('lspconfig')[server].setup(opt)
 end })
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
 -- vim.cmd [[
 -- set updatetime=500
@@ -191,6 +192,14 @@ local function on_hover()
   end })
 end
 
+-- QuickFixのショートカットキーを設定
+vim.api.nvim_set_keymap('n', '<leader>q', ':copen<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>Q', ':cclose<CR>', { noremap = true })
+
+-- QuickFixウィンドウでの移動をキーバインドする場合（オプション）
+vim.api.nvim_set_keymap('n', '<C-n>', ':cnext<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':cprev<CR>', { noremap = true })
+
 -- telescope
 local builtin = require('telescope.builtin')
 require('telescope').setup{
@@ -243,8 +252,10 @@ vim.keymap.set('n', '+', '<C-a')
 vim.keymap.set('n', '-', '<C-x')
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
-vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+-- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+-- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 -- vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
@@ -325,11 +336,22 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'filename' },
-    -- lualine_c = { 'branch', 'diff', 'diagnostics' },
-    -- lualine_c = { 'branch', 'diff', {'diagnostics', sources = {'nvim_lsp'}} },
-    lualine_x = { "require('lsp-status').status()" },
-    lualine_y = { 'encoding', 'filetype' },
+    lualine_b = {
+      'branch',
+      'diff',
+      {
+        'diagnostics',
+        sources = {
+          'nvim_lsp'
+        },
+        symbols = {
+          error = 'E',
+          warn  = 'W',
+          info  = 'I',
+          hint  = 'H'
+        },
+      }
+    },
     lualine_z = { 'location' }
   },
   tabline = {},
