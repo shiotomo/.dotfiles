@@ -10,7 +10,7 @@ ff() {
 
 # alias fa='vim $(find . -name "*" -type f | fzf)' を使いやすくしたもの
 fa() {
-  dirp=$(find . -name "*" -type f | fzf)
+  dirp=$(find . -name "*" -type f | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
   if [ -z "$dirp" ]; then
     return
   else
