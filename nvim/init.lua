@@ -52,6 +52,7 @@ require("packer").startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
+  use 'voldikss/vim-floaterm'
 
   -- lsp
   use 'williamboman/mason.nvim'
@@ -72,7 +73,6 @@ require("packer").startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/vim-vsnip-integ'
   use 'nvim-lua/lsp-status.nvim'
-  use 'romgrk/nvim-qf'
 
   -- telescope
   use {
@@ -268,6 +268,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>t', '<cmd>FloatermNew<CR>')
 vim.cmd [[nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>]]
 
 vim.keymap.set('v', '<', '<gv')
