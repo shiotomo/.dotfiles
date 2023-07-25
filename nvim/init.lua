@@ -54,6 +54,7 @@ require("packer").startup(function(use)
   })
   use 'voldikss/vim-floaterm'
   use 'nvim-treesitter/nvim-treesitter'
+  use 'dinhhuy258/git.nvim'
 
   -- lsp
   use 'williamboman/mason.nvim'
@@ -238,14 +239,6 @@ local function on_hover()
     })
 end
 
--- QuickFixのショートカットキーを設定
-vim.api.nvim_set_keymap('n', '<leader>q', ':copen<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>Q', ':cclose<CR>', { noremap = true })
-
--- QuickFixウィンドウでの移動をキーバインドする場合（オプション）
-vim.api.nvim_set_keymap('n', '<C-n>', ':cnext<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-p>', ':cprev<CR>', { noremap = true })
-
 -- telescope
 local builtin = require('telescope.builtin')
 require('telescope').setup {
@@ -325,6 +318,36 @@ require('lualine').setup {
   extensions = {}
 }
 
+-- git
+require('git').setup({
+  default_mappings = true, -- NOTE: `quit_blame` and `blame_commit` are still merged to the keymaps even if `default_mappings = false`
+
+  keymaps = {
+    -- Open blame window
+    blame = "<Leader>gb",
+    -- Close blame window
+    quit_blame = "q",
+    -- Open blame commit
+    blame_commit = "<CR>",
+    -- Open file/folder in git repository
+    browse = "<Leader>go",
+    -- Open pull request of the current branch
+    open_pull_request = "<Leader>gp",
+    -- Create a pull request with the target branch is set in the `target_branch` option
+    create_pull_request = "<Leader>gn",
+    -- Opens a new diff that compares against the current index
+    diff = "<Leader>gd",
+    -- Close git diff
+    diff_close = "<Leader>gD",
+    -- Revert to the specific commit
+    revert = "<Leader>gr",
+    -- Revert the current file to the specific commit
+    revert_file = "<Leader>gR",
+  },
+  -- Default target branch when create a pull request
+  -- target_branch = "master",
+})
+
 -- keymap
 vim.keymap.set('i', 'jj', '<ESC> `^')
 vim.keymap.set('i', '\'', '\'\'<LEFT>')
@@ -376,6 +399,14 @@ vim.api.nvim_set_keymap('n', '<Leader>a', ':Lspsaga code_action<CR>', { noremap 
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
 vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
+
+-- QuickFixのショートカットキーを設定
+vim.api.nvim_set_keymap('n', '<leader>q', ':copen<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>Q', ':cclose<CR>', { noremap = true })
+
+-- QuickFixウィンドウでの移動をキーバインドする場合（オプション）
+vim.api.nvim_set_keymap('n', '<C-n>', ':cnext<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':cprev<CR>', { noremap = true })
 
 -- set
 vim.opt.ambiwidth = 'single'
