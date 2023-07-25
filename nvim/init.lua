@@ -53,12 +53,14 @@ require("packer").startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
   use 'voldikss/vim-floaterm'
+  use 'nvim-treesitter/nvim-treesitter'
 
   -- lsp
   use 'williamboman/mason.nvim'
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason-lspconfig.nvim'
+  use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   -- use {
@@ -77,7 +79,7 @@ require("packer").startup(function(use)
   -- telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 end)
 
@@ -114,7 +116,7 @@ require('mason-lspconfig').setup_handlers({ function(server)
   require('lspconfig')[server].setup(opt)
 end })
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
 -- vim.cmd [[
 -- set updatetime=500
@@ -166,6 +168,46 @@ cmp.setup.filetype('gitcommit', {
   })
 })
 
+-- lsp saga
+require('lspsaga').setup({
+  use_saga_diagnostic_sign = true,
+  error_sign = '',
+  warn_sign = '',
+  hint_sign = '',
+  infor_sign = '',
+  dianostic_header_icon = '   ',
+  code_action_icon = ' ',
+  code_action_prompt = {
+    enable = false,
+    sign = false,
+    virtual_text = true
+  },
+  code_action_keys = {
+    open = 'o',
+    vsplit = 'v',
+    split = 's',
+    quit = 'q',
+    exec = '<CR>',
+    scroll_down = '<C-n>',
+    scroll_up = '<C-p>'
+  },
+  code_action_lightbulb = {
+    enable = true,
+  },
+  border_style = 1,
+  max_preview_lines = 10,
+  finder_definition_icon = '  ',
+  finder_reference_icon = '  ',
+  finder_action_keys = {
+    open = 'o',
+    vsplit = 'v',
+    split = 's',
+    quit = 'q',
+    scroll_down = '<C-n>',
+    scroll_up = '<C-p>'
+  }
+})
+
 -- lsp hover
 local function on_cursor_hold()
   if vim.lsp.buf.server_ready() then
@@ -186,10 +228,14 @@ local function on_hover()
   disable_diagnostics_hover()
   vim.lsp.buf.hover()
   vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
-  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, { group = "lspconfig-enable-diagnostics-hover", callback = function()
-    vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
-    enable_diagnostics_hover()
-  end })
+  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" },
+    {
+      group = "lspconfig-enable-diagnostics-hover",
+      callback = function()
+        vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
+        enable_diagnostics_hover()
+      end
+    })
 end
 
 -- QuickFixのショートカットキーを設定
@@ -202,7 +248,7 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':cprev<CR>', { noremap = true })
 
 -- telescope
 local builtin = require('telescope.builtin')
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -232,88 +278,6 @@ require('telescope').setup{
     -- please take a look at the readme of the extension you want to configure
   }
 }
-
--- keymap
-vim.keymap.set('i', 'jj', '<ESC> `^')
-vim.keymap.set('i', '\'', '\'\'<LEFT>')
-vim.keymap.set('i', '\"', '\"\"<LEFT>')
-vim.keymap.set('i', '(', '()<LEFT>')
-vim.keymap.set('i', '{', '{}<LEFT>')
-vim.keymap.set('i', '[', '[]<LEFT>')
-vim.keymap.set('i', '(<C-j>', '<ESC> `^')
-
-vim.keymap.set('n', 'j', 'gj')
-vim.keymap.set('n', 'k', 'gk')
-vim.keymap.set('n', '<C-j><C-j>', ':noh<CR>')
-vim.keymap.set('n', '<ESC><ESC>', ':noh<CR><ESC>')
-vim.keymap.set('n', '<C-e>', ':NERDTreeToggle<CR>', { silent = true })
-vim.keymap.set('n', '==', 'gg=G')
-vim.keymap.set('n', '+', '<C-a')
-vim.keymap.set('n', '-', '<C-x')
-vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
--- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
--- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
--- vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
-vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-vim.keymap.set('n', '<Leader>lk', on_hover)
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>t', '<cmd>FloatermNew<CR>')
-vim.cmd [[nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>]]
-
-vim.keymap.set('v', '<', '<gv')
-vim.keymap.set('v', '>', '>gv|')
-vim.keymap.set('v', '<C-j>', '<ESC>')
-
--- set
-vim.opt.ambiwidth = 'single'
-vim.opt.autoindent = true
-vim.opt.background = 'dark'
-vim.opt.backspace = 'indent,eol,start'
-vim.opt.belloff = 'all'
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.colorcolumn = '80,100'
-vim.opt.completeopt = "menuone,noinsert,noselect"
-vim.opt.cursorline = true
-vim.opt.encoding = 'UTF-8'
-vim.opt.expandtab = true
-vim.opt.hidden = true
-vim.opt.history = 5000
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.laststatus = 2
-vim.opt.lazyredraw = true
-vim.opt.mouse = 'a'
-vim.opt.number = true
-vim.opt.re = 1
-vim.opt.ruler = true
-vim.opt.shiftwidth = 2
-vim.opt.showmatch = true
-vim.opt.showtabline = 2
-vim.opt.smartcase = true
-vim.opt.softtabstop = 2
-vim.opt.splitbelow = true
-vim.opt.swapfile = false
-vim.opt.tabstop = 2
-vim.opt.ttyfast = true
-vim.opt.wildmenu = true
-vim.opt.wrap = true
-
-vim.g.NERDTreeShowHidden = true
-vim.g.indent_guides_enable_on_vim_startup = true
-vim.g.indent_guides_guide_size = true
-vim.g.vim_json_syntax_conceal = false
 
 -- status line
 require('lualine').setup {
@@ -360,4 +324,96 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+-- keymap
+vim.keymap.set('i', 'jj', '<ESC> `^')
+vim.keymap.set('i', '\'', '\'\'<LEFT>')
+vim.keymap.set('i', '\"', '\"\"<LEFT>')
+vim.keymap.set('i', '(', '()<LEFT>')
+vim.keymap.set('i', '{', '{}<LEFT>')
+vim.keymap.set('i', '[', '[]<LEFT>')
+vim.keymap.set('i', '(<C-j>', '<ESC> `^')
+
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('n', '<C-j><C-j>', ':noh<CR>')
+vim.keymap.set('n', '<ESC><ESC>', ':noh<CR><ESC>')
+vim.keymap.set('n', '<C-e>', ':NERDTreeToggle<CR>', { silent = true })
+vim.keymap.set('n', '==', 'gg=G')
+vim.keymap.set('n', '+', '<C-a')
+vim.keymap.set('n', '-', '<C-x')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>t', '<cmd>FloatermNew<CR>')
+vim.cmd [[nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>]]
+
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv|')
+vim.keymap.set('v', '<C-j>', '<ESC>')
+
+-- lsp keymap
+-- vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
+-- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+-- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>',
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>',
+  { noremap = true, silent = true })
+vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+-- vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+-- vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+-- vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
+-- vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+vim.keymap.set('n', '<Leader>lk', on_hover)
+
+-- lsp saga keymap
+vim.api.nvim_set_keymap('n', '<Leader>a', ':Lspsaga code_action<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
+vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
+
+-- set
+vim.opt.ambiwidth = 'single'
+vim.opt.autoindent = true
+vim.opt.background = 'dark'
+vim.opt.backspace = 'indent,eol,start'
+vim.opt.belloff = 'all'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.colorcolumn = '80,100'
+vim.opt.completeopt = "menuone,noinsert,noselect"
+vim.opt.cursorline = true
+vim.opt.encoding = 'UTF-8'
+vim.opt.expandtab = true
+vim.opt.hidden = true
+vim.opt.history = 5000
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.laststatus = 2
+vim.opt.lazyredraw = true
+vim.opt.mouse = 'a'
+vim.opt.number = true
+vim.opt.re = 1
+vim.opt.ruler = true
+vim.opt.shiftwidth = 2
+vim.opt.showmatch = true
+vim.opt.showtabline = 2
+vim.opt.smartcase = true
+vim.opt.softtabstop = 2
+vim.opt.splitbelow = true
+vim.opt.swapfile = false
+vim.opt.tabstop = 2
+vim.opt.ttyfast = true
+vim.opt.wildmenu = true
+vim.opt.wrap = true
+
+vim.g.NERDTreeShowHidden = true
+vim.g.indent_guides_enable_on_vim_startup = true
+vim.g.indent_guides_guide_size = true
+vim.g.vim_json_syntax_conceal = false
 
