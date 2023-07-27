@@ -170,44 +170,44 @@ cmp.setup.filetype('gitcommit', {
 })
 
 -- lsp saga
-require('lspsaga').setup({
-  use_saga_diagnostic_sign = true,
-  error_sign = '',
-  warn_sign = '',
-  hint_sign = '',
-  infor_sign = '',
-  dianostic_header_icon = '   ',
-  code_action_icon = ' ',
-  code_action_prompt = {
-    enable = false,
-    sign = false,
-    virtual_text = true
-  },
-  code_action_keys = {
-    open = 'o',
-    vsplit = 'v',
-    split = 's',
-    quit = 'q',
-    exec = '<CR>',
-    scroll_down = '<C-n>',
-    scroll_up = '<C-p>'
-  },
-  code_action_lightbulb = {
-    enable = true,
-  },
-  border_style = 1,
-  max_preview_lines = 10,
-  finder_definition_icon = '  ',
-  finder_reference_icon = '  ',
-  finder_action_keys = {
-    open = 'o',
-    vsplit = 'v',
-    split = 's',
-    quit = 'q',
-    scroll_down = '<C-n>',
-    scroll_up = '<C-p>'
-  }
-})
+-- require('lspsaga').setup({
+--   use_saga_diagnostic_sign = true,
+--   error_sign = '',
+--   warn_sign = '',
+--   hint_sign = '',
+--   infor_sign = '',
+--   dianostic_header_icon = '   ',
+--   code_action_icon = ' ',
+--   code_action_prompt = {
+--     enable = false,
+--     sign = false,
+--     virtual_text = true
+--   },
+--   code_action_keys = {
+--     open = 'o',
+--     vsplit = 'v',
+--     split = 's',
+--     quit = 'q',
+--     exec = '<CR>',
+--     scroll_down = '<C-n>',
+--     scroll_up = '<C-p>'
+--   },
+--   code_action_lightbulb = {
+--     enable = true,
+--   },
+--   border_style = 1,
+--   max_preview_lines = 10,
+--   finder_definition_icon = '  ',
+--   finder_reference_icon = '  ',
+--   finder_action_keys = {
+--     open = 'o',
+--     vsplit = 'v',
+--     split = 's',
+--     quit = 'q',
+--     scroll_down = '<C-n>',
+--     scroll_up = '<C-p>'
+--   }
+-- j})
 
 -- lsp hover
 local function on_cursor_hold()
@@ -447,4 +447,13 @@ vim.g.NERDTreeShowHidden = true
 vim.g.indent_guides_enable_on_vim_startup = true
 vim.g.indent_guides_guide_size = true
 vim.g.vim_json_syntax_conceal = false
+
+-- Markdownファイルに対する設定
+vim.api.nvim_exec([[
+  augroup markdownSyntax
+    autocmd!
+    autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+    autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  augroup END
+]], false)
 
