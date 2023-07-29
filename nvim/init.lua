@@ -55,6 +55,7 @@ require("packer").startup(function(use)
   use 'voldikss/vim-floaterm'
   use 'nvim-treesitter/nvim-treesitter'
   use 'dinhhuy258/git.nvim'
+  use 'nvim-lua/lsp-status.nvim'
 
   -- lsp
   use 'williamboman/mason.nvim'
@@ -62,20 +63,15 @@ require("packer").startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason-lspconfig.nvim'
   use 'glepnir/lspsaga.nvim'
+  use 'hrsh7th/vim-vsnip-integ'
+
+  -- cmp
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
-  -- use {
-  --   'hrsh7th/vim-vsnip',
-  --   config = function()
-  --     -- vim-vsnipの設定
-  --     vim.g.vsnip_snippet_dir = vim.fn.stdpath('config') .. '/snippets'
-  --   end
-  -- }
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/vim-vsnip-integ'
-  use 'nvim-lua/lsp-status.nvim'
+  use 'hrsh7th/cmp-path'
 
   -- telescope
   use {
@@ -116,21 +112,83 @@ require('mason-lspconfig').setup_handlers({ function(server)
   }
   require('lspconfig')[server].setup(opt)
 end })
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
--- vim.cmd [[
--- set updatetime=500
--- highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
--- highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
--- highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
--- augroup lsp_document_highlight
--- autocmd!
--- autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.document_highlight()
--- autocmd CursorMoved,CursorMovedI * lua vim.lsp.buf.clear_references()
--- augroup END
--- ]]
 
+-- lsp saga
+require('lspsaga').setup({
+  use_saga_diagnostic_sign = false,
+  -- error_sign = '',
+  -- warn_sign = '',
+  -- hint_sign = '',
+  -- infor_sign = '',
+  dianostic_header_icon = '   ',
+  code_action_icon = ' ',
+  code_action_prompt = {
+    enable = true,
+    sign = true,
+    sign_priority = 40,
+    virtual_text = true
+  },
+  code_action_keys = {
+    open = 'o',
+    vsplit = 'v',
+    split = 's',
+    quit = 'q',
+    exec = '<CR>',
+    scroll_down = '<C-n>',
+    scroll_up = '<C-p>'
+  },
+  code_action_lightbulb = {
+    enable = false,
+  },
+  border_style = 1,
+  max_preview_lines = 10,
+  finder_definition_icon = '  ',
+  finder_reference_icon = '  ',
+  finder_action_keys = {
+    open = 'o',
+    vsplit = 'v',
+    split = 's',
+    quit = 'q',
+    scroll_down = '<C-n>',
+    scroll_up = '<C-p>'
+  }
+})
+
+-- lsp hover
+local function on_cursor_hold()
+  if vim.lsp.buf.server_ready() then
+    vim.diagnostic.open_float()
+  end
+end
+local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
+local function enable_diagnostics_hover()
+  vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
+  vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
+end
+local function disable_diagnostics_hover()
+  vim.api.nvim_clear_autocmds({ group = diagnostic_hover_augroup_name })
+end
+vim.api.nvim_set_option('updatetime', 500)
+enable_diagnostics_hover()
+local function on_hover()
+  disable_diagnostics_hover()
+  vim.lsp.buf.hover()
+  vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
+  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" },
+    {
+      group = "lspconfig-enable-diagnostics-hover",
+      callback = function()
+        vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
+        enable_diagnostics_hover()
+      end
+    })
+end
+
+-- cmp
 local cmp = require("cmp")
 cmp.setup.buffer {
   snippet = {
@@ -168,76 +226,6 @@ cmp.setup.filetype('gitcommit', {
     { name = 'buffer' },
   })
 })
-
--- lsp saga
--- require('lspsaga').setup({
---   use_saga_diagnostic_sign = true,
---   error_sign = '',
---   warn_sign = '',
---   hint_sign = '',
---   infor_sign = '',
---   dianostic_header_icon = '   ',
---   code_action_icon = ' ',
---   code_action_prompt = {
---     enable = false,
---     sign = false,
---     virtual_text = true
---   },
---   code_action_keys = {
---     open = 'o',
---     vsplit = 'v',
---     split = 's',
---     quit = 'q',
---     exec = '<CR>',
---     scroll_down = '<C-n>',
---     scroll_up = '<C-p>'
---   },
---   code_action_lightbulb = {
---     enable = true,
---   },
---   border_style = 1,
---   max_preview_lines = 10,
---   finder_definition_icon = '  ',
---   finder_reference_icon = '  ',
---   finder_action_keys = {
---     open = 'o',
---     vsplit = 'v',
---     split = 's',
---     quit = 'q',
---     scroll_down = '<C-n>',
---     scroll_up = '<C-p>'
---   }
--- j})
-
--- lsp hover
-local function on_cursor_hold()
-  if vim.lsp.buf.server_ready() then
-    vim.diagnostic.open_float()
-  end
-end
-local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
-local function enable_diagnostics_hover()
-  vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
-  vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
-end
-local function disable_diagnostics_hover()
-  vim.api.nvim_clear_autocmds({ group = diagnostic_hover_augroup_name })
-end
-vim.api.nvim_set_option('updatetime', 500)
-enable_diagnostics_hover()
-local function on_hover()
-  disable_diagnostics_hover()
-  vim.lsp.buf.hover()
-  vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
-  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" },
-    {
-      group = "lspconfig-enable-diagnostics-hover",
-      callback = function()
-        vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
-        enable_diagnostics_hover()
-      end
-    })
-end
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -303,10 +291,10 @@ require('lualine').setup {
           'nvim_lsp'
         },
         symbols = {
-          error = 'E',
-          warn  = 'W',
-          info  = 'I',
-          hint  = 'H'
+          error = ' ',
+          warn  = ' ',
+          info  = ' ',
+          hint  = ' '
         },
       }
     },
@@ -420,6 +408,7 @@ vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.cursorline = true
 vim.opt.encoding = 'UTF-8'
 vim.opt.expandtab = true
+vim.opt.foldcolumn = "1"
 vim.opt.hidden = true
 vim.opt.history = 5000
 vim.opt.hlsearch = true
@@ -434,6 +423,7 @@ vim.opt.ruler = true
 vim.opt.shiftwidth = 2
 vim.opt.showmatch = true
 vim.opt.showtabline = 2
+vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
