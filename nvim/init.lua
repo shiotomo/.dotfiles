@@ -2,7 +2,7 @@ local vim = vim
 
 vim.cmd.packadd "packer.nvim"
 
-require("packer").startup(function(use)
+require('packer').startup(function(use)
   use 'puremourning/vimspector'
   use 'ConradIrwin/vim-bracketed-paste'
   use 'Shougo/neosnippet-snippets'
@@ -101,7 +101,7 @@ require('mason').setup()
 require('mason-lspconfig').setup_handlers({ function(server)
   local opt = {
     -- -- Function executed when the LSP server startup
-    -- on_attach = function(client, bufnr)
+    -- on_attach = function(_, bufnr)
     --   local opts = { noremap=true, silent=true }
     --   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     --   vim.cmd 'autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)'
@@ -119,11 +119,14 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 -- lsp saga
 require('lspsaga').setup({
+  lightbulb = {
+    sign = false,
+  },
   use_saga_diagnostic_sign = false,
-  -- error_sign = '',
-  -- warn_sign = '',
-  -- hint_sign = '',
-  -- infor_sign = '',
+  error_sign = '',
+  warn_sign = '',
+  hint_sign = '',
+  infor_sign = '',
   dianostic_header_icon = '   ',
   code_action_icon = ' ',
   code_action_prompt = {
@@ -347,9 +350,9 @@ vim.keymap.set('i', '(<C-j>', '<ESC> `^')
 
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
-vim.keymap.set('n', '<C-j><C-j>', ':noh<CR>')
-vim.keymap.set('n', '<ESC><ESC>', ':noh<CR><ESC>')
-vim.keymap.set('n', '<C-e>', ':NERDTreeToggle<CR>', { silent = true })
+vim.keymap.set('n', '<C-j><C-j>', '<cmd>noh<CR>')
+vim.keymap.set('n', '<ESC><ESC>', '<cmd>noh<CR><ESC>')
+vim.keymap.set('n', '<C-e>', '<cmd>NERDTreeToggle<CR>', { silent = true })
 vim.keymap.set('n', '==', 'gg=G')
 vim.keymap.set('n', '+', '<C-a')
 vim.keymap.set('n', '-', '<C-x')
@@ -364,6 +367,8 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv|')
 vim.keymap.set('v', '<C-j>', '<ESC>')
 
+vim.keymap.set({'n', 'v'}, ';;', '<cmd>w<CR>', { silent = true })
+
 -- lsp keymap
 -- vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
@@ -376,25 +381,25 @@ vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_re
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 -- vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+-- vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 -- vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 -- vim.keymap.set('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>')
 -- vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', '<Leader>lk', on_hover)
 
 -- lsp saga keymap
-vim.api.nvim_set_keymap('n', '<Leader>a', ':Lspsaga code_action<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>a', '<cmd>Lspsaga code_action<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
 vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
 
 -- QuickFixのショートカットキーを設定
-vim.api.nvim_set_keymap('n', '<leader>q', ':copen<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>Q', ':cclose<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>copen<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>Q', '<cmd>cclose<CR>', { noremap = true })
 
 -- QuickFixウィンドウでの移動をキーバインドする場合（オプション）
-vim.api.nvim_set_keymap('n', '<C-n>', ':cnext<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-p>', ':cprev<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>cnext<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>cprev<CR>', { noremap = true })
 
 -- set
 vim.opt.ambiwidth = 'single'
