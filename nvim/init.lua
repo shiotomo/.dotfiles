@@ -72,6 +72,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
+  use 'onsails/lspkind.nvim'
 
   -- telescope
   use {
@@ -192,17 +193,18 @@ local function on_hover()
 end
 
 -- cmp
+local lspkind = require 'lspkind'
 local cmp = require("cmp")
-cmp.setup.buffer {
+cmp.setup {
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   sources = {
-    { name = "buffer" },
     { name = "nvim_lsp" },
     { name = "vsnip" },
+    { name = "buffer" },
     { name = "path" },
   },
   mapping = cmp.mapping.preset.insert({
@@ -219,8 +221,135 @@ cmp.setup.buffer {
   },
   options = {
     keyword_length = 1
+  },
+  -- Lspkind(アイコン)を設定
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+    })
   }
 }
+
+-- lspkindの設定
+lspkind.init({
+  -- DEPRECATED (use mode instead): enables text annotations
+  --
+  -- default: true
+  -- with_text = true,
+
+  -- defines how annotations are shown
+  -- default: symbol
+  -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+  mode = 'symbol_text',
+
+  -- default symbol map
+  -- can be either 'default' (requires nerd-fonts font) or
+  -- 'codicons' for codicon preset (requires vscode-codicons font)
+  --
+  -- default: 'default'
+  preset = 'codicons',
+
+  -- override preset symbols
+  --
+  -- default: {}
+  symbol_map = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+  },
+  type = {
+    Array = "",
+    Number = "",
+    String = "",
+    Boolean = "蘒",
+    Object = "",
+  },
+  documents = {
+    File = "",
+    Files = "",
+    Folder = "",
+    OpenFolder = "",
+  },
+  git = {
+    Add = "",
+    Mod = "",
+    Remove = "",
+    Ignore = "",
+    Rename = "",
+    Diff = "",
+    Repo = "",
+  },
+  ui = {
+    Lock = "",
+    Circle = "",
+    BigCircle = "",
+    BigUnfilledCircle = "",
+    Close = "",
+    NewFile = "",
+    Search = "",
+    Lightbulb = "",
+    Project = "",
+    Dashboard = "",
+    History = "",
+    Comment = "",
+    Bug = "",
+    Code = "",
+    Telescope = "",
+    Gear = "",
+    Package = "",
+    List = "",
+    SignIn = "",
+    Check = "",
+    Fire = "",
+    Note = "",
+    BookMark = "",
+    Pencil = "",
+    -- ChevronRight = "",
+    ChevronRight = ">",
+    Table = "",
+    Calendar = "",
+  },
+  diagnostics = {
+    Error = "",
+    Warning = "",
+    Information = "",
+    Question = "",
+    Hint = "",
+  },
+  misc = {
+    Robot = "ﮧ",
+    Squirrel = "",
+    Tag = "",
+    Watch = "",
+  },
+})
+
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
