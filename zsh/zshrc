@@ -18,6 +18,9 @@ if [ "$ZSHRC_PROFILE" != "" ]; then
   zmodload zsh/zprof && zprof > /dev/null
 fi
 
+# === direnv ===
+eval "$(direnv hook zsh)"
+
 # === prompt ===
 PROMPT='%F{cyan}[%n@%m:%f%F{yello}%~%f%F{cyan}]%f%F{white}[%D %*]%f
 %B%(?,%F{green},%F{red})%(!,#,>>)%b '
@@ -55,191 +58,22 @@ bindkey "^I" menu-complete
 cdpath=(~)
 
 # === zstyle ===
-zstyle ':completion:*:default' menu select=2
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
-zstyle ':completion:*:messages' format $YELLOW'%d'$DEFAULT
-zstyle ':completion:*:warnings' format $RED'No matches for:'$YELLOW' %d'$DEFAULT
-zstyle ':completion:*:descriptions' format $YELLOW'completing %B%d%b'$DEFAULT
-zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEFAULT
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-
-# === setopt ===
-setopt always_last_prompt
-setopt auto_cd
-setopt auto_menu
-setopt auto_param_keys
-setopt auto_param_slash
-setopt auto_pushd
-setopt complete_in_word
-setopt extended_glob
-setopt globdots
-setopt interactive_comments
-setopt list_packed
-setopt list_types
-setopt magic_equal_subst
-setopt mark_dirs
-setopt print_eight_bit
-setopt prompt_subst
-setopt append_history
-setopt extended_history
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt EXTENDED_HISTORY
-setopt share_history
-
-# == autolaod ===
-autoload -U compinit ; compinit
-autoload -Uz vcs_info
-autoload -Uz colors
-
-precmd () { vcs_info }
+source "${HOME}/.dotfiles/zsh/zsh.d/zstyle.zsh"
 
 # === alias ===
+source "${HOME}/.dotfiles/zsh/zsh.d/alias.zsh"
 
-# git
-abbrev-alias ga="git add "
-abbrev-alias gb="git branch"
-abbrev-alias gck="git checkout"
-abbrev-alias gch="git branch -a | fzf | xargs git checkout"
-abbrev-alias gcm="git commit -m"
-abbrev-alias git-branch-clean="git branch | grep -v 'master' | xargs git branch -D"
-abbrev-alias gnbf="git checkout -b feature/"
-abbrev-alias gdi="git diff"
-abbrev-alias gpl="git pull"
-abbrev-alias gps="git push"
-abbrev-alias gpsh="git push -u origin HEAD"
-abbrev-alias gr="git reset"
-abbrev-alias grb="git rebase -i HEAD~"
-abbrev-alias grbh="git rebase -i HEAD~"
-abbrev-alias grhard="git reset --hard"
-abbrev-alias gs="git status"
+# === setopt ===
+source "${HOME}/.dotfiles/zsh/zsh.d/setopt.zsh"
 
-# tig
-abbrev-alias tigs='tig status'
-abbrev-alias tigb='tig branch'
-
-# common
-alias ....='cd ../../..'
-alias ...='cd ../..'
-alias rm='rm -i'
-alias cp='cp -i'
-alias es='exec $SHELL'
-alias q='exit'
-alias lip='localip'
-alias back='cd -1'
-alias bcd='cd -1'
-
-# Vim
-if type nvim > /dev/null; then
-  alias vim='nvim'
-fi
-
-alias v='vim'
-alias vm='vim'
-alias vum='vim'
-
-# tmux
-alias tmux='tmux -2'
-alias t='tmux -2'
-
-# Docker
-alias dcom='docker-compose'
-
-# Vagrant
-alias vu='vagrant up'
-alias vs='vagrant ssh'
-alias vr='vagrant reload'
-alias vh='vagrant halt'
-alias vp='vagrant provision'
-alias vd='vagrant destroy'
-
-# Ruby
-alias be='bundle exec'
-alias rs='bundle exec rails s -b=0.0.0.0'
-alias rc='bundle exec rails c'
-alias rr='bundle exec rails routes'
-alias bi='bundle install'
-alias sinatra='bundle exec ruby app.rb -o0.0.0.0'
-
-case ${OSTYPE} in
-  darwin*)
-    # MacOS用の設定
-    if type exa > /dev/null; then
-      alias ls='exa --group-directories-first --icons'
-    fi
-
-    export EXA_COLORS='da=1;34:gm=1;34:di=1;36'
-
-    alias l='ls -a'
-    alias ll='ls -l --git'
-    alias la='ls -a -G'
-    alias tree='exa -T --icons'
-    alias clip="pbcopy"
-    alias tomcat-start='/usr/local/tomcat/bin/startup.sh'  #起動コマンド
-    alias tomcat-shutdown='/usr/local/tomcat/bin/shutdown.sh'  #終了コマンド
-    alias tomcat-version='/usr/local/tomcat/bin/version.sh' #バージョンコマンド
-    alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
-    # asdf
-    . $(brew --prefix asdf)/libexec/asdf.sh
-    . ~/.asdf/plugins/java/set-java-home.zsh
-    ;;
-  linux*)
-    # Linux用の設定
-    alias la='ls -A --color=auto'
-    alias ll='ls -alF --color=auto'
-    alias l='ls -CF --color=auto'
-    alias ls='ls --color=auto'
-    alias ncpu='cat /proc/cpuinfo | grep processor | wc -l'
-    # asdf
-    . $HOME/.asdf/asdf.sh
-    fpath=(${ASDF_DIR}/completions $fpath)
-    ;;
-  cygwin*)
-    # cygwin用の設定
-    alias la='ls -A --color=auto'
-    alias ll='ls -alF --color=auto'
-    alias l='ls -CF --color=auto'
-    alias ls='ls --color=auto'
-
-    alias csc='/cygdrive/c/WINDOWS/MICROSOFT.NET/Framework/v4.0.30319/csc'
-    alias python='python3'
-    alias python_x='run xwin-multiwindow && export DISPLAY=:0.0'
-    alias open='cygstart'
-    ;;
-esac
-
-# === direnv ===
-eval "$(direnv hook zsh)"
+# == autolaod ===
+source "${HOME}/.dotfiles/zsh/zsh.d/autoload.zsh"
 
 # === export ===
-export LANG=ja_JP.UTF-8
-export LSCOLORS=bxfxcxdxbxegedabagacad
-export PATH="$HOME/bin:$PATH"
-export PATH="$PATH:/usr/local/share/git-core/contrib/diff-highlight"
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-if type nvim > /dev/null; then
-  export EDITOR='nvim'
-  export VISUAL='nvim'
-else
-  export EDITOR='vim'
-  export VISUAL='vim'
-fi
+source "${HOME}/.dotfiles/zsh/zsh.d/export.zsh"
 
 # === history ===
-HISTFILE=${HOME}/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000000
+source "${HOME}/.dotfiles/zsh/zsh.d/history.zsh"
 
 # === fzfの設定 ===
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
