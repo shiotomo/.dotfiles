@@ -20,6 +20,7 @@ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/.dotfiles/nvim/init.lua ~/.config/nvim/init.lua
+ln -s ~/.dotfiles/nvim/lua ~/.config/nvim
 ln -s ~/.dotfiles/vim/vimshrc ~/.vimshrc
 ln -s ~/.dotfiles/inputrc ~/.inputrc
 ln -s ~/.dotfiles/gemrc ~/.gemrc
