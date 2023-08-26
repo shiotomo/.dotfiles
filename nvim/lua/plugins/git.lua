@@ -27,3 +27,6 @@ require('git').setup({
   -- Default target branch when create a pull request
   -- target_branch = "master",
 })
+
+-- git-conflict
+require('git-conflict').setup()

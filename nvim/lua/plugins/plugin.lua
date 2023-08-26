@@ -54,6 +54,7 @@ require('packer').startup(function(use)
   use 'sindrets/diffview.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'dinhhuy258/git.nvim'
+  use 'akinsho/git-conflict.nvim'
   use 'nvim-lua/lsp-status.nvim'
 
   -- lsp
