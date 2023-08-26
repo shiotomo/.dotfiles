@@ -50,7 +50,8 @@ require('packer').startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-  use 'voldikss/vim-floaterm'
+  use 'akinsho/toggleterm.nvim'
+  use 'sindrets/diffview.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'dinhhuy258/git.nvim'
   use 'nvim-lua/lsp-status.nvim'

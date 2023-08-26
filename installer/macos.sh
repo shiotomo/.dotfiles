@@ -56,6 +56,7 @@ brew install jemalloc
 brew install jgradle
 brew install jpeg
 brew install jpegoptim
+brew install lagygit
 brew install libevent
 brew install libffi
 brew install libidn2
