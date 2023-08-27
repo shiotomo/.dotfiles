@@ -1,5 +1,8 @@
+require('leader')
+require('plugins')
 require('keymap')
 require('options')
+require('language')
 
 -- ファイルを開いた時に、カーソルの場所を復元する
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
