@@ -1,9 +1,9 @@
 vim.keymap.set('i', 'jj', '<ESC> `^')
 vim.keymap.set('i', '\'', '\'\'<LEFT>')
 vim.keymap.set('i', '\"', '\"\"<LEFT>')
-vim.keymap.set('i', '(', '()<LEFT>')
-vim.keymap.set('i', '{', '{}<LEFT>')
-vim.keymap.set('i', '[', '[]<LEFT>')
+-- vim.keymap.set('i', '(', '()<LEFT>')
+-- vim.keymap.set('i', '{', '{}<LEFT>')
+-- vim.keymap.set('i', '[', '[]<LEFT>')
 vim.keymap.set('i', '(<C-j>', '<ESC> `^')
 
 vim.keymap.set('n', 'j', 'gj')
