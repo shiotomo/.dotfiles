@@ -28,6 +28,7 @@ ln -s ~/.dotfiles/eclipse/vrapperrc ~/.vrapperrc
 ln -s ~/.dotfiles/idea/ideavimrc ~/.ideavimrc
 ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 ln -s ~/.dotfiles/git/tigrc ~/.tigrc
+ln -s ~/.dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
 
 # Vim setting
 mkdir ~/.dotfiles/vim/bundle
