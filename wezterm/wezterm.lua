@@ -13,11 +13,14 @@ config.color_scheme = 'Tokyo Night'
 config.window_background_opacity = 0.85
 
 -- fontの設定
-config.font = wezterm.font("JetBrains Mono", {weight="Bold", stretch="Normal", style="Normal"}) -- <built-in>, BuiltIn
-config.font_size = 13
+-- config.font = wezterm.font("JetBrains Mono", {weight="Bold", stretch="Normal", style="Normal"}) -- <built-in>, BuiltIn
 -- config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Regular", stretch="Normal", style="Normal"})
+config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Bold", stretch="Normal", style="Normal"})
+config.font_size = 12.5
 
--- screen設定
+-- window設定
+config.initial_rows = 50
+config.initial_cols = 200
 
 -- フォントサイズ変更時にウィンドウサイズも変更されないようにする。
 config.adjust_window_size_when_changing_font_size = false
