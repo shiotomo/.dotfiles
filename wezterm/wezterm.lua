@@ -7,9 +7,60 @@ if wezterm.config_builder then
 end
 
 -- カラースキームの設定
--- config.color_scheme = 'AdventureTime'
 config.color_scheme = 'Tokyo Night'
+
+-- 背景透過設定
 config.window_background_opacity = 0.85
+
+-- fontの設定
+config.font = wezterm.font("JetBrains Mono", {weight="Bold", stretch="Normal", style="Normal"}) -- <built-in>, BuiltIn
+config.font_size = 13
+-- config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Regular", stretch="Normal", style="Normal"})
+
+-- screen設定
+
+-- フォントサイズ変更時にウィンドウサイズも変更されないようにする。
+config.adjust_window_size_when_changing_font_size = false
+
+-- ショートカットキー設定
+local act = wezterm.action
+
+config.keys = {
+    -- Ctrl+Shift+dで新しいペインを作成(画面を分割)
+  {
+    key = 'p',
+    mods = 'SHIFT|ALT',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  -- Ctrl+左矢印でカーソルを前の単語に移動
+  {
+    key = "LeftArrow",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "b",
+      mods = "META",
+    },
+  },
+  -- Ctrl+右矢印でカーソルを次の単語に移動
+  {
+    key = "RightArrow",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "f",
+      mods = "META",
+    },
+  },
+  -- Ctrl+Backspaceで前の単語を削除
+  {
+    key = "Backspace",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "w",
+      mods = "CTRL",
+    },
+  },
+}
+
 
 return config
 
