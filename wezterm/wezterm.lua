@@ -6,6 +6,9 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- GPU設定
+config.front_end = "WebGpu"
+
 -- カラースキームの設定
 config.color_scheme = 'Tokyo Night'
 
@@ -14,8 +17,8 @@ config.window_background_opacity = 0.85
 
 -- fontの設定
 -- config.font = wezterm.font("JetBrains Mono", {weight="Bold", stretch="Normal", style="Normal"}) -- <built-in>, BuiltIn
--- config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Regular", stretch="Normal", style="Normal"})
-config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Bold", stretch="Normal", style="Normal"})
+config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Regular", stretch="Normal", style="Normal"})
+-- config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Bold", stretch="Normal", style="Normal"})
 config.font_size = 12.5
 
 -- window設定
@@ -28,8 +31,10 @@ config.adjust_window_size_when_changing_font_size = false
 -- ショートカットキー設定
 local act = wezterm.action
 
+config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
+
 config.keys = {
-    -- Ctrl+Shift+dで新しいペインを作成(画面を分割)
+  -- Ctrl+Shift+dで新しいペインを作成(画面を分割)
   {
     key = 'p',
     mods = 'SHIFT|ALT',
@@ -64,6 +69,7 @@ config.keys = {
   },
 }
 
+-- タブの設定
 
 return config
 
