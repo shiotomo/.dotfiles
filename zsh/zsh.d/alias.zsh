@@ -68,13 +68,13 @@ alias sinatra='bundle exec ruby app.rb -o0.0.0.0'
 case ${OSTYPE} in
   darwin*)
     # MacOS用の設定
-    if type exa > /dev/null; then
-      alias ls='exa --group-directories-first --icons'
+    if type eza > /dev/null; then
+      alias ls='eza --group-directories-first --icons'
     fi
     alias l='ls -a'
     alias ll='ls -l --git'
     alias la='ls -a -G'
-    alias tree='exa -T --icons'
+    alias tree='eza -T --icons'
     alias clip="pbcopy"
     alias tomcat-start='/usr/local/tomcat/bin/startup.sh'  #起動コマンド
     alias tomcat-shutdown='/usr/local/tomcat/bin/shutdown.sh'  #終了コマンド
