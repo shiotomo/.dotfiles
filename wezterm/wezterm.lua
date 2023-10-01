@@ -15,6 +15,19 @@ config.color_scheme = 'Tokyo Night'
 -- 背景透過設定
 config.window_background_opacity = 0.85
 
+-- config.window_frame = {
+--   inactive_titlebar_bg = '#353535',
+--   active_titlebar_bg = '#2b2042',
+--   inactive_titlebar_fg = '#cccccc',
+--   active_titlebar_fg = '#ffffff',
+--   inactive_titlebar_border_bottom = '#2b2042',
+--   active_titlebar_border_bottom = '#2b2042',
+--   button_fg = '#cccccc',
+--   button_bg = '#2b2042',
+--   button_hover_fg = '#ffffff',
+--   button_hover_bg = '#3b3052',
+-- }
+
 -- fontの設定
 -- config.font = wezterm.font("JetBrains Mono", {weight="Bold", stretch="Normal", style="Normal"}) -- <built-in>, BuiltIn
 config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Regular", stretch="Normal", style="Normal"})

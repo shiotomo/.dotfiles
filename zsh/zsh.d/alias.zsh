@@ -45,6 +45,7 @@ alias vum='vim'
 # tmux
 alias tmux='tmux -2'
 alias t='tmux -2'
+alias treload='tmux source-file ~/.tmux.conf'
 
 # Docker
 alias dcom='docker-compose'
