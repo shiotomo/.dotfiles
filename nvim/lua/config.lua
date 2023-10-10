@@ -1,4 +1,5 @@
 require('leader')
+require('command')
 require('plugins')
 require('keymap')
 require('options')
