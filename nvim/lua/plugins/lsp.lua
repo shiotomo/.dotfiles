@@ -283,4 +283,4 @@ vim.api.nvim_set_keymap('n', '<Leader>a', '<cmd>Lspsaga code_action<CR>', { nore
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
 vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
-
+-- vim.keymap.set('n', '<leader>t', '<cmd>Lspsaga term_toggle<CR>')
