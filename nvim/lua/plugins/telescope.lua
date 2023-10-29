@@ -1,7 +1,3 @@
--- nerdtree
-vim.g.NERDTreeShowHidden = true
-vim.keymap.set('n', '<C-e>', '<cmd>NERDTreeToggle<CR>', { silent = true })
-
 -- telescope
 local builtin = require('telescope.builtin')
 require('telescope').setup {
