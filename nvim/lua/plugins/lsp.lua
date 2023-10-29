@@ -1,5 +1,27 @@
--- lsp
+-- mason
 require('mason').setup()
+
+require('mason-lspconfig').setup {
+	ensure_installed = {
+			'lua_ls',
+			'bashls',
+			'clangd',
+			'cmake',
+			'cssls',
+			'dockerls',
+			'docker_compose_language_service',
+			'gopls',
+			'html',
+			'jsonls',
+			'tsserver',
+			'marksman',
+			'pylsp',
+      'solargraph',
+      'kotlin_language_server',
+      -- 'java_language_server',
+	}
+}
+
 require('mason-lspconfig').setup_handlers({ function(server)
   local opt = {
     -- -- Function executed when the LSP server startup
@@ -15,7 +37,8 @@ require('mason-lspconfig').setup_handlers({ function(server)
   require('lspconfig')[server].setup(opt)
 end })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+-- lsp
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
 
