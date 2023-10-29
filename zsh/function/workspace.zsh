@@ -5,8 +5,9 @@ ws() {
       cd $dir
       ;;
     add*)
-      pwd >> $HOME/.config/zsh/workspace.list
-      echo "workspace add" `pwd`
+      local full_path=$(dirname `pwd`)/$(basename `pwd`)
+      echo $full_path >> $HOME/.config/zsh/workspace.list
+      echo "workspace add ${full_path}"
       ;;
     edit*)
       $EDITOR $HOME/.config/zsh/workspace.list
