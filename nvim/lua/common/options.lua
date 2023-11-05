@@ -1,5 +1,6 @@
 vim.opt.ambiwidth = 'single'
 vim.opt.autoindent = true
+vim.opt.autoread = true
 vim.opt.background = 'dark'
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.belloff = 'all'
@@ -33,4 +34,3 @@ vim.opt.tabstop = 2
 vim.opt.ttyfast = true
 vim.opt.wildmenu = true
 vim.opt.wrap = true
-

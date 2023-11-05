@@ -18,6 +18,9 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv|')
 vim.keymap.set('v', '<C-j>', '<ESC>')
 
+vim.keymap.set('n', '<leader>|', '<cmd>vsplit<CR>', { silent = true })
+vim.keymap.set('n', '<leader>-', '<cmd>split<CR>', { silent = true })
+
 vim.cmd [[nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>]]
 
 vim.keymap.set({'n', 'v'}, ';;', '<cmd>w<CR>', { silent = true })
@@ -29,4 +32,3 @@ vim.api.nvim_set_keymap('n', '<leader>Q', '<cmd>cclose<CR>', { noremap = true })
 -- QuickFixウィンドウでの移動をキーバインドする場合（オプション）
 vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>cnext<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>cprev<CR>', { noremap = true })
-
