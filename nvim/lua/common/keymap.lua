@@ -32,3 +32,9 @@ vim.api.nvim_set_keymap('n', '<leader>Q', '<cmd>cclose<CR>', { noremap = true })
 -- QuickFixウィンドウでの移動をキーバインドする場合（オプション）
 vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>cnext<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>cprev<CR>', { noremap = true })
+
+-- window
+vim.keymap.set('n', '<leader>h', '<C-w><C-h>', { silent = true })
+vim.keymap.set('n', '<leader>j', '<C-w><C-j>', { silent = true })
+vim.keymap.set('n', '<leader>k', '<C-w><C-k>', { silent = true })
+vim.keymap.set('n', '<leader>l', '<C-w><C-l>', { silent = true })
