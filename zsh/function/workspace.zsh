@@ -16,8 +16,8 @@ ws() {
       local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
       local dir_name=`basename ${dir}`
       local tmux_session_name=`(basename $dir | sed -e 's/^\./_/g')`
-      RESULT=(`tmux ls | grep -E "^$tmux_session_name:"`)
-      if [ -n "$TMUX" ] && [ -n "$RESULT" ]; then
+      local result=(`tmux ls | grep -E "^$tmux_session_name:"`)
+      if [ -n "$TMUX" ] && [ -n "$result" ]; then
         tmux switch -t $tmux_session_name
       elif [ -n "$TMUX" ]; then
         echo "以下のコマンドを tmux detach した後実行してください。"
@@ -31,6 +31,14 @@ ws() {
       else
         cd $dir
         tmux new-session -s $tmux_session_name
+      fi
+      ;;
+    switch*)
+      local session=(`tmux ls | awk '{sub(":.*", ""); print $0;}' | fzf`)
+      if [ -n "$TMUX" ]; then
+        tmux switch -t $session
+      else
+        tmux a -t $session
       fi
       ;;
     *)
