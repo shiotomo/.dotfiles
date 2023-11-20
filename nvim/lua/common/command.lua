@@ -16,3 +16,5 @@ end, {
   range = 2,
 } )
 
+vim.api.nvim_create_user_command("PutMessage", "put =execute('messages')", {})
+

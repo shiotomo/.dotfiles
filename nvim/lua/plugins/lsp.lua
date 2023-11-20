@@ -18,6 +18,7 @@ require('mason-lspconfig').setup {
 			'pylsp',
       'solargraph',
       'kotlin_language_server',
+      -- 'js-debug-adapter',
       -- 'java_language_server',
 	}
 }

@@ -47,7 +47,7 @@ local act = wezterm.action
 config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
 
 config.keys = {
-  -- Ctrl+Shift+dで新しいペインを作成(画面を分割)
+  -- Shift+Alt+pで新しいペインを作成(画面を分割)
   {
     key = 'p',
     mods = 'SHIFT|ALT',

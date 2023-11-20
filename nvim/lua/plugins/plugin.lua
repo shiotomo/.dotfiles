@@ -84,4 +84,20 @@ require('packer').startup(function(use)
     'renerocksai/telekasten.nvim',
     requires = {'nvim-telescope/telescope.nvim'}
   }
+
+  -- dap
+  use 'mfussenegger/nvim-dap'
+  use 'jay-babu/mason-nvim-dap.nvim'
+  use 'rcarriga/nvim-dap-ui'
+  use 'theHamsta/nvim-dap-virtual-text'
+  -- use 'microsoft/vscode-js-debug'
+  -- use 'mxsdev/nvim-dap-vscode-js'
+  use { 'mxsdev/nvim-dap-vscode-js', requires = {'mfussenegger/nvim-dap'} }
+  use {
+    'microsoft/vscode-js-debug',
+    -- opt = true,
+    version = "v1.74.1",
+    pin = true,
+    run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
+  }
 end)
