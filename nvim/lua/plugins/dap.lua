@@ -1,18 +1,25 @@
 -- dapui
-local dapui = require("dapui").setup()
+local dapui = require("dapui").setup({
+  icons = {
+    collapsed = '▾',
+    expanded = '▸',
+    breakpoint = '',
+    ... -- 他のアイコンに対する設定も追加できます
+  },
+})
 
 -- dap
 local dap = require("dap")
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open({})
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close({})
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close({})
-end
+-- dap.listeners.after.event_initialized["dapui_config"] = function()
+--   dapui.open({})
+-- end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--   dapui.close({})
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close({})
+-- end
 
 -- mason-dap
 require("mason-nvim-dap").setup({

@@ -2,8 +2,9 @@
 
 require("toggleterm").setup()
 
-vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=float<CR>')
--- vim.keymap.set('n', '<leader>h', '<cmd>ToggleTerm direction=horizontal<CR>')
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=float<CR>')
+vim.keymap.set('n', '<leader>th', '<cmd>ToggleTerm direction=horizontal<CR>')
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm direction=tab<CR>')
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 
 vim.cmd("command! FloatT ToggleTerm direction=float")

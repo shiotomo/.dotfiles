@@ -57,6 +57,7 @@ require('packer').startup(function(use)
   use 'akinsho/git-conflict.nvim'
   use 'nvim-lua/lsp-status.nvim'
   use 'hrsh7th/nvim-insx'
+  use 'folke/neodev.nvim'
 
   -- lsp
   use 'williamboman/mason.nvim'
