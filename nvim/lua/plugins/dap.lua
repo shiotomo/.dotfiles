@@ -55,7 +55,7 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
       {
         type = "pwa-node",
         request = "node launch",
-        name = "Launch file",
+        name = "launch file",
         program = "${file}",
         sourceMaps = true,
         cwd = "${workspaceFolder}",
@@ -63,7 +63,7 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
       {
         type = "pwa-node",
         request = "launch",
-        name = "ts-node launch",
+        name = "launch ts-node",
         program = "${file}",
         rootPath = '${workspaceFolder}',
         skipFiles = { "<node_internals>/**","node_modules/**" },
@@ -74,7 +74,7 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
       {
         type = "pwa-node",
         request = "launch",
-        name = "global ts-node launch",
+        name = "launch global ts-node",
         program = "${file}",
         rootPath = '${workspaceFolder}',
         sourceMaps = true,
@@ -84,7 +84,7 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
       {
         type = "pwa-node",
         request = "attach",
-        name = "Attach",
+        name = "attach",
         processId = require("dap.utils").pick_process,
         sourceMaps = true,
         cwd = "${workspaceFolder}",
