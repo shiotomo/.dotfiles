@@ -18,3 +18,4 @@ vim.g.vim_json_syntax_conceal = false
 require('plugins')
 require('common')
 require('language')
+local _, _ = pcall(require, 'extension')

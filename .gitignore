@@ -4,6 +4,9 @@ tmp/*
 !tmp/.keep
 zsh/extension/*
 !zsh/extension/.keep
+nvim/lua/extension/*
+!nvim/lua/extension/.keep
+
 
 ### Vim ###
 # Swap
