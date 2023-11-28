@@ -30,3 +30,6 @@ require('git').setup({
 
 -- git-conflict
 require('git-conflict').setup()
+
+-- git-signs
+require('gitsigns').setup()
