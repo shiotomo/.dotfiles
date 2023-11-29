@@ -35,6 +35,7 @@ sudo apt-get -y install netdiscover
 sudo apt-get -y install tree
 sudo apt-get -y install direnv
 sudo apt-get -y install language-pack-ja
+sudo apt-get -y install vim
 
 sudo update-locale LANG=ja_JP.UTF-8
 
@@ -45,31 +46,31 @@ sudo update-locale LANG=ja_JP.UTF-8
 pip3 install neovim
 
 # heroku
-wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+# wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 ## vim
-sudo apt-cache -i depends vim
-sudo apt-get remove --purge vim vim-runtime vim-common
-sudo rm -rf /usr/local/share/vim
-sudo rm /usr/local/bin/vim
-
-sudo apt-get install -y git build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev
-
-cd /opt/
-sudo git clone https://github.com/vim/vim
-cd vim/
-
-sudo ./configure --with-features=huge --enable-multibyte --enable-luainterp=dynamic --enable-gpm --enable-cscope --enable-fontset --enable-fail-if-missing --prefix=/usr/local --enable-pythoninterp=dynamic --enable-lpython3interp=dynamic --enable-rubyinterp=dynamic --enable-python3interp
-
-sudo make
-sudo make install
+# sudo apt-cache -i depends vim
+# sudo apt-get remove --purge vim vim-runtime vim-common
+# sudo rm -rf /usr/local/share/vim
+# sudo rm /usr/local/bin/vim
+# 
+# sudo apt-get install -y git build-essential ncurses-dev lua5.2 lua5.2-dev luajit python-dev python3-dev ruby-dev
+# 
+# cd /opt/
+# sudo git clone https://github.com/vim/vim
+# cd vim/
+# 
+# sudo ./configure --with-features=huge --enable-multibyte --enable-luainterp=dynamic --enable-gpm --enable-cscope --enable-fontset --enable-fail-if-missing --prefix=/usr/local --enable-pythoninterp=dynamic --enable-lpython3interp=dynamic --enable-rubyinterp=dynamic --enable-python3interp
+# 
+# sudo make
+# sudo make install
 
 # setting timezone
 sudo rm /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 
 docker install
 sudo apt-get remove -y docker docker-engine docker.io
