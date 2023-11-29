@@ -38,6 +38,7 @@ if type nvim > /dev/null; then
   alias vim='nvim'
 fi
 
+alias vi='vim'
 alias v='vim'
 alias vm='vim'
 alias vum='vim'
