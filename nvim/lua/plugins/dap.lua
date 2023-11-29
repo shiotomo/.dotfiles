@@ -1,5 +1,5 @@
 -- dapui
-local dapui = require("dapui").setup({
+require("dapui").setup({
   icons = {
     collapsed = '▾',
     expanded = '▸',
@@ -21,7 +21,6 @@ require("mason-nvim-dap").setup({
 })
 
 -- dap keymap
-
 vim.keymap.set('n', '<leader>d', '<cmd>lua require("dapui").toggle()<CR>')
 vim.keymap.set('n', '<leader>b', '<cmd>DapToggleBreakpoint<CR>')
 vim.keymap.set('n', '<F5>', ':DapContinue<CR>', { silent = true })

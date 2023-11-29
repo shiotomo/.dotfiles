@@ -1,4 +1,4 @@
-require('plugins.plugin')
+require('plugins.lazy')
 require('plugins.lsp')
 require('plugins.scheme')
 require('plugins.status_line')

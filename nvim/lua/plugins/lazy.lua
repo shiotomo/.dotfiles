@@ -1,0 +1,258 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  {
+    'puremourning/vimspector'
+  },
+  {
+    'ConradIrwin/vim-bracketed-paste'
+  },
+  {
+    'Shougo/neosnippet-snippets'
+  },
+  {
+    'Shougo/neosnippet.vim'
+  },
+  {
+    'Shougo/unite.vim'
+  },
+  {
+    'Shougo/vimproc.vim'
+  },
+  {
+    'Shougo/vimshell.vim'
+  },
+  {
+    'Yggdroot/indentLine'
+  },
+  {
+    'aklt/plantuml-syntax'
+  },
+  {
+    'altercation/vim-colors-solarized'
+  },
+  {
+    'aonemd/kuroi.vim'
+  },
+  {
+    'basyura/unite-rails'
+  },
+  {
+    'bronson/vim-trailing-whitespace'
+  },
+  {
+    'chr4/nginx.vim'
+  },
+  {
+    'derekwyatt/vim-scala'
+  },
+  {
+    'elzr/vim-json'
+  },
+  {
+    'hail2u/vim-css3-syntax'
+  },
+  {
+    'itchyny/calendar.vim'
+  },
+  {
+    'itchyny/vim-gitbranch'
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'kyazdani42/nvim-web-devicons',
+      opt = true
+    }
+  },
+  {
+    'jelera/vim-javascript-syntax'
+  },
+  {
+    'junegunn/fzf.vim'
+  },
+  {
+    'kannokanno/previm'
+  },
+  {
+    'kchmck/vim-coffee-script'
+  },
+  {
+    'leafgarland/typescript-vim'
+  },
+  {
+    'mattn/emmet-vim'
+  },
+  {
+    'maxmellon/vim-jsx-pretty'
+  },
+  {
+    'mbbill/undotree'
+  },
+  {
+    'othree/es.next.syntax.vim'
+  },
+  {
+    'othree/html5.vim'
+  },
+  {
+    'scrooloose/nerdtree'
+  },
+  {
+    'scrooloose/syntastic'
+  },
+  {
+    'slim-template/vim-slim'
+  },
+  {
+    'thinca/vim-quickrun'
+  },
+  {
+    'tomtom/tcomment_vim'
+  },
+  {
+    'tpope/vim-fugitive'
+  },
+  {
+    'tpope/vim-surround'
+  },
+  {
+    'tyru/open-browser.vim'
+  },
+  {
+    'udalov/kotlin-vim'
+  },
+  {
+    'w0ng/vim-hybrid'
+  },
+  {
+    'ryanoasis/vim-devicons'
+  },
+  {
+    'folke/tokyonight.nvim'
+  },
+  {
+    'akinsho/toggleterm.nvim'
+  },
+  {
+    'sindrets/diffview.nvim'
+  },
+  {
+    'nvim-treesitter/nvim-treesitter'
+  },
+  {
+    'dinhhuy258/git.nvim'
+  },
+  {
+    'akinsho/git-conflict.nvim'
+  },
+  {
+    'lewis6991/gitsigns.nvim'
+  },
+  {
+    'nvim-lua/lsp-status.nvim'
+  },
+  {
+    'hrsh7th/nvim-insx'
+  },
+  {
+    'folke/neodev.nvim'
+  },
+
+  -- lsp
+  {
+    'williamboman/mason.nvim'
+  },
+  {
+    'wbthomason/packer.nvim'
+  },
+  {
+    'neovim/nvim-lspconfig'
+  },
+  {
+    'williamboman/mason-lspconfig.nvim'
+  },
+  {
+    'glepnir/lspsaga.nvim'
+  },
+  {
+    'hrsh7th/vim-vsnip-integ'
+  },
+
+  -- cmp
+  {
+    'hrsh7th/nvim-cmp'
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp'
+  },
+  {
+    'hrsh7th/vim-vsnip'
+  },
+  {
+    'hrsh7th/cmp-vsnip'
+  },
+  {
+    'hrsh7th/cmp-buffer'
+  },
+  {
+    'hrsh7th/cmp-path'
+  },
+  {
+    'onsails/lspkind.nvim'
+  },
+
+  -- telescope
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    }
+  },
+  {
+    'renerocksai/telekasten.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim'
+    }
+  },
+
+  -- dap
+  {
+    'mfussenegger/nvim-dap'
+  },
+  {
+    'jay-babu/mason-nvim-dap.nvim'
+  },
+  {
+    'rcarriga/nvim-dap-ui'
+  },
+  {
+    'theHamsta/nvim-dap-virtual-text'
+  },
+  --  'microsoft/vscode-js-debug'
+  --  'mxsdev/nvim-dap-vscode-js'
+  {
+    'mxsdev/nvim-dap-vscode-js',
+    dependencies = {
+      'mfussenegger/nvim-dap'
+    }
+  },
+  {
+    'microsoft/vscode-js-debug',
+    -- opt = true,
+    version = "v1.74.1",
+    pin = true,
+    run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
+  }
+})
