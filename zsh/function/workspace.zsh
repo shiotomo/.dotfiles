@@ -1,18 +1,18 @@
 ws() {
   case $1 in
-    move*)
+    move)
       local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
       cd $dir
       ;;
-    add*)
+    add)
       local full_path=$(dirname `pwd`)/$(basename `pwd`)
       echo $full_path >> $HOME/.config/zsh/workspace.list
       echo "workspace add ${full_path}"
       ;;
-    edit*)
+    edit)
       $EDITOR $HOME/.config/zsh/workspace.list
       ;;
-    tmux*)
+    tmux|t)
       local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
       local dir_name=`basename ${dir}`
       local tmux_session_name=`(basename $dir | sed -e 's/^\./_/g')`
@@ -33,11 +33,11 @@ ws() {
         tmux new-session -s $tmux_session_name
       fi
       ;;
-    current*)
+    current)
       local tmux_session_name=`(basename $(pwd) | sed -e 's/^\./_/g')`
       tmux new-session -s $tmux_session_name
       ;;
-    switch*)
+    switch)
       local session=(`tmux ls | awk '{sub(":.*", ""); print $0;}' | fzf`)
       if [ -n "$TMUX" ]; then
         tmux switch -t $session
