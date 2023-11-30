@@ -33,6 +33,10 @@ ws() {
         tmux new-session -s $tmux_session_name
       fi
       ;;
+    current*)
+      local tmux_session_name=`(basename $(pwd) | sed -e 's/^\./_/g')`
+      tmux new-session -s $tmux_session_name
+      ;;
     switch*)
       local session=(`tmux ls | awk '{sub(":.*", ""); print $0;}' | fzf`)
       if [ -n "$TMUX" ]; then
