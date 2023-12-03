@@ -45,6 +45,12 @@ ws() {
         tmux a -t $session
       fi
       ;;
+    open)
+      local dir=$2
+      local dir_name=`basename ${dir}`
+      cd $dir_name
+      tmux new-session -s $dir_name
+      ;;
     *)
       echo "ws command not found option."
   esac
