@@ -13,9 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    'puremourning/vimspector'
-  },
-  {
     'ConradIrwin/vim-bracketed-paste'
   },
   {
@@ -25,29 +22,14 @@ require("lazy").setup({
     'Shougo/neosnippet.vim'
   },
   {
-    'Shougo/unite.vim'
-  },
-  {
-    'Shougo/vimproc.vim'
-  },
-  {
-    'Shougo/vimshell.vim'
-  },
-  {
     'Yggdroot/indentLine'
   },
   {
     'aklt/plantuml-syntax'
   },
-  {
-    'altercation/vim-colors-solarized'
-  },
-  {
-    'aonemd/kuroi.vim'
-  },
-  {
-    'basyura/unite-rails'
-  },
+  -- {
+  --   'aonemd/kuroi.vim'
+  -- },
   {
     'bronson/vim-trailing-whitespace'
   },
@@ -86,9 +68,6 @@ require("lazy").setup({
     'kannokanno/previm'
   },
   {
-    'kchmck/vim-coffee-script'
-  },
-  {
     'leafgarland/typescript-vim'
   },
   {
@@ -113,15 +92,6 @@ require("lazy").setup({
     'scrooloose/syntastic'
   },
   {
-    'slim-template/vim-slim'
-  },
-  {
-    'thinca/vim-quickrun'
-  },
-  {
-    'tomtom/tcomment_vim'
-  },
-  {
     'tpope/vim-fugitive'
   },
   {
@@ -133,9 +103,9 @@ require("lazy").setup({
   {
     'udalov/kotlin-vim'
   },
-  {
-    'w0ng/vim-hybrid'
-  },
+  -- {
+  --   'w0ng/vim-hybrid'
+  -- },
   {
     'ryanoasis/vim-devicons'
   },
