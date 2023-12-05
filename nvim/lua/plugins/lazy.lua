@@ -139,6 +139,13 @@ require("lazy").setup({
   {
     'folke/neodev.nvim'
   },
+  {
+    'vim-jp/vimdoc-ja',
+    lazy = true,
+    keys = {
+      { "h", mode = "c", },
+    },
+  },
 
   -- lsp
   {
