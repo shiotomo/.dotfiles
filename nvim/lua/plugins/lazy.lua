@@ -40,12 +40,6 @@ require("lazy").setup({
     'derekwyatt/vim-scala'
   },
   {
-    'elzr/vim-json'
-  },
-  {
-    'hail2u/vim-css3-syntax'
-  },
-  {
     'itchyny/calendar.vim'
   },
   {
@@ -59,31 +53,13 @@ require("lazy").setup({
     }
   },
   {
-    'jelera/vim-javascript-syntax'
-  },
-  {
     'junegunn/fzf.vim'
   },
   {
     'kannokanno/previm'
   },
   {
-    'leafgarland/typescript-vim'
-  },
-  {
-    'mattn/emmet-vim'
-  },
-  {
-    'maxmellon/vim-jsx-pretty'
-  },
-  {
     'mbbill/undotree'
-  },
-  {
-    'othree/es.next.syntax.vim'
-  },
-  {
-    'othree/html5.vim'
   },
   {
     'scrooloose/nerdtree'
@@ -99,9 +75,6 @@ require("lazy").setup({
   },
   {
     'tyru/open-browser.vim'
-  },
-  {
-    'udalov/kotlin-vim'
   },
   -- {
   --   'w0ng/vim-hybrid'
