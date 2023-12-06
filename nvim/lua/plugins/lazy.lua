@@ -177,6 +177,9 @@ require("lazy").setup({
       "rcarriga/nvim-notify",
       }
   },
+  {
+    'petertriho/nvim-scrollbar'
+  },
 
   -- telescope
   {
