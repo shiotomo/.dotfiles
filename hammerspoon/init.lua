@@ -1,6 +1,6 @@
 hs.window.animationDuration = 0
 
-units = {
+local units = {
   left        = { x = 0.00, y = 0.00, w = 0.50, h = 1.00 },
   right       = { x = 0.50, y = 0.00, w = 0.50, h = 1.00 },
   top         = { x = 0.00, y = 0.00, w = 1.00, h = 0.50 },
@@ -33,7 +33,7 @@ units = {
   wideCenter  = { x = 0.00, y = 0.10, w = 1.00, h = 0.80 },
 }
 
-mainHotKey = { 'option' }
+local mainHotKey = { 'option' }
 hs.hotkey.bind(mainHotKey, 'h',     function() hs.window.focusedWindow():move(units.left,        nil, true) end)
 hs.hotkey.bind(mainHotKey, 'l',     function() hs.window.focusedWindow():move(units.right,       nil, true) end)
 hs.hotkey.bind(mainHotKey, 'k',     function() hs.window.focusedWindow():move(units.top,         nil, true) end)
@@ -42,22 +42,20 @@ hs.hotkey.bind(mainHotKey, '1',     function() hs.window.focusedWindow():move(un
 hs.hotkey.bind(mainHotKey, '2',     function() hs.window.focusedWindow():move(units.leftBotm,    nil, true) end)
 hs.hotkey.bind(mainHotKey, '3',     function() hs.window.focusedWindow():move(units.rightTop,    nil, true) end)
 hs.hotkey.bind(mainHotKey, '4',     function() hs.window.focusedWindow():move(units.rightBotm,   nil, true) end)
-hs.hotkey.bind(mainHotKey, 'up',    function() hs.window.focusedWindow():move(units.centerTop,   nil, true) end)
-hs.hotkey.bind(mainHotKey, 'down',  function() hs.window.focusedWindow():move(units.centerBotm,  nil, true) end)
-hs.hotkey.bind(mainHotKey, 'left',  function() hs.window.focusedWindow():move(units.centerLeft,  nil, true) end)
-hs.hotkey.bind(mainHotKey, 'right', function() hs.window.focusedWindow():move(units.centerRight, nil, true) end)
 hs.hotkey.bind(mainHotKey, 'm',     function() hs.window.focusedWindow():move(units.maximum,     nil, true) end)
 hs.hotkey.bind(mainHotKey, 'c',     function() hs.window.focusedWindow():move(units.popupCenter, nil, true) end)
 
-subHotKey = { 'option', 'command' }
-hs.hotkey.bind(subHotKey, 'h',     function() hs.window.focusedWindow():move(units.wideLeft,   nil, true) end)
-hs.hotkey.bind(subHotKey, 'l',     function() hs.window.focusedWindow():move(units.wideRight,  nil, true) end)
-hs.hotkey.bind(subHotKey, 'k',     function() hs.window.focusedWindow():move(units.wideTop,    nil, true) end)
-hs.hotkey.bind(subHotKey, 'j',     function() hs.window.focusedWindow():move(units.wideBotm,   nil, true) end)
-hs.hotkey.bind(subHotKey, 'left',  function() hs.window.focusedWindow():move(units.minLeft,    nil, true) end)
-hs.hotkey.bind(subHotKey, 'right', function() hs.window.focusedWindow():move(units.minRight,   nil, true) end)
-hs.hotkey.bind(subHotKey, 'c',     function() hs.window.focusedWindow():move(units.center,     nil, true) end)
-hs.hotkey.bind(subHotKey, 'm',     function() hs.window.focusedWindow():move(units.wideCenter, nil, true) end)
+local subHotKey = { 'option', 'ctrl' }
+hs.hotkey.bind(subHotKey, 'h',     function() hs.window.focusedWindow():move(units.wideLeft,    nil, true) end)
+hs.hotkey.bind(subHotKey, 'l',     function() hs.window.focusedWindow():move(units.wideRight,   nil, true) end)
+hs.hotkey.bind(subHotKey, 'k',     function() hs.window.focusedWindow():move(units.wideTop,     nil, true) end)
+hs.hotkey.bind(subHotKey, 'j',     function() hs.window.focusedWindow():move(units.wideBotm,    nil, true) end)
+hs.hotkey.bind(subHotKey, 'up',    function() hs.window.focusedWindow():move(units.centerTop,   nil, true) end)
+hs.hotkey.bind(subHotKey, 'down',  function() hs.window.focusedWindow():move(units.centerBotm,  nil, true) end)
+hs.hotkey.bind(subHotKey, 'left',  function() hs.window.focusedWindow():move(units.centerLeft,  nil, true) end)
+hs.hotkey.bind(subHotKey, 'right', function() hs.window.focusedWindow():move(units.centerRight, nil, true) end)
+hs.hotkey.bind(subHotKey, 'c',     function() hs.window.focusedWindow():move(units.center,      nil, true) end)
+hs.hotkey.bind(subHotKey, 'm',     function() hs.window.focusedWindow():move(units.wideCenter,  nil, true) end)
 
 -- hs.hotkey.bind({ "option", "shift" }, "t", function()
 hs.hotkey.bind({ "command", "shift" }, "t", function()
