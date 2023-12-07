@@ -70,7 +70,7 @@ hs.hotkey.bind({ "command", "shift" }, "t", function()
 end)
 
 local function toggleApp(appName, key)
-  hs.hotkey.bind({"option"}, key, function()
+  hs.hotkey.bind({"ctrl"}, key, function()
     local app = hs.application.get(appName)
     if app == nil then
       hs.application.launchOrFocus("/Applications/" .. appName .. ".app")
@@ -82,4 +82,4 @@ local function toggleApp(appName, key)
   end)
 end
 
-toggleApp("WezTerm", "space")
+toggleApp("WezTerm", "t")
