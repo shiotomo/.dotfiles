@@ -50,12 +50,18 @@ hs.hotkey.bind(subHotKey, 'h',     function() hs.window.focusedWindow():move(uni
 hs.hotkey.bind(subHotKey, 'l',     function() hs.window.focusedWindow():move(units.wideRight,   nil, true) end)
 hs.hotkey.bind(subHotKey, 'k',     function() hs.window.focusedWindow():move(units.wideTop,     nil, true) end)
 hs.hotkey.bind(subHotKey, 'j',     function() hs.window.focusedWindow():move(units.wideBotm,    nil, true) end)
-hs.hotkey.bind(subHotKey, 'up',    function() hs.window.focusedWindow():move(units.centerTop,   nil, true) end)
-hs.hotkey.bind(subHotKey, 'down',  function() hs.window.focusedWindow():move(units.centerBotm,  nil, true) end)
-hs.hotkey.bind(subHotKey, 'left',  function() hs.window.focusedWindow():move(units.centerLeft,  nil, true) end)
-hs.hotkey.bind(subHotKey, 'right', function() hs.window.focusedWindow():move(units.centerRight, nil, true) end)
 hs.hotkey.bind(subHotKey, 'c',     function() hs.window.focusedWindow():move(units.center,      nil, true) end)
 hs.hotkey.bind(subHotKey, 'm',     function() hs.window.focusedWindow():move(units.wideCenter,  nil, true) end)
+
+local moveHotKey = { 'option', 'command' }
+hs.hotkey.bind(moveHotKey, 'up',    function() hs.window.focusedWindow():move(units.centerTop,   nil, true) end)
+hs.hotkey.bind(moveHotKey, 'down',  function() hs.window.focusedWindow():move(units.centerBotm,  nil, true) end)
+hs.hotkey.bind(moveHotKey, 'left',  function() hs.window.focusedWindow():move(units.centerLeft,  nil, true) end)
+hs.hotkey.bind(moveHotKey, 'right', function() hs.window.focusedWindow():move(units.centerRight, nil, true) end)
+hs.hotkey.bind(moveHotKey, 'h',     function() hs.window.focusedWindow():move(units.left,        nil, true) end)
+hs.hotkey.bind(moveHotKey, 'l',     function() hs.window.focusedWindow():move(units.right,       nil, true) end)
+hs.hotkey.bind(moveHotKey, 'k',     function() hs.window.focusedWindow():move(units.top,         nil, true) end)
+hs.hotkey.bind(moveHotKey, 'j',     function() hs.window.focusedWindow():move(units.botm,        nil, true) end)
 
 -- hs.hotkey.bind({ "option", "shift" }, "t", function()
 hs.hotkey.bind({ "command", "shift" }, "t", function()
