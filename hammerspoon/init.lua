@@ -62,6 +62,8 @@ hs.hotkey.bind(moveHotKey, 'h',     function() hs.window.focusedWindow():move(un
 hs.hotkey.bind(moveHotKey, 'l',     function() hs.window.focusedWindow():move(units.right,       nil, true) end)
 hs.hotkey.bind(moveHotKey, 'k',     function() hs.window.focusedWindow():move(units.top,         nil, true) end)
 hs.hotkey.bind(moveHotKey, 'j',     function() hs.window.focusedWindow():move(units.botm,        nil, true) end)
+hs.hotkey.bind(moveHotKey, 'm',     function() hs.window.focusedWindow():move(units.maximum,     nil, true) end)
+hs.hotkey.bind(moveHotKey, 'c',     function() hs.window.focusedWindow():move(units.popupCenter, nil, true) end)
 
 -- hs.hotkey.bind({ "option", "shift" }, "t", function()
 hs.hotkey.bind({ "command", "shift" }, "t", function()
