@@ -4,12 +4,12 @@ return {
     lazy = true,
     event = "InsertEnter",
   },
-  {
-    'Shougo/neosnippet-snippets'
-  },
-  {
-    'Shougo/neosnippet.vim'
-  },
+  -- {
+  --   'Shougo/neosnippet-snippets'
+  -- },
+  -- {
+  --   'Shougo/neosnippet.vim'
+  -- },
   {
     'aklt/plantuml-syntax'
   },
@@ -61,5 +61,8 @@ return {
     keys = {
       { "h", mode = "c", },
     },
+  },
+  {
+    'dstein64/vim-startuptime'
   },
 }
