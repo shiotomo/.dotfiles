@@ -11,11 +11,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   end,
 })
 
-vim.g.indent_guides_enable_on_vim_startup = true
-vim.g.indent_guides_guide_size = true
-vim.g.vim_json_syntax_conceal = false
-
-require('plugins')
-require('common')
-require('language')
+require('config.lazy')
+require('config.common')
+require('config.language')
 local _, _ = pcall(require, 'extension')
