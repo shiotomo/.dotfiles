@@ -1,6 +1,8 @@
 return {
   {
-    'ConradIrwin/vim-bracketed-paste'
+    'ConradIrwin/vim-bracketed-paste',
+    lazy = true,
+    event = "InsertEnter",
   },
   {
     'Shougo/neosnippet-snippets'
