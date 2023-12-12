@@ -1,7 +1,20 @@
 return {
   'scrooloose/nerdtree',
-  config = function()
+  keys = {
+    { '<C-e>', '<cmd>NERDTreeToggle<CR>', { silent = true } }
+  },
+  cmd = { 'NERDTree' },
+  config = function ()
     vim.g.NERDTreeShowHidden = true
-    vim.keymap.set('n', '<C-e>', '<cmd>NERDTreeToggle<CR>', { silent = true })
+  end,
+  init = function ()
+    vim.api.nvim_create_autocmd({"BufEnter"}, {
+      pattern = "",
+      callback = function ()
+        if vim.fn.isdirectory(vim.fn.expand("%d")) == 1 then
+          vim.fn.execute("NERDTree " .. vim.fn.expand("%"))
+        end
+      end
+    })
   end
 }
