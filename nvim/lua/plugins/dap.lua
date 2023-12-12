@@ -1,18 +1,19 @@
 return {
   {
     'mfussenegger/nvim-dap',
+    keys = {
+      { '<leader>b', '<cmd>DapToggleBreakpoint<CR>' },
+      { '<F5>', ':DapContinue<CR>', { silent = true } },
+      { '<F10>', ':DapStepOver<CR>', { silent = true } },
+      { '<F11>', ':DapStepInto<CR>', { silent = true } },
+      { '<F12>', ':DapStepOut<CR>', { silent = true } },
+      { '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true } },
+      { '<leader>B', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Breakpoint condition: "))<CR>', { silent = true } },
+    },
     config = function ()
       local dap = require("dap")
 
       -- dap keymap
-      vim.keymap.set('n', '<leader>d', '<cmd>lua require("dapui").toggle()<CR>')
-      vim.keymap.set('n', '<leader>b', '<cmd>DapToggleBreakpoint<CR>')
-      vim.keymap.set('n', '<F5>', ':DapContinue<CR>', { silent = true })
-      vim.keymap.set('n', '<F10>', ':DapStepOver<CR>', { silent = true })
-      vim.keymap.set('n', '<F11>', ':DapStepInto<CR>', { silent = true })
-      vim.keymap.set('n', '<F12>', ':DapStepOut<CR>', { silent = true })
-      vim.keymap.set('n', '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true })
-      vim.keymap.set('n', '<leader>B', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Breakpoint condition: "))<CR>', { silent = true })
       -- vim.keymap.set('n', '<leader>lp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', { silent = true })
       -- vim.keymap.set('n', '<leader>dr', ':lua require("dap").repl.open()<CR>', { silent = true })
       -- vim.keymap.set('n', '<leader>dl', ':lua require("dap").run_last()<CR>', { silent = true })
@@ -90,6 +91,9 @@ return {
   },
   {
     'rcarriga/nvim-dap-ui',
+    keys = {
+      { '<leader>d', '<cmd>lua require("dapui").toggle()<CR>' },
+    },
     config = function ()
       require("dapui").setup({
         icons = {

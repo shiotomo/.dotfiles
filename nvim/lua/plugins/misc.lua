@@ -13,14 +13,14 @@ return {
   {
     'aklt/plantuml-syntax'
   },
+  {
+    'chr4/nginx.vim'
+  },
   -- {
   --   'aonemd/kuroi.vim'
   -- },
   {
     'bronson/vim-trailing-whitespace'
-  },
-  {
-    'chr4/nginx.vim'
   },
   {
     'junegunn/fzf.vim'
@@ -30,9 +30,6 @@ return {
   },
   {
     'mbbill/undotree'
-  },
-  {
-    'scrooloose/nerdtree',
   },
   -- {
   --   'scrooloose/syntastic'
