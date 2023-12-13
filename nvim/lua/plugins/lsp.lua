@@ -56,6 +56,8 @@ return {
   },
   {
     'nvimdev/lspsaga.nvim',
+    lazy = true,
+    event = "UIEnter",
     config = function()
       require('lspsaga').setup({
         lightbulb = {

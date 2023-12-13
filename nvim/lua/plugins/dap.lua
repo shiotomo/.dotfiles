@@ -6,13 +6,19 @@ return {
     config = function ()
       local dap = require("dap")
 
-      vim.keymap.set('n', '<leader>d', '<cmd>lua require("dapui").toggle()<CR>')
-      vim.keymap.set('n', '<leader>b', '<cmd>DapToggleBreakpoint<CR>')
-      vim.keymap.set('n', '<F5>', ':DapContinue<CR>', { silent = true })
-      vim.keymap.set('n', '<F10>', ':DapStepOver<CR>', { silent = true })
-      vim.keymap.set('n', '<F11>', ':DapStepInto<CR>', { silent = true })
-      vim.keymap.set('n', '<F12>', ':DapStepOut<CR>', { silent = true })
+      vim.keymap.set('n', '<leader>d', '<cmd>lua require("dapui").toggle()<CR>'     )
+      vim.keymap.set('n', '<leader>b', '<cmd>DapToggleBreakpoint<CR>'               )
+      vim.keymap.set('n', '<F5>',      ':DapContinue<CR>',         { silent = true })
+      vim.keymap.set('n', '<F10>',     ':DapStepOver<CR>',         { silent = true })
+      vim.keymap.set('n', '<F11>',     ':DapStepInto<CR>',         { silent = true })
+      vim.keymap.set('n', '<F12>',     ':DapStepOut<CR>',          { silent = true })
       vim.keymap.set('n', '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true })
+
+      vim.fn.sign_define("DapBreakpoint",          { text = "", texthl = "DapBreakpoint" })
+      vim.fn.sign_define("DapBreakpointCondition", { text = "ﳁ", texthl = "DapBreakpoint" })
+      vim.fn.sign_define("DapBreakpointRejected",  { text = "", texthl = "DapBreakpoint" })
+      vim.fn.sign_define("DapLogPoint",            { text = "'", texthl = "DapLogPoint" }  )
+      vim.fn.sign_define("DapStopped",             { text = "", texthl = "DapStopped" }   )
 
       -- dap keymap
       -- vim.keymap.set('n', '<leader>lp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', { silent = true })
