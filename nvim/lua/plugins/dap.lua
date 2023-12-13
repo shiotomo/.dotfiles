@@ -1,17 +1,18 @@
 return {
   {
     'mfussenegger/nvim-dap',
-    keys = {
-      { '<leader>b', '<cmd>DapToggleBreakpoint<CR>' },
-      { '<F5>', ':DapContinue<CR>', { silent = true } },
-      { '<F10>', ':DapStepOver<CR>', { silent = true } },
-      { '<F11>', ':DapStepInto<CR>', { silent = true } },
-      { '<F12>', ':DapStepOut<CR>', { silent = true } },
-      { '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true } },
-      { '<leader>B', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Breakpoint condition: "))<CR>', { silent = true } },
-    },
+    lazy = true,
+    event = "UIEnter",
     config = function ()
       local dap = require("dap")
+
+      vim.keymap.set('n', '<leader>d', '<cmd>lua require("dapui").toggle()<CR>')
+      vim.keymap.set('n', '<leader>b', '<cmd>DapToggleBreakpoint<CR>')
+      vim.keymap.set('n', '<F5>', ':DapContinue<CR>', { silent = true })
+      vim.keymap.set('n', '<F10>', ':DapStepOver<CR>', { silent = true })
+      vim.keymap.set('n', '<F11>', ':DapStepInto<CR>', { silent = true })
+      vim.keymap.set('n', '<F12>', ':DapStepOut<CR>', { silent = true })
+      vim.keymap.set('n', '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true })
 
       -- dap keymap
       -- vim.keymap.set('n', '<leader>lp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', { silent = true })
@@ -79,6 +80,8 @@ return {
   },
   {
     'jay-babu/mason-nvim-dap.nvim',
+    lazy = true,
+    event = "UIEnter",
     config = function ()
       require("mason-nvim-dap").setup({
         ensure_installed = {
@@ -106,18 +109,24 @@ return {
     end
   },
   {
-    'theHamsta/nvim-dap-virtual-text'
+    'theHamsta/nvim-dap-virtual-text',
+    lazy = true,
+    event = "UIEnter",
   },
   --  'microsoft/vscode-js-debug'
   --  'mxsdev/nvim-dap-vscode-js'
   {
     'mxsdev/nvim-dap-vscode-js',
+    lazy = true,
+    event = "UIEnter",
     dependencies = {
       'mfussenegger/nvim-dap'
     }
   },
   {
     'microsoft/vscode-js-debug',
+    lazy = true,
+    event = "UIEnter",
     -- opt = true,
     version = "v1.74.1",
     pin = true,

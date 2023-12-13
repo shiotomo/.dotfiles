@@ -1,6 +1,8 @@
 return {
   {
     'dinhhuy258/git.nvim',
+    lazy = true,
+    event = "InsertEnter",
     config = function()
       -- git
       require('git').setup({
@@ -33,18 +35,24 @@ return {
   },
   {
     'akinsho/git-conflict.nvim',
+    lazy = true,
+    event = "InsertEnter",
     config = function()
       require('git-conflict').setup()
     end
   },
   {
     'lewis6991/gitsigns.nvim',
+    lazy = true,
+    event = "InsertEnter",
     config = function()
       require('gitsigns').setup()
     end
   },
   {
     'sindrets/diffview.nvim',
+    lazy = true,
+    event = "InsertEnter",
     config = function()
       -- vim.keymap.set('n', '<leader>r', '<cmd>DiffviewOpen<CR>')
       -- vim.keymap.set('n', '<leader>d', '<cmd>DiffviewClose<CR>')
@@ -55,6 +63,8 @@ return {
     end
   },
   {
-    'itchyny/vim-gitbranch'
+    'itchyny/vim-gitbranch',
+    lazy = true,
+    event = "InsertEnter",
   },
 }

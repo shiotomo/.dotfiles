@@ -22,9 +22,9 @@ return {
   {
     'bronson/vim-trailing-whitespace'
   },
-  {
-    'junegunn/fzf.vim'
-  },
+  -- {
+  --   'junegunn/fzf.vim'
+  -- },
   {
     'kannokanno/previm'
   },
@@ -34,9 +34,9 @@ return {
   -- {
   --   'scrooloose/syntastic'
   -- },
-  {
-    'tpope/vim-fugitive'
-  },
+  -- {
+  --   'tpope/vim-fugitive'
+  -- },
   {
     'tpope/vim-surround'
   },
@@ -49,17 +49,14 @@ return {
   {
     'ryanoasis/vim-devicons'
   },
-  {
-    'folke/neodev.nvim'
-  },
-  {
-    'vim-jp/vimdoc-ja',
-    lazy = true,
-    keys = {
-      { "h", mode = "c", },
-    },
-  },
-  {
-    'dstein64/vim-startuptime'
-  },
+  -- {
+  --   'vim-jp/vimdoc-ja',
+  --   lazy = true,
+  --   keys = {
+  --     { "h", mode = "c", },
+  --   },
+  -- },
+  -- {
+  --   'dstein64/vim-startuptime',
+  -- },
 }

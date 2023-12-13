@@ -1,6 +1,7 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
+  -- event = { "BufRead", "BufNewFile", "InsertEnter", "CmdlineEnter" },
   opts = {
     -- add any options here
   },
@@ -33,3 +34,4 @@ return {
     })
   end
 }
+
