@@ -1,6 +1,6 @@
 ws() {
   case $1 in
-    move)
+    move|m)
       local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
       cd $dir
       ;;
@@ -37,7 +37,7 @@ ws() {
       local tmux_session_name=`(basename $(pwd) | sed -e 's/^\./_/g')`
       tmux new-session -s $tmux_session_name
       ;;
-    switch)
+    switch|s)
       local session=(`tmux ls | awk '{sub(":.*", ""); print $0;}' | fzf`)
       if [ -n "$TMUX" ]; then
         tmux switch -t $session
