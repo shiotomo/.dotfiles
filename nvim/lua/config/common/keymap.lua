@@ -8,7 +8,7 @@ vim.keymap.set('n', '+', '<C-a')
 vim.keymap.set('n', '-', '<C-x')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv|')
-vim.keymap.set({'n', 'v'}, ';;', '<cmd>w<CR>', { silent = true })
+vim.keymap.set({'n', 'v'}, ';', ':')
 
 -- 行頭、行末 移動
 vim.keymap.set({'n', 'v'}, '<S-h>', '0')
