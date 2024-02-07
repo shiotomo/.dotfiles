@@ -13,7 +13,8 @@ brew install --cask postman
 brew install --cask vagrant
 brew install --cask virtualbox
 brew install --cask devtoys
-brew tap heroku/brew && brew install heroku
+brew install --cask raycast
+brew install --cask alt-tab
 
 # brew install mysql
 # brew install mysql-client
@@ -91,6 +92,7 @@ brew install pkg-config
 brew install plantuml
 brew install poetry
 brew install prettyping
+brew install pwgen
 brew install python
 brew install python@2
 brew install readline
@@ -121,7 +123,6 @@ asdf plugin-add python
 asdf plugin-add nodejs
 asdf plugin-add scala
 asdf plugin-add kotlin
-
 asdf plugin-add gradle
 
 # setting zplug

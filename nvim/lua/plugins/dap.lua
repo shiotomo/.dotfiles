@@ -137,5 +137,13 @@ return {
     version = "v1.74.1",
     pin = true,
     run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
+  },
+  {
+    'nvim-telescope/telescope-dap.nvim',
+    lazy = true,
+    event = "UIEnter",
+    config = function ()
+      require('telescope').load_extension('dap')
+    end
   }
 }
