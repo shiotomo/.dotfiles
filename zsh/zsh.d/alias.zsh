@@ -17,6 +17,7 @@ abbrev-alias grb="git rebase -i HEAD~"
 abbrev-alias grbh="git rebase -i HEAD~"
 abbrev-alias grhard="git reset --hard"
 abbrev-alias gs="git status"
+abbrev-alias gsw="git branch -a | fzf | xargs git switch"
 
 # tig
 abbrev-alias tigs='tig status'

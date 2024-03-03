@@ -6,6 +6,7 @@ zsh/extension/*
 !zsh/extension/.keep
 nvim/lua/extension/*
 !nvim/lua/extension/.keep
+.DS_Store
 
 
 ### Vim ###
