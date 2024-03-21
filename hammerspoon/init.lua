@@ -46,6 +46,10 @@ hs.hotkey.bind(mainHotKey, 'm',     function() hs.window.focusedWindow():move(un
 hs.hotkey.bind(mainHotKey, 'c',     function() hs.window.focusedWindow():move(units.popupCenter, nil, true) end)
 
 local subHotKey = { 'option', 'ctrl' }
+hs.hotkey.bind(subHotKey, 'up',    function() hs.window.focusedWindow():move(units.centerTop,   nil, true) end)
+hs.hotkey.bind(subHotKey, 'down',  function() hs.window.focusedWindow():move(units.centerBotm,  nil, true) end)
+hs.hotkey.bind(subHotKey, 'left',  function() hs.window.focusedWindow():move(units.centerLeft,  nil, true) end)
+hs.hotkey.bind(subHotKey, 'right', function() hs.window.focusedWindow():move(units.centerRight, nil, true) end)
 hs.hotkey.bind(subHotKey, 'h',     function() hs.window.focusedWindow():move(units.wideLeft,    nil, true) end)
 hs.hotkey.bind(subHotKey, 'l',     function() hs.window.focusedWindow():move(units.wideRight,   nil, true) end)
 hs.hotkey.bind(subHotKey, 'k',     function() hs.window.focusedWindow():move(units.wideTop,     nil, true) end)
