@@ -2,12 +2,11 @@ return {
   {
     'dinhhuy258/git.nvim',
     lazy = true,
-    event = "InsertEnter",
+    event = "UIEnter",
     config = function()
       -- git
       require('git').setup({
         default_mappings = true, -- NOTE: `quit_blame` and `blame_commit` are still merged to the keymaps even if `default_mappings = false`
-
         keymaps = {
           -- Open blame window
           blame = "<Leader>gb",
@@ -36,7 +35,7 @@ return {
   {
     'akinsho/git-conflict.nvim',
     lazy = true,
-    event = "InsertEnter",
+    event = "UIEnter",
     config = function()
       require('git-conflict').setup()
     end
@@ -44,15 +43,17 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     lazy = true,
-    event = "InsertEnter",
+    event = "UIEnter",
     config = function()
-      require('gitsigns').setup()
+      require('gitsigns').setup {
+        current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      }
     end
   },
   {
     'sindrets/diffview.nvim',
     lazy = true,
-    event = "InsertEnter",
+    event = "UIEnter",
     config = function()
       -- vim.keymap.set('n', '<leader>r', '<cmd>DiffviewOpen<CR>')
       -- vim.keymap.set('n', '<leader>d', '<cmd>DiffviewClose<CR>')
@@ -65,6 +66,6 @@ return {
   {
     'itchyny/vim-gitbranch',
     lazy = true,
-    event = "InsertEnter",
+    event = "UIEnter",
   },
 }
