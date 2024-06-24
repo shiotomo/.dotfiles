@@ -34,3 +34,4 @@ vim.opt.tabstop = 2
 vim.opt.ttyfast = true
 vim.opt.wildmenu = true
 vim.opt.wrap = true
+vim.opt.termguicolors = true

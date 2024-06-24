@@ -102,8 +102,20 @@ return {
         }
       })
       local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
+      local function lsp_server_ready()
+        local clients = vim.lsp.get_active_clients()
+        if next(clients) == nil then
+          return false
+        end
+        for _, client in ipairs(clients) do
+          if client.attached_buffers[vim.api.nvim_get_current_buf()] then
+            return true
+          end
+        end
+        return false
+      end
       local function on_cursor_hold()
-        if vim.lsp.buf.server_ready() then
+        if lsp_server_ready() then
           vim.diagnostic.open_float()
         end
       end

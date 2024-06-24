@@ -76,6 +76,7 @@ brew install lua
 brew install lua@5.1
 brew install luajit
 brew install luarocks
+brew install mise
 brew install mono
 brew install mpfr
 brew install msgpack
@@ -116,14 +117,14 @@ brew install xz
 brew install zsh
 
 # asdf plugin
-asdf plugin-add ruby
-asdf plugin-add java
-asdf plugin-add golang
-asdf plugin-add python
-asdf plugin-add nodejs
-asdf plugin-add scala
-asdf plugin-add kotlin
-asdf plugin-add gradle
+# asdf plugin-add ruby
+# asdf plugin-add java
+# asdf plugin-add golang
+# asdf plugin-add python
+# asdf plugin-add nodejs
+# asdf plugin-add scala
+# asdf plugin-add kotlin
+# asdf plugin-add gradle
 
 # setting zplug
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh

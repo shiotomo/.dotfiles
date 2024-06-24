@@ -34,7 +34,10 @@ source "${HOME}/.dotfiles/zsh/zsh.d/zstyle.zsh"
 source "${HOME}/.dotfiles/zsh/zsh.d/alias.zsh"
 
 # === asdf ===
-source "${HOME}/.dotfiles/zsh/zsh.d/asdf.zsh"
+# source "${HOME}/.dotfiles/zsh/zsh.d/asdf.zsh"
+
+# === mise ===
+source "${HOME}/.dotfiles/zsh/zsh.d/mise.zsh"
 
 # === setopt ===
 source "${HOME}/.dotfiles/zsh/zsh.d/setopt.zsh"
