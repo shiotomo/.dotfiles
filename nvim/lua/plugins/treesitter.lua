@@ -53,6 +53,7 @@ return {
         "query",
         "graphql",
         "sql",
+        "prisma",
       },
     })
   end
