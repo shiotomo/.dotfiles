@@ -35,3 +35,4 @@ vim.opt.ttyfast = true
 vim.opt.wildmenu = true
 vim.opt.wrap = true
 vim.opt.termguicolors = true
+vim.opt.synmaxcol=300

@@ -29,11 +29,12 @@ return {
           'gopls',
           'html',
           'jsonls',
-          'tsserver',
           'marksman',
           'pylsp',
           'solargraph',
           'kotlin_language_server',
+          'custom-elements-languageserver'
+          -- 'tsserver',
           -- 'js-debug-adapter',
           -- 'java_language_server',
         }
