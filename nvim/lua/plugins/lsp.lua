@@ -33,8 +33,9 @@ return {
           'pylsp',
           'solargraph',
           'kotlin_language_server',
-          'custom-elements-languageserver'
+          'ts_ls',
           -- 'tsserver',
+          -- 'custom-elements-languageserver',
           -- 'js-debug-adapter',
           -- 'java_language_server',
         }
