@@ -4,33 +4,32 @@
 
 ./rc.sh
 
+brew install --cask alt-tab
+brew install --cask devtoys
+brew install --cask discord
 brew install --cask google-chrome
 brew install --cask hammerspoon
+brew install --cask item2
+brew install --cask jetbrains-toolbox
 brew install --cask karabiner-elements
 brew install --cask key-codes
+brew install --cask microsoft-edge
+brew install --cask microsoft-remote-desktop
 brew install --cask mysqlworkbench
 brew install --cask postman
+brew install --cask raycast
+brew install --cask slack
 brew install --cask vagrant
 brew install --cask virtualbox
-brew install --cask devtoys
-brew install --cask raycast
-brew install --cask alt-tab
+brew install --cask visual-studio-code
 brew install --cask wezterm
-brew install --cask item2
-brew install --cask microsoft-edge
-brew install --cask discord
-brew install --cask slack
 
-# brew install mysql
-# brew install mysql-client
-# brew install mysql@5.7
-# brew install postgresql
-# brew install redis
 brew install ansible
 brew install asdf
 brew install autoconf
 brew install bash
 brew install bat
+brew install delta
 brew install dep
 brew install direnv
 brew install exa
@@ -51,8 +50,6 @@ brew install go
 brew install gpg
 brew install graphviz
 brew install gts
-brew install heroku
-brew install heroku-node
 brew install htop
 brew install hugo
 brew install icu4c
@@ -120,7 +117,14 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
-brew install delta
+
+# brew install heroku
+# brew install heroku-node
+# brew install mysql
+# brew install mysql-client
+# brew install mysql@5.7
+# brew install postgresql
+# brew install redis
 
 # asdf plugin
 # asdf plugin-add ruby
