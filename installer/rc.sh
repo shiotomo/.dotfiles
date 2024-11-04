@@ -13,6 +13,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 mkdir ~/.hammerspoon
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
+mkdir -p ~/.config/git
 
 # Set .dotfiles symbolic link
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
@@ -28,6 +29,7 @@ ln -s ~/.dotfiles/eclipse/vrapperrc ~/.vrapperrc
 ln -s ~/.dotfiles/idea/ideavimrc ~/.ideavimrc
 ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 ln -s ~/.dotfiles/git/tigrc ~/.tigrc
+ln -s ~/.dotfiles/git/delta/config ~/.config/git/config
 ln -s ~/.dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
 
 # Vim setting

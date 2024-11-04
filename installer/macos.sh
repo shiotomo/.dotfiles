@@ -15,6 +15,11 @@ brew install --cask virtualbox
 brew install --cask devtoys
 brew install --cask raycast
 brew install --cask alt-tab
+brew install --cask wezterm
+brew install --cask item2
+brew install --cask microsoft-edge
+brew install --cask discord
+brew install --cask slack
 
 # brew install mysql
 # brew install mysql-client
@@ -115,6 +120,7 @@ brew install webp
 brew install wget
 brew install xz
 brew install zsh
+brew install delta
 
 # asdf plugin
 # asdf plugin-add ruby
