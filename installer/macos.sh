@@ -5,6 +5,7 @@
 ./rc.sh
 
 brew install --cask alt-tab
+brew install --cask dbeaver-community
 brew install --cask devtoys
 brew install --cask discord
 brew install --cask google-chrome
