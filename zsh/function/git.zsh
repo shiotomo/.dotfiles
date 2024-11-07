@@ -10,7 +10,16 @@ git-add() {
 git-branch() {
   local option=${1:-'-l'}
   shift
-  local branch=$(git branch --format='%(refname:short)' --sort=-committerdate $option | fzf +m +s --query="$@")
+  fmt="\
+  %(if:equals=$user_name)%(authorname)%(then)%(color:default)%(else)%(color:brightred)%(end)%(refname:short)|\
+  %(committerdate:relative)|\
+  %(subject)"
+  branch=$(
+    git branch --sort=-committerdate --format=$fmt --color=always \
+    | column -ts'|' \
+    | fzf --ansi --exact --preview='git log --oneline --graph --decorate --color=always -50 {+1}' \
+    | awk '{print $1}' \
+  )
   if test -n "$branch"; then
     if test "$BUFFER" = ''; then
       BUFFER="git switch"
