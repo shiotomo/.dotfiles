@@ -30,6 +30,7 @@ ln -s ~/.dotfiles/idea/ideavimrc ~/.ideavimrc
 ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 ln -s ~/.dotfiles/git/tigrc ~/.tigrc
 ln -s ~/.dotfiles/git/delta/config ~/.config/git/config
+ln -s ~/.dotfiles/git/lazygit/config.yml ~/.config/lazygit/config.yml
 ln -s ~/.dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
 
 # Vim setting

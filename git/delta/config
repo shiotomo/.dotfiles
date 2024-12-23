@@ -1,3 +1,6 @@
+[core]
+  pager = delta
+
 [pager]
   diff = delta
   log = delta
@@ -13,3 +16,4 @@
 
 [interactive]
   diffFilter = delta --color-only
+
