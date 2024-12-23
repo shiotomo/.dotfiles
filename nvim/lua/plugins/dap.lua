@@ -14,8 +14,8 @@ return {
       vim.keymap.set('n', '<F12>',     ':DapStepOut<CR>',          { silent = true })
       vim.keymap.set('n', '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true })
 
-      vim.fn.sign_define("DapBreakpoint",          { text = "", texthl = "DapBreakpoint" })
-      vim.fn.sign_define("DapBreakpointCondition", { text = "ﳁ", texthl = "DapBreakpoint" })
+      vim.fn.sign_define("DapBreakpoint",          { text = "", texthl = "DapBreakpoint" })
+      vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpoint" })
       vim.fn.sign_define("DapBreakpointRejected",  { text = "", texthl = "DapBreakpoint" })
       vim.fn.sign_define("DapLogPoint",            { text = "'", texthl = "DapLogPoint" }  )
       vim.fn.sign_define("DapStopped",             { text = "", texthl = "DapStopped" }   )
@@ -108,7 +108,7 @@ return {
         icons = {
           collapsed = '▾',
           expanded = '▸',
-          breakpoint = '',
+          breakpoint = '',
           -- 他のアイコンに対する設定も追加できます
         },
       })
