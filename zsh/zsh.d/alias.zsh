@@ -35,10 +35,11 @@ alias back='cd -1'
 alias bcd='cd -1'
 
 # Vim
-if type nvim > /dev/null; then
-  alias vim='nvim'
-fi
+# if type nvim > /dev/null; then
+#   alias vim='nvim'
+# fi
 
+alias vim='nvim'
 alias vi='vim'
 alias v='vim'
 alias vm='vim'
