@@ -32,7 +32,7 @@ config.window_background_opacity = 0.85
 -- config.font = wezterm.font("JetBrains Mono", {weight="Bold", stretch="Normal", style="Normal"}) -- <built-in>, BuiltIn
 config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Regular", stretch="Normal", style="Normal"})
 -- config.font = wezterm.font("UDEV Gothic 35NFLG", {weight="Bold", stretch="Normal", style="Normal"})
-config.font_size = 14
+config.font_size = 13
 
 -- window設定
 config.initial_rows = 50
