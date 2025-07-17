@@ -105,7 +105,7 @@ return {
       })
       local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
       local function lsp_server_ready()
-        local clients = vim.lsp.get_active_clients()
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then
           return false
         end
