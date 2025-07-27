@@ -34,6 +34,7 @@ return {
   },
   {
     'akinsho/git-conflict.nvim',
+    version = '2.1.0',
     lazy = true,
     event = "UIEnter",
     config = function()
