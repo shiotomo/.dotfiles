@@ -32,15 +32,15 @@ return {
       })
     end
   },
-  {
-    'akinsho/git-conflict.nvim',
-    version = '2.1.0',
-    lazy = true,
-    event = "UIEnter",
-    config = function()
-      require('git-conflict').setup()
-    end
-  },
+  -- {
+  --   'akinsho/git-conflict.nvim',
+  --   version = '2.1.0',
+  --   lazy = true,
+  --   event = "UIEnter",
+  --   config = function()
+  --     require('git-conflict').setup()
+  --   end
+  -- },
   {
     'lewis6991/gitsigns.nvim',
     lazy = true,
