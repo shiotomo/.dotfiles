@@ -20,12 +20,17 @@ return {
       vim.fn.sign_define("DapLogPoint",            { text = "'", texthl = "DapLogPoint" }  )
       vim.fn.sign_define("DapStopped",             { text = "", texthl = "DapStopped" }   )
 
+      -- require("dap-vscode-js").setup({
+      --   debugger_path = vim.fn.expand("$MASON/bin/js-debug-adapter") .. "/extension",
+      --   adapters = { "pwa-node", "pwa-chrome", "node-terminal", "pwa-extensionHost" },
+      -- })
+
       -- dap keymap
       -- vim.keymap.set('n', '<leader>lp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', { silent = true })
       -- vim.keymap.set('n', '<leader>dr', ':lua require("dap").repl.open()<CR>', { silent = true })
       -- vim.keymap.set('n', '<leader>dl', ':lua require("dap").run_last()<CR>', { silent = true })
       -- typescript/javcascript
-      require("dap").adapters["pwa-node"] = {
+      dap.adapters["pwa-node"] = {
         type = "server",
         host = "localhost",
         port = "${port}",
@@ -33,7 +38,10 @@ return {
           command = "node",
           -- Make sure to update this path to point to your installation
           args = {
-            require("mason-registry").get_package("js-debug-adapter"):get_install_path() .. "/js-debug/src/dapDebugServer.js",
+            -- require("mason-registry").get_package("js-debug-adapter"):get_install_path() .. "/js-debug/src/dapDebugServer.js",
+            -- vim.fn.expand("$MASON/bin/js-debug-adapter") .. "/js-debug/src/dapDebugServer.js",
+            vim.fn.expand("$MASON/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"),
+            -- vim.fn.expand("$MASON/bin/js-debug-adapter"),
             "${port}",
           },
         },
@@ -74,7 +82,7 @@ return {
             {
               type = "pwa-node",
               request = "attach",
-              name = "attach",
+              name = "attach\n",
               processId = require("dap.utils").pick_process,
               sourceMaps = true,
               cwd = "${workspaceFolder}",
@@ -86,17 +94,20 @@ return {
   },
   {
     'jay-babu/mason-nvim-dap.nvim',
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "williamboman/mason.nvim",
+    },
     lazy = true,
     event = "UIEnter",
-    config = function ()
-      require("mason-nvim-dap").setup({
-        ensure_installed = {
-          'python',
-          'delve',
-          'js-debug-adapter',
-        }
-      })
-    end
+    opts = {
+      ensure_installed = {
+        'js-debug-adapter',
+        'python',
+        'delve',
+      },
+      handlers = {}, -- デフォルト handler を使用（重要）
+    }
   },
   {
     'rcarriga/nvim-dap-ui',
@@ -104,7 +115,8 @@ return {
       { '<leader>d', '<cmd>lua require("dapui").toggle()<CR>' },
     },
     config = function ()
-      require("dapui").setup({
+      local dapui = require("dapui")
+      dapui.setup({
         icons = {
           collapsed = '▾',
           expanded = '▸',
