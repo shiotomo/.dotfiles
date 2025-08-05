@@ -9,33 +9,34 @@ sudo apt-get -y upgrade
 # sudo apt-get -y install neovim
 # sudo apt-get -y install vim
 # sudo apt-get -y install postgresql
-sudo apt-get -y install git
-sudo apt-get -y install tmux
-sudo apt-get -y install zsh
+sudo apt-get -y install curl
+sudo apt-get -y install direnv
+sudo apt-get -y install eza
 sudo apt-get -y install fish
+sudo apt-get -y install gem
+sudo apt-get -y install git
+sudo apt-get -y install golang
+sudo apt-get -y install graphviz
 sudo apt-get -y install htop
 sudo apt-get -y install iftop
-sudo apt-get -y install screenfetch
+sudo apt-get -y install language-pack-ja
+sudo apt-get -y install letsencrypt
+sudo apt-get -y install libmariadbclient-dev
+sudo apt-get -y install libpq-dev
+sudo apt-get -y install make
+sudo apt-get -y install netdiscover
+sudo apt-get -y install nginx
+sudo apt-get -y install nodejs
+sudo apt-get -y install npm
 sudo apt-get -y install python
 sudo apt-get -y install python3
 sudo apt-get -y install python3-pip
 sudo apt-get -y install ruby
-sudo apt-get -y install golang
-sudo apt-get -y install gem
-sudo apt-get -y install make
-sudo apt-get -y install curl
-sudo apt-get -y install libpq-dev
-sudo apt-get -y install nginx
-sudo apt-get -y install nodejs
-sudo apt-get -y install npm
-sudo apt-get -y install graphviz
-sudo apt-get -y install libmariadbclient-dev
-sudo apt-get -y install letsencrypt
-sudo apt-get -y install netdiscover
+sudo apt-get -y install screenfetch
+sudo apt-get -y install tmux
 sudo apt-get -y install tree
-sudo apt-get -y install direnv
-sudo apt-get -y install language-pack-ja
 sudo apt-get -y install vim
+sudo apt-get -y install zsh
 
 sudo update-locale LANG=ja_JP.UTF-8
 
@@ -70,7 +71,12 @@ sudo rm /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+# git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+
+# mise
+curl https://mise.run | sh
+
+# docker
 
 docker install
 sudo apt-get remove -y docker docker-engine docker.io
