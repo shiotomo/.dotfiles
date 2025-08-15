@@ -12,7 +12,7 @@
   "vim.insertModeKeyBindings": [
     {
       "before": ["j","j"],
-      "after": ["<Esc>"]
+      "after": ["<Esc>", "<nop>"]
     }
   ],
   "vim.otherModesKeyBindingsNonRecursive": [
