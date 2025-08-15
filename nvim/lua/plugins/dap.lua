@@ -82,9 +82,17 @@ return {
             {
               type = "pwa-node",
               request = "attach",
-              name = "attach\n",
+              name = "attach",
               processId = require("dap.utils").pick_process,
               sourceMaps = true,
+              cwd = "${workspaceFolder}",
+            },
+            {
+              type = "node",
+              request = "launch",
+              name = "npm run dev\n",
+              runtimeExecutable = "npm",
+              runtimeArgs = { "run", "dev" },
               cwd = "${workspaceFolder}",
             },
           }
