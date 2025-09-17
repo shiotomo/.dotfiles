@@ -64,14 +64,19 @@ return {
               'nvim_lsp'
             },
             symbols = {
-              error = ' ',
-              warn  = ' ',
-              info  = ' ',
-              hint  = ' '
-            },
+              error = "❌ ", -- クロスマーク
+              warn  = "⚠️ ", -- 警告
+              info  = "ℹ️ ", -- 情報
+              hint  = "💡 ", -- アイデア
+            }
           }
         },
         lualine_x = {
+          "encoding",         -- UTF-8 など
+          "fileformat",       -- unix / dos / mac
+          "filetype",         -- ← これが現在のファイルタイプ
+        },
+        lualine_y = {
           {'searchcount'},
           {selectionCount},
         },

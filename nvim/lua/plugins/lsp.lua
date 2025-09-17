@@ -8,10 +8,33 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
+    dependencies = {
+      'saghen/blink.cmp'
+    },
     config = function()
       vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+        vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
       )
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local lspconfig = require('lspconfig')
+
+      -- エラーハンドリングを強化
+      local on_attach = function(client, bufnr)
+        -- 補完の安定性向上
+        vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+      end
+
+      lspconfig['lua_ls'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = "Replace"
+            }
+          }
+        }
+      })
     end
   },
   {
