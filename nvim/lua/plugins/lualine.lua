@@ -72,13 +72,13 @@ return {
           }
         },
         lualine_x = {
+          {'searchcount'},
+          {selectionCount},
+        },
+        lualine_y = {
           "encoding",         -- UTF-8 など
           "fileformat",       -- unix / dos / mac
           "filetype",         -- ← これが現在のファイルタイプ
-        },
-        lualine_y = {
-          {'searchcount'},
-          {selectionCount},
         },
         lualine_z = { 'location' }
       },
