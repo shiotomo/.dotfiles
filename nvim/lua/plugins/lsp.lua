@@ -24,7 +24,7 @@ return {
         vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
       end
 
-      lspconfig['lua_ls'].setup({
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
