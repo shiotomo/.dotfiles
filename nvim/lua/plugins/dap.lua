@@ -113,6 +113,9 @@ return {
         'js-debug-adapter',
         'python',
         'delve',
+        'java-debug-adapter',
+        'kotlin-debug-adapter',
+        'java-test',
       },
       handlers = {}, -- デフォルト handler を使用（重要）
     }

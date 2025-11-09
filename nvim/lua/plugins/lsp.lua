@@ -52,8 +52,9 @@ return {
           'html',
           'jsonls',
           'marksman',
-          'kotlin_language_server',
+          'kotlin-lsp',
           'ts_ls',
+          'java-language-server',
           -- 'cmake',
           -- 'pylsp',
           -- 'solargraph',
@@ -144,13 +145,13 @@ return {
         vim.lsp.buf.hover()
         vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
         vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" },
-        {
-          group = "lspconfig-enable-diagnostics-hover",
-          callback = function()
-            vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
-            enable_diagnostics_hover()
-          end
-        })
+          {
+            group = "lspconfig-enable-diagnostics-hover",
+            callback = function()
+              vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
+              enable_diagnostics_hover()
+            end
+          })
       end
 
       -- lsp keymap
