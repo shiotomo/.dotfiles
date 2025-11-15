@@ -9,8 +9,6 @@ return {
       require("bufferline").setup({
         options = {
           mode = "tabs",         -- "buffers" or "tabs"
-          position = "bottom",      -- タブバーを下に配置（おしゃれ＆Neovimタブと干渉しない）
-          -- separator_style = "thick",
           separator_style = "padded_slant",-- スラント境界
           diagnostics = "nvim_lsp",
           show_close_icon = true,
