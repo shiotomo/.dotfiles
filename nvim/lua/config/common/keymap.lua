@@ -50,3 +50,7 @@ vim.keymap.set('i', '\"', '\"\"<LEFT>')
 
 -- terminal
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+
+-- split
+vim.keymap.set('n', 'vs', '<cmd>vsplit<CR>')
+vim.keymap.set('n', 'sp', '<cmd>split<CR>')

@@ -6,6 +6,7 @@ return {
   cmd = { 'NERDTree' },
   config = function ()
     vim.g.NERDTreeShowHidden = true
+    vim.g.NERDTreeCreateInTab = 0
   end,
   init = function ()
     vim.api.nvim_create_autocmd({"BufEnter"}, {
