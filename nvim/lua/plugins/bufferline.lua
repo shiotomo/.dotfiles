@@ -8,8 +8,8 @@ return {
     config = function ()
       require("bufferline").setup({
         options = {
-          mode = "tabs",         -- "buffers" or "tabs"
-          separator_style = "thin",-- スラント境界
+          mode = "tabs",
+          separator_style = "thin",
           diagnostics = "nvim_lsp",
           show_close_icon = true,
           show_buffer_close_icons = true,
