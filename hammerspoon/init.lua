@@ -95,3 +95,68 @@ local function toggleApp(appName, key)
 end
 
 toggleApp("WezTerm", "t")
+
+-------------------------------------------------------------
+-- JetBrains アプリのトグル関数
+-------------------------------------------------------------
+local function toggleAppByBundle(bundleIDs)
+  -- bundleIDs = 優先順の bundle ID の配列
+  local targetBundle = nil
+
+  -- 1. インストールされていて起動済みのアプリを優先して選ぶ
+  for _, id in ipairs(bundleIDs) do
+    local app = hs.application.get(id)
+    if app then
+      targetBundle = id
+      break
+    end
+  end
+
+  -- 2. 起動していないならインストールされているbundleを探す
+  if not targetBundle then
+    for _, id in ipairs(bundleIDs) do
+      -- 起動していなくてもインストールはされている可能性がある
+      if hs.application.infoForBundleID(id) ~= nil then
+        targetBundle = id
+        break
+      end
+    end
+  end
+
+  -- 3. 最終的にターゲットが決まったら動作を実行
+  if not targetBundle then
+    hs.alert.show("Target IDE not found.")
+    return
+  end
+
+  local runningApp = hs.application.get(targetBundle)
+
+  if runningApp then
+    if runningApp:isFrontmost() then
+      runningApp:hide()
+    else
+      runningApp:activate(true)
+    end
+  else
+    hs.application.launchOrFocusByBundleID(targetBundle)
+  end
+end
+
+-------------------------------------------------------------
+-- IntelliJ IDEA (Ultimate → CE の順で優先)
+-------------------------------------------------------------
+local intellijBundles = {
+  "com.jetbrains.intellij",     -- Ultimate
+  "com.jetbrains.intellij.ce",  -- Community
+}
+
+hs.hotkey.bind({ "ctrl" }, "i", function()
+  toggleAppByBundle(intellijBundles)
+end)
+
+-------------------------------------------------------------
+-- WebStorm
+-------------------------------------------------------------
+hs.hotkey.bind({ "ctrl" }, "w", function()
+  toggleAppByBundle({ "com.jetbrains.webstorm" })
+end)
