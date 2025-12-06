@@ -157,6 +157,6 @@ end)
 -------------------------------------------------------------
 -- WebStorm
 -------------------------------------------------------------
-hs.hotkey.bind({ "ctrl" }, "w", function()
-  toggleAppByBundle({ "com.jetbrains.webstorm" })
-end)
+-- hs.hotkey.bind({ "ctrl" }, "w", function()
+--   toggleAppByBundle({ "com.jetbrains.webstorm" })
+-- end)
