@@ -10,10 +10,10 @@ end
 config.front_end = "WebGpu"
 
 -- カラースキームの設定
-config.color_scheme = 'Tokyo Night'
+config.color_scheme = 'Ayu Mirage'
 
 -- 背景透過設定
-config.window_background_opacity = 0.85
+-- config.window_background_opacity = 0.85
 
 -- config.window_frame = {
 --   inactive_titlebar_bg = '#353535',
