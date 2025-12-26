@@ -33,16 +33,16 @@ ln -s ~/.dotfiles/git/delta/config ~/.config/git/config
 ln -s ~/.dotfiles/git/lazygit/config.yml ~/.config/lazygit/config.yml
 ln -s ~/.dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
 
-# Vim setting
-mkdir ~/.dotfiles/vim/bundle
-mkdir ~/.dotfiles/vim/help
-
-git clone https@github.com:vim-jp/vimdoc-ja.git ~/.dotfiles/vim/help
-
-curl -flo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# NeoVim setting
-git clone --depth 1 https://github.com/wbthomason/packer.nvim \
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
+# # Vim setting
+# mkdir ~/.dotfiles/vim/bundle
+# mkdir ~/.dotfiles/vim/help
+#
+# git clone https@github.com:vim-jp/vimdoc-ja.git ~/.dotfiles/vim/help
+#
+# curl -flo ~/.vim/autoload/plug.vim --create-dirs \
+#     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#
+# # NeoVim setting
+# git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+#  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+#
