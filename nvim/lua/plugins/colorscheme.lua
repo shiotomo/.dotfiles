@@ -22,14 +22,10 @@ return {
     priority = 1000,   -- 他のUI系より先に読み込む
     config = function()
       require("ayu").setup({
-        mirage = true, -- true にすると mirage フレーバー
+        mirage = true,
         overrides = {},
-
-        -- UI系をしっかり ayu に寄せる設定
         terminal = true,
         theme = "mirage", -- "dark" | "mirage" | "light"
-
-        -- 拡張設定（かなり重要）
         highlights = {
           Normal = { bg = "None" },          -- 透過したい場合
           NormalFloat = { bg = "None" },
