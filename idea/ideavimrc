@@ -1,1 +1,12 @@
+set clipboard+=unnamed
+let mapleader = " "
+
 inoremap jj  <Esc> `^
+nmap gr <Action>(FindUsages)
+nmap <leader>fa <Action>(GotoAction)
+nmap <leader>ff <Action>(SearchEverywhere)
+nmap <leader>fg <Action>(FindInPath)
+nmap <leader>th <Action>(ActivateTerminalToolWindow)
+nmap <leader>q <Action>(HideAllWindows)
+nnoremap <leader>- :split<CR>
+nnoremap <leader>\| :vsplit<CR>
