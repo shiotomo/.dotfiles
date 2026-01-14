@@ -42,4 +42,3 @@ make setup OS=ubuntu
 ```
 make setup OS=centos
 ```
-

@@ -30,6 +30,8 @@ vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>cprev<CR>', { noremap = true })
 -- window 分割
 vim.keymap.set('n', '<leader>|', '<cmd>vsplit<CR>', { silent = true })
 vim.keymap.set('n', '<leader>-', '<cmd>split<CR>', { silent = true })
+vim.keymap.set('n', 'vs', '<cmd>vsplit<CR>')
+vim.keymap.set('n', 'sp', '<cmd>split<CR>')
 
 -- window 移動
 vim.keymap.set('n', '<leader>h', '<C-w><C-h>', { silent = true })
@@ -50,7 +52,3 @@ vim.keymap.set('i', '\"', '\"\"<LEFT>')
 
 -- terminal
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
-
--- split
-vim.keymap.set('n', 'vs', '<cmd>vsplit<CR>')
-vim.keymap.set('n', 'sp', '<cmd>split<CR>')

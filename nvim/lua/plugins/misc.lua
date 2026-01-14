@@ -26,9 +26,6 @@ return {
   --   'junegunn/fzf.vim'
   -- },
   {
-    'kannokanno/previm'
-  },
-  {
     'mbbill/undotree'
   },
   -- {
