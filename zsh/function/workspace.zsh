@@ -48,6 +48,11 @@ ws() {
       cd $dir_name
       tmux new-session -s $dir_name
       ;;
+    quit|q)
+      current=$(tmux display-message -p '#S')
+      tmux switch-client -l
+      tmux kill-session -t "$current"
+      ;;
     *)
       echo "ws command not found option."
   esac
