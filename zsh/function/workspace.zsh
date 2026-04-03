@@ -20,12 +20,9 @@ ws() {
       if [ -n "$TMUX" ] && [ -n "$result" ]; then
         tmux switch -t $tmux_session_name
       elif [ -n "$TMUX" ]; then
-        echo "以下のコマンドを tmux detach した後実行してください。"
-        # echo "cd $dir_name && tmux new-session -s $dir_name"
-        # echo "cd $dir_name && tmux new-session -s $dir_name" | clip
-        echo "tmux new-session -s $tmux_session_name"
-        echo "tmux new-session -s $tmux_session_name" | clip
-        echo "上記のコマンドを clip boardにコピーしました。"
+        cd $dir
+        tmux new-session -ds $tmux_session_name
+        tmux switch -t $tmux_session_name
       elif [ -n "$result" ]; then
         tmux a -t $tmux_session_name
       else
