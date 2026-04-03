@@ -26,7 +26,7 @@ ws() {
         echo "tmux new-session -s $tmux_session_name"
         echo "tmux new-session -s $tmux_session_name" | clip
         echo "上記のコマンドを clip boardにコピーしました。"
-      elif [ -n "$RESULT" ]; then
+      elif [ -n "$result" ]; then
         tmux a -t $tmux_session_name
       else
         cd $dir
