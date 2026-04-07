@@ -1,6 +1,13 @@
 aquarium() {
   local TARGET_DIR="$HOME/aquarium"
 
+  # ディレクトリ存在チェック
+  if [ ! -d "$TARGET_DIR" ]; then
+    echo "Error: $TARGET_DIR does not exist" >&2
+    return 1
+  fi
+
+
   # Ultimate優先
   if open -Ra "IntelliJ IDEA Ultimate" >/dev/null 2>&1; then
     idea "$TARGET_DIR"
