@@ -18,46 +18,17 @@ if [ "$ZSHRC_PROFILE" != "" ]; then
   zmodload zsh/zprof && zprof > /dev/null
 fi
 
-# === plugin ===
-source "${HOME}/.dotfiles/zsh/zsh.d/plugin.zsh"
-
-# === config ===
-source "${HOME}/.dotfiles/zsh/zsh.d/config.zsh"
-
-# === prompt ===
-source "${HOME}/.dotfiles/zsh/zsh.d/prompt.zsh"
-
-# === zstyle ===
-source "${HOME}/.dotfiles/zsh/zsh.d/zstyle.zsh"
-
-# === alias ===
-source "${HOME}/.dotfiles/zsh/zsh.d/alias.zsh"
-
-# === asdf ===
-# source "${HOME}/.dotfiles/zsh/zsh.d/asdf.zsh"
-
-# === mise ===
-source "${HOME}/.dotfiles/zsh/zsh.d/mise.zsh"
-
-# === setopt ===
-source "${HOME}/.dotfiles/zsh/zsh.d/setopt.zsh"
-
-# == autolaod ===
-source "${HOME}/.dotfiles/zsh/zsh.d/autoload.zsh"
-
-# === export ===
-source "${HOME}/.dotfiles/zsh/zsh.d/export.zsh"
-
-# === history ===
-source "${HOME}/.dotfiles/zsh/zsh.d/history.zsh"
+# === zsh.d のファイル読み込み ===
+ZSHD_HOME="${HOME}/.dotfiles/zsh/zsh.d"
+for config_file ($ZSHD_HOME/*.zsh(N)) source $config_file
 
 # === fzfの設定 ===
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # === extensionのファイル読み込み ===
-EXTENSIONHOME="${HOME}/.dotfiles/zsh/extension"
-for config_file ($EXTENSIONHOME/*.zsh(N)) source $config_file
+EXTENSION_HOME="${HOME}/.dotfiles/zsh/extension"
+for config_file ($EXTENSION_HOME/*.zsh(N)) source $config_file
 
 # === functionのファイル読み込み ===
-FUNCTIONHOME="${HOME}/.dotfiles/zsh/function"
-for config_file ($FUNCTIONHOME/*.zsh(N)) source $config_file
+FUNCTION_HOME="${HOME}/.dotfiles/zsh/function"
+for config_file ($FUNCTION_HOME/*.zsh(N)) source $config_file
