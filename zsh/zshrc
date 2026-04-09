@@ -18,6 +18,11 @@ if [ "$ZSHRC_PROFILE" != "" ]; then
   zmodload zsh/zprof && zprof > /dev/null
 fi
 
+# === plugin のファイル読み込み ===
+PLUGIN_HOME="${HOME}/.dotfiles/zsh/plugin"
+for config_file ($PLUGIN_HOME/*.zsh(N)) source $config_file
+
+
 # === zsh.d のファイル読み込み ===
 ZSHD_HOME="${HOME}/.dotfiles/zsh/zsh.d"
 for config_file ($ZSHD_HOME/*.zsh(N)) source $config_file
