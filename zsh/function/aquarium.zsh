@@ -7,7 +7,6 @@ aquarium() {
     return 1
   fi
 
-
   # Ultimate優先
   if open -Ra "IntelliJ IDEA Ultimate" >/dev/null 2>&1; then
     idea "$TARGET_DIR"
