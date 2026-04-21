@@ -32,7 +32,18 @@ ws() {
       ;;
     current)
       local tmux_session_name=`(basename $(pwd) | sed -e 's/^\./_/g')`
-      tmux new-session -s $tmux_session_name
+      local result=(`tmux ls | grep -E "^$tmux_session_name:"`)
+      if [ -n "$TMUX" ] && [ -n "$result" ]; then
+        tmux switch -t $tmux_session_name
+      elif [ -n "$TMUX" ]; then
+        tmux new-session -ds $tmux_session_name
+        tmux switch -t $tmux_session_name
+      elif [ -n "$result" ]; then
+        tmux a -t $tmux_session_name
+      else
+        cd $dir
+        tmux new-session -s $tmux_session_name
+      fi
       ;;
     switch|s)
       local session=(`tmux ls | awk '{sub(":.*", ""); print $0;}' | fzf`)
