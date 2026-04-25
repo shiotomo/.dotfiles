@@ -55,3 +55,31 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 --     vim.fn.winrestview(save)
 --   end,
 -- })
+
+        
+-- =====================================
+-- :FixWhiteSpace
+-- ・行末の「スペースのみ」を削除（タブは残す）
+-- ・カーソル位置 / view を維持
+-- ・silent & エラー抑制
+-- =====================================
+vim.api.nvim_create_user_command("FixWhiteSpace", function(opts)
+  -- カーソル位置・スクロール状態を保存
+  local view = vim.fn.winsaveview()
+
+  -- 範囲指定対応（visualや:10,20FixWhiteSpace）
+  local range = ""
+  if opts.range == 2 then
+    range = string.format("%d,%d", opts.line1, opts.line2)
+  else
+    range = "%"
+  end
+
+  -- スペースのみ削除（タブは残す）
+  vim.cmd(string.format([[%s s/ \+$//e]], range))
+
+  -- view復元
+  vim.fn.winrestview(view)
+end, {
+  range = true,
+})
