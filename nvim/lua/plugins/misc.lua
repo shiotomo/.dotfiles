@@ -19,9 +19,9 @@ return {
   -- {
   --   'aonemd/kuroi.vim'
   -- },
-  {
-    'bronson/vim-trailing-whitespace'
-  },
+  -- {
+  --   'bronson/vim-trailing-whitespace'
+  -- },
   -- {
   --   'junegunn/fzf.vim'
   -- },
