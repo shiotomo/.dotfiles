@@ -4,6 +4,11 @@
 
 CS_FILE="$HOME/.config/zsh/command_store.list"
 
+# --- コメント除去（" # comment" だけ消す）
+_cs_strip_comment() {
+  echo "$1" | sed 's/[[:space:]]#.*$//'
+}
+
 cs() {
   case "$1" in
     e|edit)
@@ -19,7 +24,6 @@ cs() {
       fi
       ;;
     *)
-      # 通常コマンドでは「出力だけ」
       cat "$CS_FILE" | fzf
       ;;
   esac
@@ -30,7 +34,10 @@ cs_widget() {
   selected=$(cat "$CS_FILE" | fzf)
 
   if [[ -n "$selected" ]]; then
-    BUFFER="$selected"
+    local cmd
+    cmd=$(_cs_strip_comment "$selected")
+
+    BUFFER="$cmd"
     CURSOR=${#BUFFER}
   fi
 }
