@@ -4,12 +4,12 @@ ws() {
       local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
       cd $dir
       ;;
-    add)
+    add|a)
       local full_path=$(dirname `pwd`)/$(basename `pwd`)
       echo $full_path >> $HOME/.config/zsh/workspace.list
       echo "workspace add ${full_path}"
       ;;
-    edit)
+    edit|e)
       $EDITOR $HOME/.config/zsh/workspace.list
       ;;
     tmux|t)
@@ -30,7 +30,7 @@ ws() {
         tmux new-session -s $tmux_session_name
       fi
       ;;
-    current)
+    current|c)
       local tmux_session_name=`(basename $(pwd) | sed -e 's/^\./_/g')`
       local result=(`tmux ls | grep -E "^$tmux_session_name:"`)
       if [ -n "$TMUX" ] && [ -n "$result" ]; then
