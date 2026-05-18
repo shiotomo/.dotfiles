@@ -41,7 +41,6 @@ ws() {
       elif [ -n "$result" ]; then
         tmux a -t $tmux_session_name
       else
-        cd $dir
         tmux new-session -s $tmux_session_name
       fi
       ;;
@@ -63,6 +62,18 @@ ws() {
       current=$(tmux display-message -p '#S')
       tmux switch-client -l
       tmux kill-session -t "$current"
+      ;;
+    window|w)
+      local dir=$(cat $HOME/.config/zsh/workspace.list | fzf)
+      [ -z "$dir" ] && return 1
+      if [ -z "$TMUX" ]; then
+        echo "ws window: tmux セッション外では使用できません。"
+        return 1
+      fi
+      case $2 in
+        down|d) tmux split-window -v -c "$dir" ;;
+        right|r|*) tmux split-window -h -c "$dir" ;;
+      esac
       ;;
     *)
       echo "ws command not found option."
