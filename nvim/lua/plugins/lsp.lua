@@ -38,7 +38,8 @@ return {
         vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
       )
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      local lspconfig = require('lspconfig')
+      -- local lspconfig = require('lspconfig')
+      require('lspconfig')
 
       local on_attach = function(client, bufnr)
         vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
