@@ -52,3 +52,4 @@ vim.keymap.set('i', '\"', '\"\"<LEFT>')
 
 -- terminal
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
