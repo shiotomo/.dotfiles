@@ -82,7 +82,7 @@ config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
 config.keys = {
 	-- Option+b で左側サイドバーの表示・非表示トグル
 	{
-		key = "b",
+		key = "s",
 		mods = "OPT",
 		action = act.EmitEvent("toggle-sidebar"),
 	},
