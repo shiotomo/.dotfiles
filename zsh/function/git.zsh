@@ -53,6 +53,7 @@ bindkey "^ga" git-add
 
 zle -N git-switch-local-branch
 bindkey "^g^b" git-switch-local-branch
+bindkey "^b^b" git-switch-local-branch
 
 zle -N git-switch-remote-branch
 bindkey "^g^g^b" git-switch-remote-branch
