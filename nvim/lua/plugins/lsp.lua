@@ -84,6 +84,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls",
+					"biome",
 					"clangd",
 					"cssls",
 					"docker_compose_language_service",
@@ -120,7 +121,7 @@ return {
 				hint_sign = "",
 				infor_sign = "",
 
-				dianostic_header_icon = "  ",
+				diagnostic_header_icon = "  ",
 				code_action_icon = " ",
 
 				code_action_prompt = {
