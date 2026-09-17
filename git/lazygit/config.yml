@@ -1,7 +1,52 @@
-git:
-  paging:
-    colorArg: always
-    pager: delta --dar --paging=never --side-by-side
+# ~/.config/lazygit/config.yml
+
 gui:
-  nerdFontsVersion: "3"
-  pager: delta
+  # ヘッダー周りの見た目
+  showIcons: true
+  showRandomTip: false
+  showCommandLog: false
+  showFileTree: true
+  # Ayu Mirage 風のカラーテーマ設定
+  theme:
+    # アクティブ枠線（Ayu のアクセントオレンジ）
+    activeBorderColor:
+      - '#ffb454'
+      - bold
+    # 非アクティブ枠線
+    inactiveBorderColor:
+      - '#3e4b59'
+    # 選択行の背景・文字色
+    selectedLineBgColor:
+      - '#191e2a'
+    # 検索ヒット時
+    searchingActiveBorderColor:
+      - '#5ccfe6'
+    optionsTextColor:
+      - '#5ccfe6'
+    cherryPickedCommitBgColor:
+      - '#2d3640'
+    cherryPickedCommitFgColor:
+      - '#ffb454'
+    markedBaseCommitBgColor:
+      - '#ffe679'
+    unstagedChangesColor:
+      - '#f29e74'
+    defaultFgColor:
+      - '#cbccc6'
+git:
+  # git-delta をページャーとして使用する設定
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --line-numbers --syntax-theme="Ayu Mirage"
+# 外部ツール（Neovim）との連携カスタムキーバインド
+customCommands:
+  # ファイル一覧画面で 'D' キーを押すと Neovim 内で diffview.nvim が起動
+  - key: 'D'
+    context: 'files'
+    description: 'Neovim (diffview.nvim) で全差分を開く'
+    command: 'nvim -c "DiffviewOpen"'
+    output: terminal
+# lazygit 内でファイル編集（'e'キー）を押した際のエディタ設定
+os:
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} {{filename}}'
