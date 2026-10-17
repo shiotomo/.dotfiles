@@ -14,6 +14,7 @@ mkdir ~/.hammerspoon
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
 mkdir -p ~/.config/git
+mkdir -p ~/.config/lazygit
 
 # Set .dotfiles symbolic link
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
